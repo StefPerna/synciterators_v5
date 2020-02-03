@@ -106,6 +106,11 @@ object AggrCollections {
     // - concat(f), concatenates f of each element into a big vector;
     // - biggest(f), computes the max of f of each element;
     // - smallest(f), computes the min of f of each element;
+    // - average0(f), same as average(f) but keeps also the elements;
+    // - sum0(f), same as sum(f) but keeps also the elements;
+    // - count0, same as count but keeps also the elements;
+    // - biggest0(f), same as biggest(f) but keeps also the elements;
+    // - smallest0(f), same as smallest but keeps also the elements;
     // - ... and many more...
 
 

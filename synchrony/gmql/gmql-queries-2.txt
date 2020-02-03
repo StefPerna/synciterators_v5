@@ -1,0 +1,679 @@
+
+//
+// Import relevant Synchrony modules.
+//
+
+import synchrony.iterators.MiscCollections._
+import synchrony.iterators.AggrCollections._
+import synchrony.iterators.AggrCollections.OpG._
+import synchrony.iterators.AggrCollections.implicits._
+import synchrony.iterators.SyncCollections._
+import synchrony.iterators.SyncCollections.implicits._
+import synchrony.programming.Sri._
+import synchrony.genomeannot.GenomeAnnot._
+import synchrony.genomeannot.GenomeAnnot.GenomeLocus._
+import synchrony.genomeannot.BedWrapper._
+import synchrony.genomeannot.BedWrapper.SimpleBedEntry._
+
+
+//
+// Import the GMQL emulation module
+//
+
+import synchrony.gmql.GMQL._
+import synchrony.gmql.GMQL.DB._
+import synchrony.gmql.Samples._
+import synchrony.gmql.Predicates._
+import synchrony.gmql.Projections._
+import Ordering.Double.TotalOrdering
+
+
+//
+// Encoding of various GMQL examples from
+//
+//   http://www.bioinformatics.deib.polimi.it/genomic_computing/GMQLsystem/doc/GMQL_introduction_to_the_language.pdf
+//
+
+
+
+/*
+ *  The syntax of GMQL select statement is: 
+ *
+
+       DSout = SELECT(pm ; region: pr ; semijoin: psj(DSext)) DSin ;
+ *
+ * where:
+ * ? DSin is the input dataset;
+ * ? DSout is the resulting output dataset;
+ * ? pm is a logical predicate on metadata;
+ * ? pr is a logical predicate on genomic regions within each sample in DSin;
+ * ? psj(DSext) is a semi-join predicate, 
+ *         with form: attr1, attr2, ..., attrN IN (or NOT IN) DSext,
+ *         where DSext is another dataset previously created.
+ *
+ *
+ * The Synchrony GMQL emulation is:
+ *
+
+       select(sample:OnSample[SPred] = DB.OnSample(),
+              region:OnRegion[SBPred] = DB.OnRegion()): DB => DB
+ 
+ *
+ * Here, SPred is any object of type SPred (which when applied
+ * on a Sample, returns a Boolean). And you can lift any
+ * function f:Sample=>Boolean to SPred using GenSPred(f).
+ *
+ * Similarly, SBPred is any object of type SBPred (which when
+ * applied on a (Sample,Bed) pair, returns a Boolean). And you 
+ * can lift any function f:(Sample,Bed)=>Boolean to SBPred
+ * using GenSBPred(f).
+ *
+ * Notice there is no separate semijoin parameter. This is 
+ * because semijoin is an SPred. And you can provide any
+ * general commonly used selection predicates by defining
+ * them using GenSPred and GenSBPred. For example, the  
+ * following code implements semiJoin as an SPred:
+
+  case class Incl(f:String*)
+  case class Excl(f:String*)
+  def semiJoin(incl:Incl=Incl(), excl:Excl=Excl(), exDB:Vector[Sample]) =
+    GenSPred((s:Sample) => exDB.exists(t =>
+      incl.f.forall (l=>s.checkM[Any](l,u=>t.checkM[Any](l,v=>u==v))) &&
+      excl.f.forall (l=>s.checkM[Any](l,u=>t.checkM[Any](l,v=>u!=v)))))
+
+ *
+ * NOTE: SemiJoin is indeed provided in the Synchrony GMQL
+ * emulation as an SPred.
+ * 
+ */
+
+
+/*
+ * GMQL example:
+ *
+      DATA = SELECT(
+               region: (chr == chr1 OR chr == chr2) AND
+                        NOT(strand == + OR strand == -) AND
+                        start >= 500000 AND stop <= 600000) 
+             HG19_ENCODE_NARROW;
+ *
+ *
+ * Synchrony GMQL emulation:
+ *
+ */
+
+     DB.select(
+          region=OnRegion(
+                    Chr === "chr1" or Chr === "chr2",
+                    Strand !== "+", Strand !== "-",
+                    Start >= 50000, End <= 60000)) _       
+ 
+
+  
+/*
+ * GMQL Example:
+ *
+      OUTPUT_DATASET = SELECT(Patient_age < 70) INPUT_DATASET;
+ *
+ */
+
+
+     DB.select(sample=OnSample(MetaS[Int]("Patient_age") < 70)) _
+
+
+// Meta info item f of type A in a Sample is accessed as
+// MetaS[A](f). Analogously, meta info item f of type A
+// of a region (aka region attribute in GMQL) is accessed
+// as MetaR[A](f). The type A can be dropped in situations
+// where it is inferable by Scala.
+//
+// You can also drop the explicit naming of parameters, 
+// sample=... and region=...  like below, though I will
+// stick to explicit naming of parameters. 
+
+
+     DB.select(OnSample(MetaS("Patient_age") < 70)) _
+
+  
+/*
+ * GMQL Example:
+ *
+      OUTPUT_DATASET = SELECT(region: score > 0.5) INPUT_DATASET;
+ *
+ *
+ * Synchrony GMQL emulation:
+ *
+ */
+
+
+     DB.select( region=OnRegion(Score > 0.5)) _
+
+
+/*
+ * GMQL Example:
+ *
+       DATA = SELECT(cell == ‘Urothelia’; region: left > 100000)
+              HG19_ENCODE_NARROW;
+ *
+ *
+ * Synchrony GMQL emulation:
+ *
+ */
+
+
+       DB.select(
+            sample=OnSample(MetaS("cell") === "Urothelia"),
+            region=OnRegion(Start > 100000)) _
+
+
+
+/*
+ * GMQL Example:
+ *
+       DATA = SELECT(region: NOT(variant_type == 'SNP')) HG19_TCGA_dnaseq;
+ *
+ *
+ * Synchrony GMQL emulation:
+ *
+ */
+
+
+       DB.select( region=OnRegion(MetaR("variant_type") !== "SNP")) _
+
+
+/*
+ * GMQL Example
+ *
+        DATA = SELECT(manually_curated__tissue_status == "tumoral" AND
+                (manually_curated__tumor_tag == "gbm" OR
+                manually_curated__tumor_tag == "brca")) HG19_TCGA_dnaseq;
+ *
+ *
+ * Synchrony GMQL emulation:
+ *
+ */
+
+
+        DB.select(
+              sample=OnSample(
+                MetaS("manually_curated_tissue_status") ==="tumoral",
+                MetaS("manually_curated_tumour_tag") === "gbm" or
+                MetaS("manually_curated_tumour_tag") === "brca")) _
+
+/*
+ * GMQL:
+ *
+        JUN_POLR2A_TF = SELECT(antibody_target == ‘JUN’; 
+          region: pvalue < 0.01; semijoin: cell NOT IN
+          POLR2A_TF) HG19_ENCODE_NARROW;
+ *
+ *
+ * Synchrony GMQL emulation:
+ *
+ */
+
+
+      (hg19:DB, jun:DB) =>
+          hg19.select(
+                 sample=OnSample(
+                    MetaS("antibody_target") === "JUN",
+                    SemiJoin(excl=Excl("cell"), exDB=jun.samples)),
+                 region=OnRegion( MetaR("pvalue") < 0.01))
+
+
+/*
+ * GMQL:
+ *
+        DATA = SELECT(region: score > META(avg_score)) HG19_ENCODE_NARROW;
+ *
+ *
+ * Synchrony GMQL emulation:
+ *
+ */
+
+       DB.select(region=OnRegion(Score > MetaS[Double]("avg_score"))) _
+
+
+// And, just to show the seamless integration of Scala codes,
+// and implicit lifting of Scala function Sample=>Boolean
+// to SPred, here is the same query:
+
+
+       DB.select(region=OnRegion((s:Sample) => Score > s.getM("avg_score"))) _
+
+
+// Btw, below is a query that is not expressible in GMQL,
+// but easy to do in Synchrony's GMQL emulation, due to
+// Synchrony's orthogonality design principle. It selects
+// every Sample whose region attribute "Happiness" averages
+// more than the maximum of whose region attribute "Fun".
+// NOTE: This query scans the regions of each Sample twice
+// to compute the two aggregate function Average and Biggest;
+// I will need to do some code-threading to consolidate
+// the two scans into a single scan later.
+// 
+
+
+       DB.select(sample=OnSample(
+            (Average of MetaR[Double]("Happiness")) >
+            (Biggest of MetaR[Double]("Fun")))) _
+
+
+/*
+ * The syntax of GMQL project statemenyt is:
+ *
+
+      DSout = PROJECT(RA1, ..., RAm ;
+                      metadata: MA1, ..., MAn ;
+                      region_update: NR1 AS g1, ..., NRh AS gh;
+                      metadata_update: NM1 AS f1, ..., NMk AS fk)
+              DSin ;
+ *
+ * where:
+ * ? DSin is the input dataset;
+ * ? DSout is the resulting output dataset;
+ * ? RA1, ..., RAm are the conserved genomic region attributes;
+ * ? MA1, ..., MAn; are the conserved metadata attributes;
+ * ? NR1, ..., NRh; are new genomic region attributes generated using
+ *     functions g1, ..., gh on existing region or metadata attributes
+ *     or constant;
+ * ? NM1, ..., NMk; are new metadata attributes generated using
+ *      functions f1, ..., fk on existing metadata attributes or constant.
+ *
+ *
+ * The Synchrony GMQL emulation is:
+ *
+
+       project(sample=OnSample[SProj]=DB.OnSample(),
+               region=OnRegion[BProj]=DB.OnRegion): DB=>DB
+
+ *
+ * Here, SProj is an object of type SProj (which produces
+ * meta data when applied to a sample; i.e. the projected
+ * attribute values. Similarly, BProj produces meta data
+ * when applied to a region; i.e. the projected region
+ * attribute values.
+ *
+ * In Synchrony emulation of GMQL, OnSample(...) is used
+ * to explicitly group operations to be performed/applied 
+ * per Sample, while OnRegion(...) is used to explicitly
+ * group operations to be performed/applied per region.
+ *
+ * It is actually possible to automatically infer which
+ * operation should be applied per sample and which should
+ * be applied per region. However, I decided to insist
+ * on explicit grouping via OnSample and OnRegion, as I
+ * I think it makes things clearer, especially when you
+ * have to look at your queries (or other people's queries)
+ * sometime later.
+ *
+ * Both SProj and BProj can be created using the "as" method
+ * of SPObj (which is just a class to turn String into
+ * a projection label/field. The "as" method can turn, among
+ * many things, any function Sample=>A and aggregate function
+ * application into projections.
+ *
+ */
+
+
+/*
+ * GMQL:
+ *
+        OUTPUT_DATASET = PROJECT(region_update: length AS right - left)
+          INPUT_DATASET;
+ *
+ *
+ * Synchrony GMQL emulation:
+ *
+ */
+
+
+       DB.project(region=OnRegion("length" as (End - Start))) _
+
+
+
+/*
+ * GMQL
+ *
+       RES = PROJECT(region_update: 
+                       start AS start - 2000,
+                       stop AS start + 1000)
+             GENES;
+ *
+ * It seems that this query's purpose is to define a gene's
+ * promoter region. It is actually not necessary to do this
+ * within the Synchrony framework, since one can set canSee
+ * to span -2000 to +1000 of TSS.
+ *
+ * Any way, if you want to do this, it can be expressed as:
+ * 
+ */
+
+       DB.project( region=OnRegion(
+                            "chromStart" as Start - 2000,
+                            "chromEnd" as Start + 1000)) _
+
+                           
+/*
+ * GMQL:
+ *
+          DS_out = PROJECT(variant_classification,
+                           variant_type;
+                      metadata:
+                           manually_curated__tissue_status,
+                           manually_curated__tumor_tag) DS_in;
+ *
+ *
+ * Synchrony GMQL emulation:
+ *
+ */
+
+
+       DB.project(
+            sample=OnSample("manually_curated_tissue_status",
+                            "manually_curated_tumor_tag"),
+            region=OnRegion("variant_classification",
+                            "variant_type")) _
+
+
+/*
+ * GMQL:
+ *
+       DS_out1 = PROJECT(metadata_update: age AS age + 10) DS_in;
+       DS_out2 = PROJECT(metadata_update: age_plus AS age + 100) DS_in;
+ *
+ *
+ * Synchrony GMQL emulation:
+ *
+ */
+
+
+         DB.project(sample=OnSample("age" as (MetaS("age") + 10))) _
+
+         DB.project(sample=OnSample("age_plus" as (MetaS("age") + 100))) _
+
+
+
+/*
+ * GMQL:
+ *
+         DS_out = PROJECT(
+                     region_update: signalSq AS SQRT(signal);
+                     metadata_update: concSq AS SQRT(concentration)) 
+                  DS_in;
+ *
+ *
+ * Synchrony GMQL emulation:
+ *
+ */
+
+
+       DB.project(
+           sample=OnSample("concSq" as sqrt(MetaS[Double]("concentration"))),
+           region=OnRegion("signalSq" as sqrt(MetaR[Double]("signal")))) _
+
+
+// It is worth mentioning here that any scala function f:A=>B, 
+// where A and B are base types (e.g. Int and Double), can be
+// used. Some times, you have to "lift" it as FunObj(f) so
+// that it gets the type SObj[A]=>SObj[A] (or other analogous
+// types). This lifting is needed because MetaS[A](.) is not
+// actually an object of type A; it is an object of type SObj[A],
+// which gets evaluated to an object of type A when it is applied
+// on a Sample. 
+//
+// As an example, sqrt is actually lifted from the Scala math
+// library like below using the FunObj functor. This makes it
+// very easy to mix functions defined in Scala into the 
+// GMQL emulation:
+
+
+       val sqrt = FunObj(scala.math.sqrt _)
+
+
+/*
+ * GMQL:
+ *
+        DS_out = PROJECT(
+                   region_update: chr1 AS chr,
+                                  start1 AS start, stop1 AS stop,
+                                  strand1 AS strand)
+        DS_in;
+ *
+ *
+ * Synchrony GMQL emulation:
+ *
+ */
+
+
+        DB.project(region=OnRegion(
+             "chr1" as Chr,
+             "start1" as Start,
+             "stop1" as End,
+             "strand1" as Strand)) _
+
+
+/*
+ * GMQL:
+ *
+             DS_out = PROJECT() DS_in;
+ *
+ *
+ * Synchrony GMQL emulation:
+ *
+ */
+
+
+          DB.project() _
+
+
+/*
+ * GMQL:
+ *
+        DS_out = PROJECT(metadata_update: 
+                            newID AS (ID * 100),
+                            newInfo AS SQRT(Info))
+                 DS_in;
+ *
+ *
+ * Synchrony GMQL emulation:
+ *
+ */
+
+
+          DB.project(sample=OnSample(
+               "newID" as MetaS("ID") * 100,
+               "newInfo" as sqrt(MetaS[Double]("info")))) _
+
+
+/*
+ * The syntax of GMQL extend statement is:
+ *
+
+      DSout = EXTEND(NM1 AS g1, ..., NMk AS gk) DSin;
+
+ * where:
+ * ? DSin is the input dataset whose sample region attribute
+ *       values are used to compute the new sample metadata;
+ * ? DSout is the output dataset, a copy of the input dataset
+ *       with additional metadata calculated by EXTEND;
+ * ? NM1, ..., NMk; are new metadata attributes generated using 
+ *       arithmetic and/or aggregate functions g1, ..., gk on the
+ *       sample region attributes in DSin.
+ *
+ *
+ * The Synchrony emulation is:
+ *
+
+        extend(sample:OnSample[SProj]): DB=>DB
+ *
+ */
+
+
+
+/*
+ * GMQL:
+ *
+        RES = EXTEND(Region_count AS COUNT()) EXP;
+ *
+ *
+ * Synchrony GMQL emulation:
+ *
+ */
+
+
+       DB.extend(sample=OnSample("region_count" as Count)) _
+
+
+
+/*
+ * GMQL:
+ *
+          RES = EXTEND(region_count AS COUNT(),
+                       min_pvalue AS MIN(pvalue))
+          EXP;
+ *
+ *
+ * Synchrony GMQL emulation:
+ *
+ */
+
+
+       DB.extend(sample=OnSample(
+             "region_count" as Count,
+             "min_pvalue" as (Smallest of MetaR[Double]("pvalue")))) _
+
+
+    /*
+     * GMQL
+     *
+
+         GROUPS_T = GROUP(tumor_type; 
+                   meta_aggregates: MaxSize AS MAX(size)) EXP;
+
+     *
+     * This is expressed as:
+     *
+
+       import synchrony.demos.GMQL._
+       import synchrony.iterators.AggrCollections._
+       import synchrony.iterators.AggrCollections.OpG._
+       import synchrony.iterators.AggrCollections.implicits._
+
+       flatgroupby(_ getM[String] "tumor_type") {
+            MAggr(lb= "MaxSize", aggr= biggest(_ getM[Double] "size"))
+       } _
+
+    *
+    */
+
+
+
+    /*
+     * GMQL
+     *
+         GROUPS_C = GROUP(cell; meta_aggregates: n_samp AS COUNTSAMP()) EXP;
+
+     * GMQL seems to need both COUNT() and COUNTSAMP(). 
+     * This is probably reflecting design non-orthogonality.
+     * If aggregate function is defined simply as any 
+     * function that can be applied on a group, you will
+     * only need COUNT().
+     *
+     * Within the scala/Synchrony framework, where the
+     * orthogonality design principle is followed closely,
+     * this query is expressible using count:
+     *
+
+       import synchrony.demos.GMQL._
+       import synchrony.iterators.AggrCollections._
+       import synchrony.iterators.AggrCollections.OpG._
+       import synchrony.iterators.AggrCollections.implicits._
+
+       flatgroupby(_ getM[String] "cell"){MAggr(lb= "MaxSize", aggr= count)} _
+
+    *
+    */
+
+
+
+    /*
+     * GMQL
+     *
+
+        GROUPS = GROUP(region_aggregates: regNum AS COUNT()) EXP;
+     
+     * This GMQL query implicitly uses region locus as
+     * the group, and group the regions within each sample,
+     * rather than grouping the samples. I think this is a
+     * bit "qurky" and non-orthogonal. The motivation for
+     * this seems to be for eliminating duplicate loci/regions
+     * in each sample. 
+     *
+     * I wonder whether a more natural place is "select",
+     * by having a form of "select distinct", or in "project",
+     * rather than in "groupby".
+     *
+     * Any way, here it is:
+     *
+
+       import synchrony.demos.GMQL._
+       import synchrony.iterators.AggrCollections.OpG._
+
+       flatgroupby(_.meta)(RAggr("regNum",count)) _
+
+    *
+    */
+
+
+         
+    /*
+     * GMQL
+     *
+
+         GROUPS = GROUP(region_keys: score;
+                        region_aggregates: avg_pvalue AS AVG(pvalue),
+                                           max_qvalue AS MAX(qvalue)) EXP;
+
+     *
+     * Here it is:
+     *
+
+       import synchrony.demos.GMQL._
+       import synchrony.iterators.AggrCollections.OpG._
+
+       flatgroupby(_.meta)(
+           RGrp(_.score), 
+           RAggr("avg_pvalue", average(_ getMisc[Double] "pvalue")),
+           RAggr("max_qvalue", biggest(_ getMisc[Double] "qvalue"))) _
+
+    *
+    */
+
+
+
+    /*
+     * GMQL
+     *
+
+         GROUPS = GROUP(cell_tissue;
+                        meta_aggregates: min_tier AS MIN(cell_tier);
+                        region_aggregates: min_signal AS MIN(signal)) EXP;
+
+     *
+     * Here it is:
+     *
+
+       import synchrony.demos.GMQL._
+       import synchrony.iterators.AggrCollections.OpG._
+
+       flatgroupby(_ getM[String] "cell_tissue")(
+          MAggr("min_tier", smallest(_ getM[Int] "cell_tier")),
+          RAggr("min_signal", smallest(_ getMisc[Double] "signal"))) _
+
+
+    *
+    */
+
+
+
