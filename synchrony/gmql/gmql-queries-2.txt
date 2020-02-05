@@ -1,23 +1,7 @@
 
-//
-// Import relevant Synchrony modules.
-//
-
-import synchrony.iterators.MiscCollections._
-import synchrony.iterators.AggrCollections._
-import synchrony.iterators.AggrCollections.OpG._
-import synchrony.iterators.AggrCollections.implicits._
-import synchrony.iterators.SyncCollections._
-import synchrony.iterators.SyncCollections.implicits._
-import synchrony.programming.Sri._
-import synchrony.genomeannot.GenomeAnnot._
-import synchrony.genomeannot.GenomeAnnot.GenomeLocus._
-import synchrony.genomeannot.BedWrapper._
-import synchrony.genomeannot.BedWrapper.SimpleBedEntry._
-
 
 //
-// Import the GMQL emulation module
+// Import the GMQL emulation modules
 //
 
 import synchrony.gmql.GMQL._
@@ -26,6 +10,7 @@ import synchrony.gmql.Samples._
 import synchrony.gmql.Predicates._
 import synchrony.gmql.Projections._
 import Ordering.Double.TotalOrdering
+import synchrony.genomeannot.GenomeAnnot.GenomeLocus._
 
 
 //
@@ -39,8 +24,7 @@ import Ordering.Double.TotalOrdering
 /*
  *  The syntax of GMQL select statement is: 
  *
-
-       DSout = SELECT(pm ; region: pr ; semijoin: psj(DSext)) DSin ;
+ *     DSout = SELECT(pm ; region: pr ; semijoin: psj(DSext)) DSin ;
  *
  * where:
  * ? DSin is the input dataset;
@@ -54,10 +38,8 @@ import Ordering.Double.TotalOrdering
  *
  * The Synchrony GMQL emulation is:
  *
-
-       select(sample:OnSample[SPred] = DB.OnSample(),
-              region:OnRegion[SBPred] = DB.OnRegion()): DB => DB
- 
+ *     select(sample:OnSample[SPred] = DB.OnSample(),
+ *            region:OnRegion[SBPred] = DB.OnRegion()): DB => DB
  *
  * Here, SPred is any object of type SPred (which when applied
  * on a Sample, returns a Boolean). And you can lift any
@@ -73,14 +55,13 @@ import Ordering.Double.TotalOrdering
  * general commonly used selection predicates by defining
  * them using GenSPred and GenSBPred. For example, the  
  * following code implements semiJoin as an SPred:
-
-  case class Incl(f:String*)
-  case class Excl(f:String*)
-  def semiJoin(incl:Incl=Incl(), excl:Excl=Excl(), exDB:Vector[Sample]) =
-    GenSPred((s:Sample) => exDB.exists(t =>
-      incl.f.forall (l=>s.checkM[Any](l,u=>t.checkM[Any](l,v=>u==v))) &&
-      excl.f.forall (l=>s.checkM[Any](l,u=>t.checkM[Any](l,v=>u!=v)))))
-
+ * 
+ * case class Incl(f:String*)
+ * case class Excl(f:String*)
+ * def semiJoin(incl:Incl=Incl(), excl:Excl=Excl(), exDB:Vector[Sample]) =
+ *   GenSPred((s:Sample) => exDB.exists(t =>
+ *     incl.f.forall (l=>s.checkM[Any](l,u=>t.checkM[Any](l,v=>u==v))) &&
+ *     excl.f.forall (l=>s.checkM[Any](l,u=>t.checkM[Any](l,v=>u!=v)))))
  *
  * NOTE: SemiJoin is indeed provided in the Synchrony GMQL
  * emulation as an SPred.
@@ -91,11 +72,11 @@ import Ordering.Double.TotalOrdering
 /*
  * GMQL example:
  *
-      DATA = SELECT(
-               region: (chr == chr1 OR chr == chr2) AND
-                        NOT(strand == + OR strand == -) AND
-                        start >= 500000 AND stop <= 600000) 
-             HG19_ENCODE_NARROW;
+ *    DATA = SELECT(
+ *             region: (chr == chr1 OR chr == chr2) AND
+ *                      NOT(strand == + OR strand == -) AND
+ *                      start >= 500000 AND stop <= 600000) 
+ *           HG19_ENCODE_NARROW;
  *
  *
  * Synchrony GMQL emulation:
@@ -113,7 +94,10 @@ import Ordering.Double.TotalOrdering
 /*
  * GMQL Example:
  *
-      OUTPUT_DATASET = SELECT(Patient_age < 70) INPUT_DATASET;
+ *    OUTPUT_DATASET = SELECT(Patient_age < 70) INPUT_DATASET;
+ *
+ *
+ * Synchrony GMQL emulation:
  *
  */
 
@@ -138,7 +122,7 @@ import Ordering.Double.TotalOrdering
 /*
  * GMQL Example:
  *
-      OUTPUT_DATASET = SELECT(region: score > 0.5) INPUT_DATASET;
+ *    OUTPUT_DATASET = SELECT(region: score > 0.5) INPUT_DATASET;
  *
  *
  * Synchrony GMQL emulation:
@@ -152,8 +136,8 @@ import Ordering.Double.TotalOrdering
 /*
  * GMQL Example:
  *
-       DATA = SELECT(cell == ‘Urothelia’; region: left > 100000)
-              HG19_ENCODE_NARROW;
+ *     DATA = SELECT(cell == ‘Urothelia’; region: left > 100000)
+ *            HG19_ENCODE_NARROW;
  *
  *
  * Synchrony GMQL emulation:
@@ -170,7 +154,7 @@ import Ordering.Double.TotalOrdering
 /*
  * GMQL Example:
  *
-       DATA = SELECT(region: NOT(variant_type == 'SNP')) HG19_TCGA_dnaseq;
+ *     DATA = SELECT(region: NOT(variant_type == 'SNP')) HG19_TCGA_dnaseq;
  *
  *
  * Synchrony GMQL emulation:
@@ -184,9 +168,9 @@ import Ordering.Double.TotalOrdering
 /*
  * GMQL Example
  *
-        DATA = SELECT(manually_curated__tissue_status == "tumoral" AND
-                (manually_curated__tumor_tag == "gbm" OR
-                manually_curated__tumor_tag == "brca")) HG19_TCGA_dnaseq;
+ *      DATA = SELECT(manually_curated__tissue_status == "tumoral" AND
+ *              (manually_curated__tumor_tag == "gbm" OR
+ *              manually_curated__tumor_tag == "brca")) HG19_TCGA_dnaseq;
  *
  *
  * Synchrony GMQL emulation:
@@ -203,9 +187,9 @@ import Ordering.Double.TotalOrdering
 /*
  * GMQL:
  *
-        JUN_POLR2A_TF = SELECT(antibody_target == ‘JUN’; 
-          region: pvalue < 0.01; semijoin: cell NOT IN
-          POLR2A_TF) HG19_ENCODE_NARROW;
+ *      JUN_POLR2A_TF = SELECT(antibody_target == ‘JUN’; 
+ *        region: pvalue < 0.01; semijoin: cell NOT IN
+ *        POLR2A_TF) HG19_ENCODE_NARROW;
  *
  *
  * Synchrony GMQL emulation:
@@ -224,7 +208,7 @@ import Ordering.Double.TotalOrdering
 /*
  * GMQL:
  *
-        DATA = SELECT(region: score > META(avg_score)) HG19_ENCODE_NARROW;
+ *      DATA = SELECT(region: score > META(avg_score)) HG19_ENCODE_NARROW;
  *
  *
  * Synchrony GMQL emulation:
@@ -247,10 +231,18 @@ import Ordering.Double.TotalOrdering
 // Synchrony's orthogonality design principle. It selects
 // every Sample whose region attribute "Happiness" averages
 // more than the maximum of whose region attribute "Fun".
+//
 // NOTE: This query scans the regions of each Sample twice
-// to compute the two aggregate function Average and Biggest;
-// I will need to do some code-threading to consolidate
-// the two scans into a single scan later.
+// to compute the two aggregate functions Average and Biggest.
+// It is actually quite easy to implement OnSample(...) to 
+// consolidate aggregate functions appearing any where inside
+// the "..." so that the n scans become a single scan. So that,
+// e.g. OnSample(Average of E1 > Biggest of E2) gets turned
+// into OnSample(let val (a1, a2) = (Average of E1 + Biggest
+// of E2) in a1 > a2), where "+" is the aggregate function
+// combinator available in Synchrony. However, this is not
+// safe/valid in some situations when the aggregate functions
+// being combined are not total functions. 
 // 
 
 
@@ -262,12 +254,11 @@ import Ordering.Double.TotalOrdering
 /*
  * The syntax of GMQL project statemenyt is:
  *
-
-      DSout = PROJECT(RA1, ..., RAm ;
-                      metadata: MA1, ..., MAn ;
-                      region_update: NR1 AS g1, ..., NRh AS gh;
-                      metadata_update: NM1 AS f1, ..., NMk AS fk)
-              DSin ;
+ *    DSout = PROJECT(RA1, ..., RAm ;
+ *                    metadata: MA1, ..., MAn ;
+ *                    region_update: NR1 AS g1, ..., NRh AS gh;
+ *                    metadata_update: NM1 AS f1, ..., NMk AS fk)
+ *            DSin ;
  *
  * where:
  * ? DSin is the input dataset;
@@ -283,10 +274,9 @@ import Ordering.Double.TotalOrdering
  *
  * The Synchrony GMQL emulation is:
  *
-
-       project(sample=OnSample[SProj]=DB.OnSample(),
-               region=OnRegion[BProj]=DB.OnRegion): DB=>DB
-
+ *     project(sample:OnSample[SProj]=DB.OnSample(),
+ *             region:OnRegion[BProj]=DB.OnRegion): DB=>DB
+ *
  *
  * Here, SProj is an object of type SProj (which produces
  * meta data when applied to a sample; i.e. the projected
@@ -319,8 +309,8 @@ import Ordering.Double.TotalOrdering
 /*
  * GMQL:
  *
-        OUTPUT_DATASET = PROJECT(region_update: length AS right - left)
-          INPUT_DATASET;
+ *      OUTPUT_DATASET = PROJECT(region_update: length AS right - left)
+ *        INPUT_DATASET;
  *
  *
  * Synchrony GMQL emulation:
@@ -335,10 +325,10 @@ import Ordering.Double.TotalOrdering
 /*
  * GMQL
  *
-       RES = PROJECT(region_update: 
-                       start AS start - 2000,
-                       stop AS start + 1000)
-             GENES;
+ *     RES = PROJECT(region_update: 
+ *                     start AS start - 2000,
+ *                     stop AS start + 1000)
+ *           GENES;
  *
  * It seems that this query's purpose is to define a gene's
  * promoter region. It is actually not necessary to do this
@@ -353,15 +343,15 @@ import Ordering.Double.TotalOrdering
                             "chromStart" as Start - 2000,
                             "chromEnd" as Start + 1000)) _
 
-                           
+             
 /*
  * GMQL:
  *
-          DS_out = PROJECT(variant_classification,
-                           variant_type;
-                      metadata:
-                           manually_curated__tissue_status,
-                           manually_curated__tumor_tag) DS_in;
+ *        DS_out = PROJECT(variant_classification,
+ *                         variant_type;
+ *                    metadata:
+ *                         manually_curated__tissue_status,
+ *                         manually_curated__tumor_tag) DS_in;
  *
  *
  * Synchrony GMQL emulation:
@@ -379,8 +369,8 @@ import Ordering.Double.TotalOrdering
 /*
  * GMQL:
  *
-       DS_out1 = PROJECT(metadata_update: age AS age + 10) DS_in;
-       DS_out2 = PROJECT(metadata_update: age_plus AS age + 100) DS_in;
+ *     DS_out1 = PROJECT(metadata_update: age AS age + 10) DS_in;
+ *     DS_out2 = PROJECT(metadata_update: age_plus AS age + 100) DS_in;
  *
  *
  * Synchrony GMQL emulation:
@@ -397,10 +387,10 @@ import Ordering.Double.TotalOrdering
 /*
  * GMQL:
  *
-         DS_out = PROJECT(
-                     region_update: signalSq AS SQRT(signal);
-                     metadata_update: concSq AS SQRT(concentration)) 
-                  DS_in;
+ *       DS_out = PROJECT(
+ *                   region_update: signalSq AS SQRT(signal);
+ *                   metadata_update: concSq AS SQRT(concentration)) 
+ *                DS_in;
  *
  *
  * Synchrony GMQL emulation:
@@ -434,11 +424,11 @@ import Ordering.Double.TotalOrdering
 /*
  * GMQL:
  *
-        DS_out = PROJECT(
-                   region_update: chr1 AS chr,
-                                  start1 AS start, stop1 AS stop,
-                                  strand1 AS strand)
-        DS_in;
+ *      DS_out = PROJECT(
+ *                 region_update: chr1 AS chr,
+ *                                start1 AS start, stop1 AS stop,
+ *                                strand1 AS strand)
+ *      DS_in;
  *
  *
  * Synchrony GMQL emulation:
@@ -456,7 +446,7 @@ import Ordering.Double.TotalOrdering
 /*
  * GMQL:
  *
-             DS_out = PROJECT() DS_in;
+ *           DS_out = PROJECT() DS_in;
  *
  *
  * Synchrony GMQL emulation:
@@ -470,10 +460,10 @@ import Ordering.Double.TotalOrdering
 /*
  * GMQL:
  *
-        DS_out = PROJECT(metadata_update: 
-                            newID AS (ID * 100),
-                            newInfo AS SQRT(Info))
-                 DS_in;
+ *      DS_out = PROJECT(metadata_update: 
+ *                          newID AS (ID * 100),
+ *                          newInfo AS SQRT(Info))
+ *               DS_in;
  *
  *
  * Synchrony GMQL emulation:
@@ -489,9 +479,8 @@ import Ordering.Double.TotalOrdering
 /*
  * The syntax of GMQL extend statement is:
  *
-
-      DSout = EXTEND(NM1 AS g1, ..., NMk AS gk) DSin;
-
+ *    DSout = EXTEND(NM1 AS g1, ..., NMk AS gk) DSin;
+ *
  * where:
  * ? DSin is the input dataset whose sample region attribute
  *       values are used to compute the new sample metadata;
@@ -504,8 +493,7 @@ import Ordering.Double.TotalOrdering
  *
  * The Synchrony emulation is:
  *
-
-        extend(sample:OnSample[SProj]): DB=>DB
+ *      extend(sample:OnSample[SProj]): DB=>DB
  *
  */
 
@@ -514,7 +502,7 @@ import Ordering.Double.TotalOrdering
 /*
  * GMQL:
  *
-        RES = EXTEND(Region_count AS COUNT()) EXP;
+ *      RES = EXTEND(Region_count AS COUNT()) EXP;
  *
  *
  * Synchrony GMQL emulation:
@@ -529,9 +517,9 @@ import Ordering.Double.TotalOrdering
 /*
  * GMQL:
  *
-          RES = EXTEND(region_count AS COUNT(),
-                       min_pvalue AS MIN(pvalue))
-          EXP;
+ *        RES = EXTEND(region_count AS COUNT(),
+ *                     min_pvalue AS MIN(pvalue))
+ *        EXP;
  *
  *
  * Synchrony GMQL emulation:
@@ -544,136 +532,620 @@ import Ordering.Double.TotalOrdering
              "min_pvalue" as (Smallest of MetaR[Double]("pvalue")))) _
 
 
-    /*
-     * GMQL
-     *
-
-         GROUPS_T = GROUP(tumor_type; 
-                   meta_aggregates: MaxSize AS MAX(size)) EXP;
-
-     *
-     * This is expressed as:
-     *
-
-       import synchrony.demos.GMQL._
-       import synchrony.iterators.AggrCollections._
-       import synchrony.iterators.AggrCollections.OpG._
-       import synchrony.iterators.AggrCollections.implicits._
-
-       flatgroupby(_ getM[String] "tumor_type") {
-            MAggr(lb= "MaxSize", aggr= biggest(_ getM[Double] "size"))
-       } _
-
-    *
-    */
-
-
-
-    /*
-     * GMQL
-     *
-         GROUPS_C = GROUP(cell; meta_aggregates: n_samp AS COUNTSAMP()) EXP;
-
-     * GMQL seems to need both COUNT() and COUNTSAMP(). 
-     * This is probably reflecting design non-orthogonality.
-     * If aggregate function is defined simply as any 
-     * function that can be applied on a group, you will
-     * only need COUNT().
-     *
-     * Within the scala/Synchrony framework, where the
-     * orthogonality design principle is followed closely,
-     * this query is expressible using count:
-     *
-
-       import synchrony.demos.GMQL._
-       import synchrony.iterators.AggrCollections._
-       import synchrony.iterators.AggrCollections.OpG._
-       import synchrony.iterators.AggrCollections.implicits._
-
-       flatgroupby(_ getM[String] "cell"){MAggr(lb= "MaxSize", aggr= count)} _
-
-    *
-    */
+/*
+ * The syntax of GMQL groupby operation is:
+ *
+ *     DSout = GROUP(MA;
+ *                  meta_aggregates: GM1 AS f1, ..., GMk AS fk;
+ *                  region_keys: RA1, ..., RAm;
+ *                  region_aggregates: GR1 AS g1, ..., GRh AS gh) DSin;
+ *
+ * where:
+ * ? DSin is the input dataset;
+ * ? DSout is the output dataset;
+ * ? MA is the grouping metadata attribute;
+ * ? GM1, ..., GMk; are new metadata attributes generated 
+ *        using aggregate functions f1, ..., fk on k metadata 
+ *        attributes in DSin;
+ * ? RA1, ..., RAm are the grouping genomic region attributes,
+ *        in addition to the implicit default chr, left, right,
+ *        strand attributes;
+ * ? GR1, ..., GRh; are new region attributes generated using
+ *        aggregate functions g1, ..., gh on h region attributes
+ *        in DSin.
+ *
+ *
+ * The Synchrony emulation is:
+ *
+ *      flatGroupBy(sample:GroupBySample = NoSampleGroup,
+ *                  region:GroupByRegion = NoRegionGroup): DB=>DB
+ *
+ * where GroupBySample is a data type with two kinds of values:
+ * either NoSampleGroup (which is the default) or 
+ * BySample(grp:SampleGroup, aggr: SGroupByProj).
+ * Similarly, GroupByRegion is either NoRegionGroup (which means
+ * the default of grouping regions by Chr, Start, End) or
+ * ByRegion(grp:BedGroup, aggr: BGroupByProj).
+ * Here, SGroupByProj and BGroupByProj are data types of
+ * projections. The projections can be aggregate functions and
+ * other functions (e.g. arithmetics) on sample meta data and
+ * region attributes.
+ */
 
 
 
-    /*
-     * GMQL
-     *
-
-        GROUPS = GROUP(region_aggregates: regNum AS COUNT()) EXP;
-     
-     * This GMQL query implicitly uses region locus as
-     * the group, and group the regions within each sample,
-     * rather than grouping the samples. I think this is a
-     * bit "qurky" and non-orthogonal. The motivation for
-     * this seems to be for eliminating duplicate loci/regions
-     * in each sample. 
-     *
-     * I wonder whether a more natural place is "select",
-     * by having a form of "select distinct", or in "project",
-     * rather than in "groupby".
-     *
-     * Any way, here it is:
-     *
-
-       import synchrony.demos.GMQL._
-       import synchrony.iterators.AggrCollections.OpG._
-
-       flatgroupby(_.meta)(RAggr("regNum",count)) _
-
-    *
-    */
+/*
+ * GMQL:
+ *
+ *       GROUPS_T = GROUP(tumor_type; 
+ *                 meta_aggregates: MaxSize AS MAX(size)) EXP;
+ *
+ *
+ * This is expressed in Synchrony emulation as:
+ *
 
 
-         
-    /*
-     * GMQL
-     *
-
-         GROUPS = GROUP(region_keys: score;
-                        region_aggregates: avg_pvalue AS AVG(pvalue),
-                                           max_qvalue AS MAX(qvalue)) EXP;
-
-     *
-     * Here it is:
-     *
-
-       import synchrony.demos.GMQL._
-       import synchrony.iterators.AggrCollections.OpG._
-
-       flatgroupby(_.meta)(
-           RGrp(_.score), 
-           RAggr("avg_pvalue", average(_ getMisc[Double] "pvalue")),
-           RAggr("max_qvalue", biggest(_ getMisc[Double] "qvalue"))) _
-
-    *
-    */
+       flatGroupBy(
+         sample=BySample(
+                   grp= "tumor_type", 
+                  aggr= "MaxSize" as (Biggest of MetaS[Double]("size")))) _
 
 
 
-    /*
-     * GMQL
-     *
 
-         GROUPS = GROUP(cell_tissue;
-                        meta_aggregates: min_tier AS MIN(cell_tier);
-                        region_aggregates: min_signal AS MIN(signal)) EXP;
+/*
+ * GMQL:
+ *
+ *     GROUPS_C = GROUP(cell; meta_aggregates: n_samp AS COUNTSAMP()) EXP;
+ *
+ * GMQL seems to need both COUNT() and COUNTSAMP(). 
+ * This is probably reflecting design non-orthogonality.
+ * If aggregate function is defined simply as any 
+ * function that can be applied on a group, you will
+ * only need COUNT().
+ *
+ * Within the scala/Synchrony framework, where the
+ * orthogonality design principle is followed closely,
+ * this query is expressible using count:
+ *
+ */
 
-     *
-     * Here it is:
-     *
 
-       import synchrony.demos.GMQL._
-       import synchrony.iterators.AggrCollections.OpG._
-
-       flatgroupby(_ getM[String] "cell_tissue")(
-          MAggr("min_tier", smallest(_ getM[Int] "cell_tier")),
-          RAggr("min_signal", smallest(_ getMisc[Double] "signal"))) _
+       flatGroupBy(
+         sample=BySample(
+                  grp = "cell",
+                  aggr= "n_samp" as Count)) _
 
 
-    *
-    */
+/*
+ * GMQL:
+ *
+ *      GROUPS = GROUP(region_aggregates: regNum AS COUNT()) EXP;
+ *   
+ * This GMQL query implicitly uses region locus as
+ * the group, and group the regions within each sample,
+ * rather than grouping the samples. The motivation for
+ * this seems to be for eliminating duplicate loci/regions
+ * in each sample. 
+ *
+ * Here is the Synchrony emulation:
+ *
+ */
+
+       flatGroupBy(
+         region=ByRegion(grp=locusOnly,
+                         aggr= "regNum" as Count)) _
+
+/*
+ * GMQL:
+ *
+ *       GROUPS = GROUP(region_keys: score;
+ *                      region_aggregates: avg_pvalue AS AVG(pvalue),
+ *                                         max_qvalue AS MAX(qvalue)) EXP;
+ *
+ * Here is the Synchrony emulation:
+ *
+ */
+
+       flatGroupBy(
+         region=ByRegion(
+           grp = Score,
+           aggr="avg_pvalue" as (Average of MetaR[Double]("pvalue")),
+                "max_qvalue" as (Biggest of MetaR[Double]("qvalue")))) _
+
+
+
+/*
+ * GMQL:
+ *
+ *       GROUPS = GROUP(cell_tissue;
+ *                      meta_aggregates: min_tier AS MIN(cell_tier);
+ *                      region_aggregates: min_signal AS MIN(signal)) EXP;
+ *
+ * Here is the Synchrony emulated version:
+ *
+ */
+
+
+       flatGroupBy(
+         sample= BySample(
+                   grp = "cell_tissue",
+                   aggr= "min_tier" as (Smallest of MetaS("cell_tier"))),
+         region= ByRegion(
+                   grp = locusOnly,
+                   aggr= "min_signal" as (Smallest of MetaR("signal")))) _
+
+
+
+/*
+ * The syntax of GMQL map statement is:
+ *
+ *     DSout = MAP(NR1 AS g1, …, NRh AS gh;
+ *                 count_name: X;
+ *                 joinby: MA1,..., MAn) DSref DSexp;
+ *
+ * where:
+ * ? DSref is the reference dataset;
+ * ? DSexp is the experiment dataset;
+ * ? DSout is the output dataset;
+ * ? NR1, ..., NRh; are new genomic region attributes (optionally)
+ *        generated using functions g1, ..., gh on existing 
+ *        experiment region attributes;
+ * ? X is an optional preference name given by the user to
+ *        the metadata attribute which corresponds to the
+ *        number of each experiment sample region intersecting
+ *        a certain reference region;
+ * ? MA1, ..., MAn; are the (optional) metadata attributes used
+ *        in the joinby clause.
+ *
+ * 
+ * The Synchrony emulation is:
+ *
+ *    map(
+ *      region:OnRegion[BGroupByProj] = OnRegion(),
+ *      joinby:OnSample[CanJoinS] = OnSample())(rdb:DB, edb:DB)
+ *
+ */
+
+
+
+/*
+ * GMQL:
+ *
+ *    GENES_EXP = MAP(avg_score AS AVG(score)) GENES EXP;
+ *
+ *
+ * Here is the Synchrony emulation:
+ *
+ */
+
+
+      DB.map(region=OnRegion("avg_score" as (Average of Score))) _
+   
+
+/*
+ * GMQL:
+ *
+ *    OUT = MAP (minScore AS MIN(score);
+ *               count_name: reg_num; 
+ *               joinby: cell_tissue) REF EXP;
+ *
+ *
+ * Here is the Synchrony emulation:
+ *
+ */
+
+
+     DB.map(region=OnRegion(
+                     "minScore" as (Smallest of Score),
+                     "reg_num" as Count),
+            joinby=OnSample("cell_tissue")) _
+ 
+
+/*
+ * The syntax for GMQL's difference statement is:
+ *
+ *   DSout = DIFFERENCE(exact: true; joinby: M1,..., Mn) DSref DSneg;
+ *
+ * where:
+ * ? DSref is the reference dataset, i.e., the dataset which is
+ *       copied in the output and from which regions of DSneg
+ *       are “subtracted”;
+ * ? DSneg is the negative dataset, i.e., the dataset whose
+ *       regions are checked for intersection against the
+ *       reference regions. If any reference region is found
+ *       to have intersection (or exact coordinate matching,
+ *       in case of specifying the exact: true option) with
+ *       a region in DSneg, it is removed from the output dataset;
+ * ? DSout is the output dataset;
+ * ? M1, ..., Mn; are the (optional) metadata attributes used 
+ *      in the joinby clause.
+ *
+ * The optional joinby clause is used to extract subsets of 
+ * samples on which to apply the DIFFERENCE operator: only those
+ * samples s1 in DSref and s2 in DSneg that have the same value
+ * for each attribute M1 through Mn are considered when
+ * performing the DIFFERENCE.
+ *
+ *
+ * The Synchrony emulation is:
+ *
+ *     difference(
+ *       exact:Boolean = false,
+ *       joinby:OnSample[CanJoinS] = DB.OnSample()): (DB,DB)=>DB
+ *
+ */
+
+
+
+
+/*
+ * GMQL:
+ *
+ *     OUT = DIFFERENCE() EXP1 EXP2;
+ *
+ *  The Synchrony emulation is:
+ *
+ */
+
+
+        DB.difference() _
+
+
+/*
+ * GMQL:
+ *
+ *     RES = DIFFERENCE(exact: true) EXP1 EXP2;
+ *
+ *
+ * The Synchrony emulation is:
+ *
+ */
+ 
+
+       DB.difference(exact=true) _
+
+
+/*
+ * GMQL:
+ *
+ *     OUT = DIFFERENCE(joinby: antibody_target) EXP1 EXP2;
+ *
+ *
+ *  The Synchrony emulation is:
+ *
+ */
+
+
+       DB.difference(joinby=OnSample("antibody_target")) _
+
+
+
+/*
+ * The GMQL syntax for join is:
+ *
+ *     DSout = JOIN(genometric_predicate;
+ *                  on_attributes: RA1, ..., RAm;
+ *                  output: coord-param;
+ *                  joinby: MA1, ..., MAn) DSanc DSexp;
+ *
+ * where
+ * ? DSanc and DSexp are respectively the anchor and experiment datasets;
+ * ? DSout is the output dataset;
+ * ? genometric_predicate is an optional concatenation of distal
+ *       conditions by means of logical ANDs (see later for details);
+ * ? RA1, ..., RAm are the (optional) region attributes used in the
+ *       equi predicate clause, i.e., region attributes which must
+ *       exist in both input datasets and whose values in the
+ *       experiment dataset region must be equal to their values in
+ *       the anchor dataset region for the experiment region to be considered;
+ * ? MA1, ..., MAn are the (optional) metadata attributes used in
+ *        the joinby clause (see below).
+ * coord-param is a bit too long-winded to describe; so I skip here.
+ *
+ *
+ * The Synchrony emulation (sans MD(k) predicates) is:
+ *
+ *   join(
+ *     limit:Int=1000,
+ *     pred:Genometric = DB.Genometric(), 
+ *     joinbyS:OnSample[CanJoinS] = DB.OnSample(),
+ *     joinbyR:OnRegion[CanJoinR] = DB.OnRegion(),
+ *     outputS:DB.OutputS=DB.OverwriteS(),
+ *     outputR:DB.OutputR=DB.BothR,
+ *     orderR:DB.OrderR=DB.DoneR): (DB,DB)=>DB
+ *
+ * 
+ * The definition of MD(k) in GMQL is not completely clear to me.
+ * E.g., is a locus x that overlaps y, an MD(k) neighbour of y?
+ * if two regions starts at different places but end at the same
+ * nearest distance from x, are both of these MD(1)? DoesMD(1)
+ * means both sides or either side? 
+ * So I make a simple emulation first...
+ * 
+ * The Synchrony emulation (with an initial MD(1) predicate) is:
+ *
+ *   joinNearest(
+ *     limit:Int = 200000,      // max distance to consider
+ *     up:Int = 1,              // # of upstream loci to consider
+ *     down:Int = 1,            // # of downstream loci to consider
+ *     inclMid:Boolean = false, // consider overlap?
+ *     pred:Genometric = DB.Genometric(), 
+ *     joinbyS:OnSample[CanJoinS] = DB.OnSample(),
+ *     joinbyR:OnRegion[CanJoinR] = DB.OnRegion(),
+ *     outputS:DB.OutputS=DB.OverwriteS(),
+ *     outputR:DB.OutputR=DB.BothR,
+ *     orderR:DB.OrderR=DB.DoneR): (DB,DB)=>DB
+ *
+ */
+
+
+/*
+ * GMQL:
+ *
+ *     HM_TSS = JOIN(MD(1), 
+ *                   DGE(120000);
+ *                   output: RIGHT;
+ *                   joinby: provider)
+ *             TSS HM;
+ *
+ *
+ * The Synchrony emulation  is:
+ *
+ */
+
+
+         DB.joinNearest(
+            pred    = Genometric(DGE(120000)),
+            outputR = RightR,
+            joinbyS = OnSample("provider")) _
+
+
+// The default look for nearest neighbours within 200000bp
+// on both sides of the gene.
+
+
+/*
+ * GMQL:
+ *
+ *     HM_TSS = JOIN(MD(1),
+ *                   DGE(120000);
+ *                   output: RIGHT_DISTINCT;
+ *                   joinby: provider)
+ *              TSS HM;
+ *
+ *
+ * The Synchrony emulation  is:
+ *
+ */
+
+
+       DB.joinNearest(
+          pred = Genometric(DGE(120000)),
+          outputR = RightR,
+          orderR  = DistinctR,
+          joinbyS = OnSample("provider")) _
+
+
+/*
+ * GMQL:
+ *
+ *    HM_TSS = JOIN(MD(1), 
+ *                  DGE(120000);
+ *                  output: CAT; 
+ *                  joinby: provider)
+ *             TSS HM;
+ *
+ *
+ * The Synchrony emulation  is:
+ *
+ */
+
+
+       DB.joinNearest(
+          pred  = Genometric(DGE(120000)),
+          outputR = CatR(),
+          joinbyS = OnSample("provider")) _
+
+
+/*
+ * GMQL:
+ *
+ *     TFBS_TSS = JOIN(DGE(5000), DLE(100000);
+ *                     output: LEFT)
+ *                TFBS TSS;
+ *
+ *
+ * The Synchrony emulation  is:
+ *
+ */
+
+       DB.join(
+         limit   = 100000,
+         pred    = Genometric(DGE(5000), DLE(100000)),
+         outputR = LeftR) _
+
+
+// The DLE(100000) in Genometric is redundant,
+// as it is implied by limit=100000.
+
+/*
+ * GMQL:
+ *
+ *    TFBS_TSS = JOIN(DL(30000);
+ *                    output: LEFT_DISTINCT)
+ *               TFBS TSS;
+ *
+ *
+ * The Synchrony emulation  is:
+ *
+ */
+
+       DB.join(
+         limit   = 30000,
+         pred    = Genometric(DL(30000)),
+         outputR = LeftR,
+         orderR  = DistinctR) _
+
+
+
+/*
+ * GMQL:
+ *
+ *    TFBS_TSS = JOIN(DIST < 100; output: BOTH) TFBS TSS;
+ *
+ *
+ * The Synchrony emulation  is:
+ *
+ */
+
+
+      DB.join(
+        limit   = 100,
+        pred    = Genometric(DL(100)),
+        outputR = BothR()) _
+
+
+// The outputR = BothR is redundant, as this is the default.
+
+
+
+/*
+ * GMQL:
+ *
+ *     TF_HM_OVERLAP = JOIN(DLE(20);
+ *                          output: INT;
+ *                          joinby: cell) TFBS HM;
+ *
+ * The Synchrony emulation  is:
+ *
+ */
+
+
+       DB.join(
+         limit = 20,
+         pred = Genometric(DLE(20)),
+         joinbyS = OnSample("cell"),
+         outputR = IntR()) _
+
+
+/*
+ * GMQL:
+ *
+ *    TF_HM_OVERLAP = JOIN(DLE(0); 
+ *                         output: INT;
+ *                         joinby: cell) TFBS HM;
+ *
+ * The Synchrony emulation  is:
+ *
+ */
+
+
+       DB.join(
+         pred    = Genometric(DLE(0)),
+         outputR = IntR(),
+         joinbyS = OnSample("cell")) _
+
+
+/*
+ * GMQL:
+ *
+ *      TF_HM_OVERLAP = JOIN(DL(-20); 
+ *                           output: LEFT;
+ *                           joinby: cell) TFBS HM;
+ *
+ * The Synchrony emulation  is:
+ *
+ */
+
+
+       DB.join(
+         pred    = Genometric(Overlap(20)),
+         outputR = LeftR,
+         joinbyS  = OnSample("cell")) _
+
+
+// Synchrony does not support negative DL/DLE/GL/GLE.
+// Negative GL/GLE dont make sense to me.
+// Negative DL/DLE also dont make sense to me for large negatives.
+// For small negatives, DL/DLE is basically size of intersection;
+// so just use Overlap.
+
+ 
+
+/*
+ * GMQL:
+ *
+ *      TF_HM_ADJACENT = JOIN(DGE(0), DLE(0); 
+ *                            output: LEFT;
+ *                             joinby: cell_karyotype) TFBS HM;
+ *
+ * The Synchrony emulation  is:
+ *
+ */
+
+
+       DB.join(
+         pred    = Genometric(Touch),
+         outputR = LeftR,
+         joinbyS = OnSample("cell_karyotype")) _
+
+
+// DGE(0) and DLE(0) implies the two regions are touching.
+// So can use the more explicit Touch in Synchrony.
+
+
+
+/*
+ * GMQL:
+ *
+ *     TF_HM_OVERLAP = JOIN(DL(0);
+ *                          on_attributes: score;
+ *                          output: INT) TFBS HM;
+ *
+ * The Synchrony emulation  is:
+ *
+ */
+
+
+       DB.join(
+          pred    = Genometric(Overlap(1)),
+          joinbyR = OnRegion("score"),
+          outputR = IntR()) _
+
+
+/*
+ * GMQL:
+ *
+ *    TF_HM_OVERLAP = JOIN(MD(1), UP;
+ *                         output: RIGHT) TFBS HM;
+ *
+ * The Synchrony emulation  is:
+ *
+ */
+
+
+       DB.joinNearest(
+          up = 1,
+          down = 0,
+          outputR = RightR) _
+
+
+/*
+ * GMQL:
+ *
+ *     TF_HM_OVERLAP = JOIN(MD(1), DOWNSTREAM;
+ *                          output: RIGHT) TFBS HM;
+ *
+ * The Synchrony emulation  is:
+ *
+ */
+
+
+       DB.joinNearest(
+          up = 0,
+          down = 1,
+          outputR = RightR) _
 
 
 

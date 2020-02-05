@@ -26,7 +26,7 @@ object Samples {
     def cond(ps:Sample.SBPred*)(u:Bed) = Sample.cond(ps:_*)(this, u)
     def cond(ps:Sample.SPred*) = Sample.cond(ps:_*)(this)
 
-    def hasM(f:String)(x:Sample) = meta.contains(f)
+    def hasM(f:String) = meta.contains(f)
 
     def getM[T](f:String) = meta(f).asInstanceOf[T]
 

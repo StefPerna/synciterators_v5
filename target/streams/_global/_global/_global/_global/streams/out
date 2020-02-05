@@ -1,0 +1,5 @@
+[0m[[0m[0mdebug[0m] [0m[0m[watch] [synchroiteration / Compile / compile] Found inputs: /Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/*.{java,scala},/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/java/**/*.{java,scala},/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/resources/**/*,/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/**/*.{java,scala},/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala-2.13/**/*.{java,scala}[0m
+[0m[[0m[0minfo[0m] [0m[0m1. Monitoring source files for synchroiteration/compile...[0m
+[0m[[0m[0minfo[0m] [0m[0m   Press <enter> to interrupt or '?' for more options.[0m
+[0m[[0m[0mdebug[0m] [0m[0m[watch] [debug] Received input event: Run().[0m
+[0m[[0m[0mdebug[0m] [0m[0m[watch] [debug] Received input event: Run().[0m

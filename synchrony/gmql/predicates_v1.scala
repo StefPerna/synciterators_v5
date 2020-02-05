@@ -218,17 +218,18 @@ object Predicates {
     def chk(u:Bed, f:Double=>Boolean) = f(this(u))
   }
   
+  case class GenBObj[A](g:Bed=>A) extends BObj[A] {
+    def apply(u:Bed) = g(u)
+    def chk(u:Bed, f:A=>Boolean) = f(g(u))
+  }
+
   //
   // SimpleBedEntry contains also meta data in a Map.
   // Turn these into BObj too.
 
-  case class MetaR[A](k:String) extends BObj[A]
-  {
+  case class MetaR[A](k:String) extends BObj[A] {
     def apply(u:Bed) = u.getMisc[A](k)
-
-    def chk(u:Bed, f:A=>Boolean) = u match {
-      case v:SimpleBedEntry => v.checkMisc(k, f)
-    }
+    def chk(u:Bed, f:A=>Boolean) = u.checkMisc(k, f)
   }
 
 
@@ -263,12 +264,16 @@ object Predicates {
     def /(m:SO)(implicit ev:Arith[A]):SO = ArithSO[A](ev.divA, this, m)
   }
 
+  case class GenSObj[A](g:Sample=>A) extends SObj[A] {
+    def apply(s:Sample) = g(s)
+    def chk(s:Sample, f:A=>Boolean) = f(g(s))
+  }
+
   //
   // Sample contains meta data in a Map.
   // Turn these into SObj.
 
-  case class MetaS[A](k:String) extends SObj[A]
-  {
+  case class MetaS[A](k:String) extends SObj[A] {
     def apply(s:Sample) = s.getM[A](k)
     def chk(s:Sample, f:A=>Boolean) = s.checkM(k, f)
   }
@@ -302,6 +307,10 @@ object Predicates {
     def /(m:SBO)(implicit ev:Arith[A]):SBO = ArithSBO[A](ev.divA, this, m)
   }
 
+  case class GenSBObj[A](g:(Sample,Bed)=>A) extends SBObj[A] {
+    def apply(s:Sample, u:Bed) = g(s, u)
+    def chk(s:Sample, u:Bed, f:A=>Boolean) = f(g(s,u))
+  }
 
   
   //
@@ -310,25 +319,25 @@ object Predicates {
   //
 
    
-  implicit class MkBObj[A<:AnyVal](a:A) extends BObj[A] 
+  implicit class MkBObj[A<:AnyVal](val a:A) extends BObj[A] 
   {
     def apply(u:Bed) = a
     def chk(u:Bed, f:A=>Boolean) = f(a)
   }
 
-  implicit class MkStringBObj(a:String) extends BObj[String]
+  implicit class MkStringBObj(val a:String) extends BObj[String]
   {
     def apply(u:Bed) = a
     def chk(u:Bed, f:String=>Boolean) = f(a)
   }
 
-  implicit class MkSObj[A<:AnyVal](a:A) extends SObj[A] 
+  implicit class MkSObj[A<:AnyVal](val a:A) extends SObj[A] 
   {
     def apply(s:Sample) = a
     def chk(s:Sample, f:A=>Boolean) = f(a)
   }
 
-  implicit class MkStringSObj(a:String) extends SObj[String]
+  implicit class MkStringSObj(val a:String) extends SObj[String]
   {
     def apply(s:Sample) = a
     def chk(s:Sample, f:String=>Boolean) = f(a)
@@ -403,28 +412,10 @@ object Predicates {
   //
 
 
-  case class FunObj[A<:AnyVal,B<:AnyVal](f:A=>B) {
-    def apply(x: SObj[A]) = SFunApp((s:Sample) => f(x(s)))
-    def apply(x: BObj[A]) = BFunApp((u:Bed) => f(x(u)))
-    def apply(x: SBObj[A]) = SBFunApp((s:Sample, u:Bed) => f(x(s,u)))
-  }
-
-  case class SFunApp[B](x:Sample=>B) extends SObj[B]
-  {
-    def apply(s:Sample) = x(s)
-    def chk(s:Sample, f:B=>Boolean) = f(x(s)) 
-  }
-
-  case class BFunApp[B](x:Bed=>B) extends BObj[B]
-  {
-    def apply(u:Bed) = x(u)
-    def chk(u:Bed, f:B=>Boolean) = f(x(u)) 
-  }
-
-  case class SBFunApp[B](x:(Sample,Bed)=>B) extends SBObj[B]
-  {
-    def apply(s:Sample, u:Bed) = x(s, u)
-    def chk(s:Sample, u:Bed, f:B=>Boolean) = f(x(s, u))
+  case class FunObj[A,B](f:A=>B) {
+    def apply(x: SObj[A]) = GenSObj((s:Sample) => f(x(s)))
+    def apply(x: BObj[A]) = GenBObj((u:Bed) => f(x(u)))
+    def apply(x: SBObj[A]) = GenSBObj((s:Sample, u:Bed) => f(x(s,u)))
   }
 
   val sqrt = FunObj(scala.math.sqrt _)

@@ -1,0 +1,364 @@
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/genomelocus_v6_1.scala:263:25: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : scala.collection.mutable.Queue.type[0m
+[0m[[0m[31merror[0m] [0m[0m required: scala.collection.generic.CanBuildFrom[Nothing,synchrony.genomeannot.GenomeAnnot.GenomeLocus,?][0m
+[0m[[0m[31merror[0m] [0m[0m      val q1 = loci1.to(Queue)[0m
+[0m[[0m[31merror[0m] [0m[0m                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/genomelocus_v6_1.scala:264:25: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : scala.collection.mutable.Queue.type[0m
+[0m[[0m[31merror[0m] [0m[0m required: scala.collection.generic.CanBuildFrom[Nothing,synchrony.genomeannot.GenomeAnnot.GenomeLocus,?][0m
+[0m[[0m[31merror[0m] [0m[0m      val q2 = loci2.to(Queue)[0m
+[0m[[0m[31merror[0m] [0m[0m                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/genomelocus_v6_1.scala:299:20: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : scala.collection.immutable.List.type[0m
+[0m[[0m[31merror[0m] [0m[0m required: scala.collection.generic.CanBuildFrom[Nothing,synchrony.genomeannot.GenomeAnnot.GenomeLocus,List[synchrony.genomeannot.GenomeAnnot.GenomeLocus]][0m
+[0m[[0m[31merror[0m] [0m[0m      return qm.to(List)[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/sample_v1.scala:53:21: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : scala.collection.immutable.List.type[0m
+[0m[[0m[31merror[0m] [0m[0m required: scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.Samples.Bed,?][0m
+[0m[[0m[31merror[0m] [0m[0m    (which expands to)  scala.collection.generic.CanBuildFrom[Nothing,synchrony.genomeannot.BedWrapper.SimpleBedEntry,?][0m
+[0m[[0m[31merror[0m] [0m[0m    { val t = it.to(List); Sample(meta, () => t.iterator) }[0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:180:50: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : collection.immutable.Vector.type[0m
+[0m[[0m[31merror[0m] [0m[0m required: scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.GMQL.DB.SProj,Vector[synchrony.gmql.GMQL.DB.SProj]][0m
+[0m[[0m[31merror[0m] [0m[0m    (which expands to)  scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.Projections.SProj,Vector[synchrony.gmql.Projections.SProj]][0m
+[0m[[0m[31merror[0m] [0m[0m      val (sproj, sprojAggr) = split(sample.p.to(Vector), Vector(), Vector())[0m
+[0m[[0m[31merror[0m] [0m[0m                                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:182:17: value isEmpty is not a member of Any[0m
+[0m[[0m[31merror[0m] [0m[0m      if (sproj.isEmpty) db else DB( for(s <- db.samples) yield  [0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:186:24: value iterator is not a member of Any[0m
+[0m[[0m[31merror[0m] [0m[0m        val ps = sproj.iterator[0m
+[0m[[0m[31merror[0m] [0m[0m                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:201:23: value isEmpty is not a member of Any[0m
+[0m[[0m[31merror[0m] [0m[0m        if (sprojAggr.isEmpty) snew else[0m
+[0m[[0m[31merror[0m] [0m[0m                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:206:38: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Any[0m
+[0m[[0m[31merror[0m] [0m[0m required: Vector[synchrony.gmql.GMQL.DB.SProj][0m
+[0m[[0m[31merror[0m] [0m[0m    (which expands to)  Vector[synchrony.gmql.Projections.SProj][0m
+[0m[[0m[31merror[0m] [0m[0m          val aggr = mkAggrFromSProj(sprojAggr, s)[0m
+[0m[[0m[31merror[0m] [0m[0m                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:224:50: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : collection.immutable.Vector.type[0m
+[0m[[0m[31merror[0m] [0m[0m required: scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.GMQL.DB.SProj,Vector[synchrony.gmql.GMQL.DB.SProj]][0m
+[0m[[0m[31merror[0m] [0m[0m    (which expands to)  scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.Projections.SProj,Vector[synchrony.gmql.Projections.SProj]][0m
+[0m[[0m[31merror[0m] [0m[0m      val (sproj, sprojAggr) = split(sample.p.to(Vector), Vector(), Vector())[0m
+[0m[[0m[31merror[0m] [0m[0m                                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:226:17: value isEmpty is not a member of Any[0m
+[0m[[0m[31merror[0m] [0m[0m      if (sproj.isEmpty) db else DB(for(s <- db.samples) yield[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:233:24: value iterator is not a member of Any[0m
+[0m[[0m[31merror[0m] [0m[0m        val ps = sproj.iterator[0m
+[0m[[0m[31merror[0m] [0m[0m                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:245:23: value isEmpty is not a member of Any[0m
+[0m[[0m[31merror[0m] [0m[0m        if (sprojAggr.isEmpty) snew else[0m
+[0m[[0m[31merror[0m] [0m[0m                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:251:38: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Any[0m
+[0m[[0m[31merror[0m] [0m[0m required: Vector[synchrony.gmql.GMQL.DB.SProj][0m
+[0m[[0m[31merror[0m] [0m[0m    (which expands to)  Vector[synchrony.gmql.Projections.SProj][0m
+[0m[[0m[31merror[0m] [0m[0m          val aggr = mkAggrFromSProj(sprojAggr, s)[0m
+[0m[[0m[31merror[0m] [0m[0m                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:538:21: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : collection.immutable.Vector.type[0m
+[0m[[0m[31merror[0m] [0m[0m required: scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.Projections.SGroupByProj[Double],?][0m
+[0m[[0m[31merror[0m] [0m[0m      val bs= as.to(Vector).[0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:539:62: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Double => (String, Double)[0m
+[0m[[0m[31merror[0m] [0m[0m required: Any => ?[0m
+[0m[[0m[31merror[0m] [0m[0m              map({case SGroupByProj(k,f)=>f.sa.|>((x:Double)=>(k,x))})[0m
+[0m[[0m[31merror[0m] [0m[0m                                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:314:52: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : collection.immutable.Vector.type[0m
+[0m[[0m[31merror[0m] [0m[0m required: scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.Projections.SGroupByProj[Double],Vector[synchrony.gmql.Projections.SGroupByProj[Double]]][0m
+[0m[[0m[31merror[0m] [0m[0m          val b = mkAggrFromSGroupByProj(x.aggr.to(Vector))[0m
+[0m[[0m[31merror[0m] [0m[0m                                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:330:50: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : collection.immutable.Vector.type[0m
+[0m[[0m[31merror[0m] [0m[0m required: scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.Projections.BGroupByProj[Double],?][0m
+[0m[[0m[31merror[0m] [0m[0m    (which expands to)  scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.Projections.SProjBAggr[Double],?][0m
+[0m[[0m[31merror[0m] [0m[0m          val (grp, ps) = (mkR(x.grp), x.aggr.to(Vector))[0m
+[0m[[0m[31merror[0m] [0m[0m                                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:332:42: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Any[0m
+[0m[[0m[31merror[0m] [0m[0m required: Vector[synchrony.gmql.Projections.BGroupByProj[Double]][0m
+[0m[[0m[31merror[0m] [0m[0m    (which expands to)  Vector[synchrony.gmql.Projections.SProjBAggr[Double]][0m
+[0m[[0m[31merror[0m] [0m[0m          val b = mkAggrFromBGroupByProj(ps)[0m
+[0m[[0m[31merror[0m] [0m[0m                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:339:18: value isEmpty is not a member of Any[0m
+[0m[[0m[31merror[0m] [0m[0m          if (ps.isEmpty) { DB(for(s <- db.samples) yield [0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:366:20: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : collection.immutable.Vector.type[0m
+[0m[[0m[31merror[0m] [0m[0m required: scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.Projections.SGroupByProj[A],?][0m
+[0m[[0m[31merror[0m] [0m[0m      val bs= a.to(Vector).map({case SGroupByProj(k,f)=>f.sa |>((x:A)=>(k,x))})[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:366:70: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : A => (String, A)[0m
+[0m[[0m[31merror[0m] [0m[0m required: Any => ?[0m
+[0m[[0m[31merror[0m] [0m[0m      val bs= a.to(Vector).map({case SGroupByProj(k,f)=>f.sa |>((x:A)=>(k,x))})[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:370:16: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : collection.immutable.Vector.type[0m
+[0m[[0m[31merror[0m] [0m[0m required: scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.Projections.SGroupByProj[A],?][0m
+[0m[[0m[31merror[0m] [0m[0m      if (a.to(Vector).isEmpty) db.samples.groupby(grp)(keep)[0m
+[0m[[0m[31merror[0m] [0m[0m               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:383:20: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : collection.immutable.Vector.type[0m
+[0m[[0m[31merror[0m] [0m[0m required: scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.Projections.BGroupByProj[B],?][0m
+[0m[[0m[31merror[0m] [0m[0m    (which expands to)  scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.Projections.SProjBAggr[B],?][0m
+[0m[[0m[31merror[0m] [0m[0m      val bs= a.to(Vector).map({case SProjBAggr(k,f)=>f.a |> ((x:B)=>(k,x))})[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:383:68: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : B => (String, B)[0m
+[0m[[0m[31merror[0m] [0m[0m required: Any => ?[0m
+[0m[[0m[31merror[0m] [0m[0m      val bs= a.to(Vector).map({case SProjBAggr(k,f)=>f.a |> ((x:B)=>(k,x))})[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:388:22: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : collection.immutable.Vector.type[0m
+[0m[[0m[31merror[0m] [0m[0m required: scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.Projections.BGroupByProj[B],?][0m
+[0m[[0m[31merror[0m] [0m[0m    (which expands to)  scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.Projections.SProjBAggr[B],?][0m
+[0m[[0m[31merror[0m] [0m[0m      yield if (a.to(Vector).isEmpty) (s, s.track().groupby(grp)(keep))[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:398:20: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : collection.immutable.Vector.type[0m
+[0m[[0m[31merror[0m] [0m[0m required: scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.Projections.BGroupByProj[B],?][0m
+[0m[[0m[31merror[0m] [0m[0m    (which expands to)  scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.Projections.SProjBAggr[B],?][0m
+[0m[[0m[31merror[0m] [0m[0m      val bs= a.to(Vector).map({case SProjBAggr(k,f)=>f.a |> ((x:B)=>(k,x))})[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:398:68: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : B => (String, B)[0m
+[0m[[0m[31merror[0m] [0m[0m required: Any => ?[0m
+[0m[[0m[31merror[0m] [0m[0m      val bs= a.to(Vector).map({case SProjBAggr(k,f)=>f.a |> ((x:B)=>(k,x))})[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:403:22: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : collection.immutable.Vector.type[0m
+[0m[[0m[31merror[0m] [0m[0m required: scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.Projections.BGroupByProj[B],?][0m
+[0m[[0m[31merror[0m] [0m[0m    (which expands to)  scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.Projections.SProjBAggr[B],?][0m
+[0m[[0m[31merror[0m] [0m[0m      yield if (a.to(Vector).isEmpty) (s, s.track().partitionby(grp)(keep))[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:419:51: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : collection.immutable.Vector.type[0m
+[0m[[0m[31merror[0m] [0m[0m required: scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.Projections.BGroupByProj[Double],?][0m
+[0m[[0m[31merror[0m] [0m[0m    (which expands to)  scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.Projections.SProjBAggr[Double],?][0m
+[0m[[0m[31merror[0m] [0m[0m        SProjBAggr("count", Count) +: region.p.to(Vector))[0m
+[0m[[0m[31merror[0m] [0m[0m                                                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:453:40: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : collection.immutable.Vector.type[0m
+[0m[[0m[31merror[0m] [0m[0m required: scala.collection.generic.CanBuildFrom[Nothing,(synchrony.gmql.Samples.Sample, Vector[synchrony.gmql.Samples.Sample]),?][0m
+[0m[[0m[31merror[0m] [0m[0m      groupby(_._1)(OpG.map(_._2)) .to(Vector)[0m
+[0m[[0m[31merror[0m] [0m[0m                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simplebed_v4_1.scala:165:15: not found: value ->[0m
+[0m[[0m[31merror[0m] [0m[0m        for((k->v) <- misc) yield f(k)->v)[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_v6_1.scala:765:43: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : collection.immutable.Vector.type[0m
+[0m[[0m[31merror[0m] [0m[0m required: scala.collection.generic.CanBuildFrom[Nothing,synchrony.gmql.GMQL.Bed,?][0m
+[0m[[0m[31merror[0m] [0m[0m    (which expands to)  scala.collection.generic.CanBuildFrom[Nothing,synchrony.genomeannot.BedWrapper.SimpleBedEntry,?][0m
+[0m[[0m[31merror[0m] [0m[0m      def apply(it:Iterator[Bed]) = it.to(Vector).sorted.iterator[0m
+[0m[[0m[31merror[0m] [0m[0m                                          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:36:21: object parsing is not a member of package util[0m
+[0m[[0m[31merror[0m] [0m[0m  import scala.util.parsing.combinator._[0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:1018:24: object runtime is not a member of package reflect[0m
+[0m[[0m[31merror[0m] [0m[0m  import scala.reflect.runtime.universe.TypeTag[0m
+[0m[[0m[31merror[0m] [0m[0m                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:1042:67: not found: type TypeTag[0m
+[0m[[0m[31merror[0m] [0m[0m    def apply[A](file:String, chk:String => Boolean)(implicit ev: TypeTag[A]) = [0m
+[0m[[0m[31merror[0m] [0m[0m                                                                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:37:24: object runtime is not a member of package reflect[0m
+[0m[[0m[31merror[0m] [0m[0m  import scala.reflect.runtime.universe.TypeTag[0m
+[0m[[0m[31merror[0m] [0m[0m                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:984:40: not found: type TypeTag[0m
+[0m[[0m[31merror[0m] [0m[0m  def apply[A](c: String)(implicit ev: TypeTag[A]) =[0m
+[0m[[0m[31merror[0m] [0m[0m                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:981:41: not found: type TypeTag[0m
+[0m[[0m[31merror[0m] [0m[0m  def apply[A](raw: RawCO)(implicit ev: TypeTag[A]) =[0m
+[0m[[0m[31merror[0m] [0m[0m                                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:1039:45: not found: type TypeTag[0m
+[0m[[0m[31merror[0m] [0m[0m    def apply[A](file: String)(implicit ev: TypeTag[A]) = [0m
+[0m[[0m[31merror[0m] [0m[0m                                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:314:29: not found: type JavaTokenParsers[0m
+[0m[[0m[31merror[0m] [0m[0m  class RawCOParser extends JavaTokenParsers { [0m
+[0m[[0m[31merror[0m] [0m[0m                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:316:20: not found: type Parser[0m
+[0m[[0m[31merror[0m] [0m[0m    def rawDouble: Parser[RawDouble] = floatingPointNumber ^^ { [0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:316:40: not found: value floatingPointNumber[0m
+[0m[[0m[31merror[0m] [0m[0m    def rawDouble: Parser[RawDouble] = floatingPointNumber ^^ { [0m
+[0m[[0m[31merror[0m] [0m[0m                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:319:20: not found: type Parser[0m
+[0m[[0m[31merror[0m] [0m[0m    def rawString: Parser[RawString] = stringLiteral ^^ {[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:319:40: not found: value stringLiteral[0m
+[0m[[0m[31merror[0m] [0m[0m    def rawString: Parser[RawString] = stringLiteral ^^ {[0m
+[0m[[0m[31merror[0m] [0m[0m                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:322:18: not found: type Parser[0m
+[0m[[0m[31merror[0m] [0m[0m    def rawBool: Parser[RawBool] =[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:323:14: value ^^ is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m      "true" ^^ { _ => RawBool(true) } |[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:324:15: value ^^ is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m      "false" ^^ { _ => RawBool(false) }[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:326:20: not found: type Parser[0m
+[0m[[0m[31merror[0m] [0m[0m    def rawTuple2: Parser[RawTuple2] =[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:327:10: value ~ is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m      "("~rawTerm~","~rawTerm~")" ^^[0m
+[0m[[0m[31merror[0m] [0m[0m         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:329:25: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~")" => RawTuple2(t1, t2)[0m
+[0m[[0m[31merror[0m] [0m[0m                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:329:22: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~")" => RawTuple2(t1, t2)[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:329:18: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~")" => RawTuple2(t1, t2)[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:329:15: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~")" => RawTuple2(t1, t2)[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:333:20: not found: type Parser[0m
+[0m[[0m[31merror[0m] [0m[0m    def rawTuple3: Parser[RawTuple3] = [0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:334:10: value ~ is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m      "("~rawTerm~","~rawTerm~","~rawTerm~")" ^^[0m
+[0m[[0m[31merror[0m] [0m[0m         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:336:32: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~")" => RawTuple3(t1, t2, t3)[0m
+[0m[[0m[31merror[0m] [0m[0m                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:336:29: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~")" => RawTuple3(t1, t2, t3)[0m
+[0m[[0m[31merror[0m] [0m[0m                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:336:25: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~")" => RawTuple3(t1, t2, t3)[0m
+[0m[[0m[31merror[0m] [0m[0m                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:336:22: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~")" => RawTuple3(t1, t2, t3)[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:336:18: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~")" => RawTuple3(t1, t2, t3)[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:336:15: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~")" => RawTuple3(t1, t2, t3)[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:340:20: not found: type Parser[0m
+[0m[[0m[31merror[0m] [0m[0m    def rawTuple4: Parser[RawTuple4] = [0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:341:10: value ~ is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m      "("~rawTerm~","~rawTerm~","~rawTerm~","~rawTerm~")" ^^[0m
+[0m[[0m[31merror[0m] [0m[0m         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:343:39: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~")" => RawTuple4(t1, t2, t3, t4)[0m
+[0m[[0m[31merror[0m] [0m[0m                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:343:36: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~")" => RawTuple4(t1, t2, t3, t4)[0m
+[0m[[0m[31merror[0m] [0m[0m                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:343:32: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~")" => RawTuple4(t1, t2, t3, t4)[0m
+[0m[[0m[31merror[0m] [0m[0m                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:343:29: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~")" => RawTuple4(t1, t2, t3, t4)[0m
+[0m[[0m[31merror[0m] [0m[0m                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:343:25: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~")" => RawTuple4(t1, t2, t3, t4)[0m
+[0m[[0m[31merror[0m] [0m[0m                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:343:22: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~")" => RawTuple4(t1, t2, t3, t4)[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:343:18: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~")" => RawTuple4(t1, t2, t3, t4)[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:343:15: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~")" => RawTuple4(t1, t2, t3, t4)[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:347:20: not found: type Parser[0m
+[0m[[0m[31merror[0m] [0m[0m    def rawTuple5: Parser[RawTuple5] = [0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:348:10: value ~ is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m      "("~rawTerm~","~rawTerm~","~rawTerm~","~rawTerm~","~rawTerm~")" ^^ [0m
+[0m[[0m[31merror[0m] [0m[0m         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:350:46: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~","~t5~")" => [0m
+[0m[[0m[31merror[0m] [0m[0m                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:350:43: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~","~t5~")" => [0m
+[0m[[0m[31merror[0m] [0m[0m                                          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:350:39: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~","~t5~")" => [0m
+[0m[[0m[31merror[0m] [0m[0m                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:350:36: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~","~t5~")" => [0m
+[0m[[0m[31merror[0m] [0m[0m                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:350:32: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~","~t5~")" => [0m
+[0m[[0m[31merror[0m] [0m[0m                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:350:29: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~","~t5~")" => [0m
+[0m[[0m[31merror[0m] [0m[0m                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:350:25: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~","~t5~")" => [0m
+[0m[[0m[31merror[0m] [0m[0m                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:350:22: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~","~t5~")" => [0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:350:18: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~","~t5~")" => [0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:350:15: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~","~t5~")" => [0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:355:20: not found: type Parser[0m
+[0m[[0m[31merror[0m] [0m[0m    def rawTuple6: Parser[RawTuple6] = [0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:356:10: value ~ is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m      "("~rawTerm~","~rawTerm~","~rawTerm~","~rawTerm~","~ rawTerm~","~[0m
+[0m[[0m[31merror[0m] [0m[0m         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:360:18: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m               t6~")" => [0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:359:50: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~","~t5~","~[0m
+[0m[[0m[31merror[0m] [0m[0m                                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:359:46: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~","~t5~","~[0m
+[0m[[0m[31merror[0m] [0m[0m                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:359:43: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~","~t5~","~[0m
+[0m[[0m[31merror[0m] [0m[0m                                          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:359:39: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~","~t5~","~[0m
+[0m[[0m[31merror[0m] [0m[0m                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:359:36: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~","~t5~","~[0m
+[0m[[0m[31merror[0m] [0m[0m                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:359:32: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~","~t5~","~[0m
+[0m[[0m[31merror[0m] [0m[0m                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:359:29: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~","~t5~","~[0m
+[0m[[0m[31merror[0m] [0m[0m                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:359:25: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~","~t5~","~[0m
+[0m[[0m[31merror[0m] [0m[0m                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:359:22: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~","~t5~","~[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:359:18: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~","~t5~","~[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:359:15: not found: value ~[0m
+[0m[[0m[31merror[0m] [0m[0m      case "("~t1~","~t2~","~t3~","~t4~","~t5~","~[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:366:20: not found: type Parser[0m
+[0m[[0m[31merror[0m] [0m[0m    def rawTuple7: Parser[RawTuple7] = [0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stefperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/simpleco_v7.scala:367:10: value ~ is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m      "("~rawTerm~","~rawTerm~","~rawTerm~","~rawTerm~","~rawTerm~","~[0m
+[0m[[0m[31merror[0m] [0m[0m         ^[0m
+[0m[[0m[31merror[0m] [0m[0m602 errors found[0m
