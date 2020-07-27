@@ -21,6 +21,7 @@ object Sri {
 
   import scala.collection.mutable.Map
   import scala.language.existentials
+  import scala.reflect.runtime.universe.{TypeTag, typeOf}  // DEBUG
 
 
   sealed trait Sri[C,F]
@@ -71,7 +72,9 @@ object Sri {
     comb:(E,D)=>E,
     done:E=>F)
   extends Sri[C,F] 
-  { //
+  { 
+    println("function zero inside Sri3 instantiation")
+    println(zero())//
     // Sri3 is a more flexible form of Sri that includes
     // some preprocessing (iter) and postprocessing (done)
     // to make it more convenient to combine multiple
@@ -79,7 +82,9 @@ object Sri {
   }
 
 
-  def sri[C,D,F](z:()=>F, i:C=>D, c:(F,D)=>F) = Sri3(z, i, c, (x:F) => x)
+  def sri[C,D,F](z:()=>F, i:C=>D, c:(F,D)=>F) = {
+    Sri3(z, i, c, (x:F) => x)
+  }
   //
   // Often post-processing is not needed;
   // so set done to x => x.
@@ -100,8 +105,9 @@ object Sri {
 
 
   def compose[C,F,G](sri:Sri[C,F], g:F=>G): Sri[C,G] = sri match {
-    case Sri3(z,i,c,d) =>
-      Sri3[C,D forSome{type D},E forSome{type E},G](z,i,c, x => g(d(x)))
+    case Sri3(z,i,c,d) =>{
+      Sri3[C,D forSome{type D},E forSome{type E},G](z,i,c, x => g(d(x)))  // This might be the problem
+    }
   }
   //
   // compose another function with Sri.
@@ -129,6 +135,7 @@ object Sri {
 
   def combineN[C,F,G](mix:Array[F]=>G, sri:Sri[C,F]*): Sri[C,G] =
   {
+    println("I am inside Combine N")
     val gs = for(s <- Array(sri:_*))
              yield {s match {case Sri3(z,i,c,d) => (z,i,c,d)}}
     val zs = for((z,i,c,d) <- gs) yield z
@@ -191,13 +198,16 @@ object Sri {
 
   def apply[C,F](sri:Sri[C,F])(it:Iterator[C]): F = doit(it, sri)
 
+  def typeTag[A](implicit tt: TypeTag[A]): Unit = println(typeOf[A])
 
   def doit[C,F](it:Iterator[C], sri:Sri[C,F]): F =
   {
     sri match { 
       case Sri3(zero, iter, comb, done) => {
-        var acc = zero()
-        for(c <- it) { acc = comb(acc, iter(c)) }
+        println("function zero inside do it of Sri3")
+        println(zero())
+        var acc = zero() // this function is () => Any because he never knows what the types of Sri3 are supposed to be
+        for(c <- it) {acc = comb(acc, iter(c)) }
         return done(acc)
   }}}
 

@@ -1,0 +1,24 @@
+/var/folders/k8/sf3vvc_921d8r9n7qgy_7kh00000gn/T/synchrony-5320551106947304194.bed
+expt.database	ENCODE
+ref.RefSeqGenesannotation_type	gene
+expt.TF	REST-human
+expt.sid	ENCFF278QIG.bed
+expt.assembly	GRCh38
+ref.RefSeqGenesname	RefSeqGenes
+expt.output_type	conservative IDR thresholded peaks
+ref.RefSeqGenessid	RefSeqGenes.bed
+ref.RefSeqGenesprovider	RefSeq
+ref.RefSeqGenesassembly	hg19
+
+/var/folders/k8/sf3vvc_921d8r9n7qgy_7kh00000gn/T/synchrony-11309398499256923686.bed
+expt.database	ENCODE
+ref.RefSeqGenesannotation_type	gene
+expt.TF	RNF2-human
+expt.sid	ENCFF950MBW.bed
+expt.assembly	GRCh38
+ref.RefSeqGenesname	RefSeqGenes
+expt.output_type	conservative IDR thresholded peaks
+ref.RefSeqGenessid	RefSeqGenes.bed
+ref.RefSeqGenesprovider	RefSeq
+ref.RefSeqGenesassembly	hg19
+

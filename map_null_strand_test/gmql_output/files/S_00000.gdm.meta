@@ -1,0 +1,8 @@
+EXP.TF	REST-human
+EXP.assembly	GRCh38
+EXP.database	ENCODE
+EXP.output_type	conservative IDR thresholded peaks
+REF.annotation_type	gene
+REF.assembly	hg19
+REF.name	RefSeqGenes
+REF.provider	RefSeq

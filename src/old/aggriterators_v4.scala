@@ -22,6 +22,7 @@ object AggrCollections {
 
 
 
+
   trait Aggregates[C]
   { //
     // The Aggregates trait endows its inheriting classes with
@@ -106,11 +107,6 @@ object AggrCollections {
     // - concat(f), concatenates f of each element into a big vector;
     // - biggest(f), computes the max of f of each element;
     // - smallest(f), computes the min of f of each element;
-    // - average0(f), same as average(f) but keeps also the elements;
-    // - sum0(f), same as sum(f) but keeps also the elements;
-    // - count0, same as count but keeps also the elements;
-    // - biggest0(f), same as biggest(f) but keeps also the elements;
-    // - smallest0(f), same as smallest but keeps also the elements;
     // - ... and many more...
 
 
@@ -166,11 +162,24 @@ object AggrCollections {
         count,
         {case (x, y) => if (y != 0) x / y else 0})
 
+  // def sri[C,D,F](z:()=>F, i:C=>D, c:(F,D)=>F) = Sri3(z, i, c, (x:F) => x)
+  // //
+  // // Often post-processing is not needed;
+  // // so set done to x => x.  c??
 
-    def sum[C](f:C=>Double) = sri[C,Double,Double](
-      () => 0,
+  //   final case class Sri3[C,D,E,F](
+  //   zero:()=>E,
+  //   iter:C=>D,
+  //   comb:(E,D)=>E,
+  //   done:E=>F)
+  // extends Sri[C,F] 
+
+    def sum[C](f:C=>Double) = {
+      sri[C,Double,Double](
+      () => 0.0,
       f,
       {case (x,y) => x + y})
+    }
 
 
     def count[C] = sum[C](_ => 1:Double)

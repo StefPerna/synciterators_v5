@@ -1,0 +1,4 @@
+database	ENCODE
+TF	RNF2-human
+assembly	GRCh38
+output_type	conservative IDR thresholded peaks

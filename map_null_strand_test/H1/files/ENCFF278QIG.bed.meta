@@ -1,0 +1,4 @@
+database	ENCODE
+TF	REST-human
+assembly	GRCh38
+output_type	conservative IDR thresholded peaks

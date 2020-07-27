@@ -1,0 +1,793 @@
+
+//
+// Import relevant Synchrony modules.
+//
+
+
+
+
+import synchrony.genomeannot.GenomeAnnot._
+import synchrony.genomeannot.GenomeAnnot.GenomeLocus._
+import synchrony.genomeannot.BedWrapper._
+import synchrony.genomeannot.BedWrapper.BedFile._
+import synchrony.genomeannot.BedWrapper.BedFile.OpG._
+import synchrony.genomeannot.BedWrapper.implicits._
+
+//
+// Our example datasets/tracks.
+//
+
+
+val dir = "../../synchrony-1/"
+val fileA = dir + "test/test-project/files/ENCFF278QIG.bed"
+val fileB = dir + "test/test-project/files/ENCFF950MBW.bed"
+
+val genes = onDiskBedFile(fileA).sorted
+val peaks = onDiskBedFile(fileB).sorted
+
+
+//
+// Some functions to print and count results.
+//
+
+def printres[A](it:Iterator[A]) = it.foreach(x => println(x))
+def countres[A](it:Iterator[A]) = it.length
+
+
+
+//
+// Example 1----------
+//
+// Find for each chromosome, the number of genes in it.
+//
+//
+// SOLUTION: Use Synchrony's groupby with aggregate function count.
+
+
+	genes.groupby(_.chrom)(count)
+
+
+
+
+
+// Example 2----------
+// 
+// Find for each chromosome, the longest genes in it.  
+// 
+// 
+// SOLUTION: Use Synchrony's groupby with aggregate function maximize.
+
+ 
+	genes.groupby(_.chrom){ maximize(_.size) }
+
+
+//
+// Example 3----------
+//
+// Find for each chromosome, the average distance between
+// consecutive genes on the same chromosome.
+//
+//
+// SOLUTION: Use Synchrony's sliding-window aggregate function.
+// Here, withSlidingN(n) is an "aggregate combinator" that
+// lifts an aggregate function (average in this case) to apply
+// it to a sliding window of size n+1, which sees n previous
+// items (x._1 is a vector of these n previous items) plus the
+// current item (x._2 is the current item).
+
+
+        import synchrony.programming.Sri.withSlidingN
+
+	genes.groupby[String, Double](_.chrom) {
+          withSlidingN(1)(average(x => x._1(0) distFrom x._2))
+        }
+
+
+
+// 
+// Example 4----------
+// 
+// Find for each chromosome, the average distance between
+// consecutive genes on the same chromosome. Count also the
+// number of genes on each chromosome.
+//
+//
+// SOLUTION: We compose (+) the count aggregate function and
+// the sliding-window average distance aggregate function.
+// The interesting aspect is that although count looks at
+// one element at a time, and the sliding-window looks at
+// two elements at a time, both aggregate functions are
+// executed smoothly within a single loop (i.e. not in two
+// separate independent loops), scanning each group once.
+// Another interesting aspect is that both aggregate 
+// functions are computed on-the-fly as each element/
+// window is presented to them, rather wait till each group
+// is accumulated completely.
+
+
+        import synchrony.programming.Sri.withSlidingN
+
+	genes.groupby(_.chrom) {
+          count + withSlidingN(1)(average(x => x._1(0) distFrom x._2))
+        }
+
+
+// 
+// Example 5----------
+// 
+// Find for each gene on chromosome 1, those genes that 
+// are within 5,000 bp at either end of of it. 
+// Omit genes without such neighbours. 
+// 
+// SOLUTION: Use scala's filter to zoom into chr1, then
+// Synchrony's synced iterator. Also, as the default
+// canSee syncs only genes within 1,000 bp, need to 
+// change it to sync within 10,000 bp.
+
+
+    val (itB, itA) = genes .filtered(_.chrom == "chr1") .lmTrack .connect(
+         genes.exTrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(DLE(5000)))
+
+    for (gene <- itB;
+         neighbour <- itA syncedWith gene;
+         if neighbour != gene)
+    yield (gene, neighbour)
+
+
+// NOTE: The "neighbour != gene" part is needed, so
+// that the gene itself is excluded as its own 
+// neighbour.
+//
+// NOTE: DLE(n), DL(n), DGE(n), and DG(n) are distance 
+// constraints with the same meaning in GMQL. See the 
+// module GenomeLocus for a complete list of distance
+// and "topological" predicates.
+//
+// NOTE: GenomeLocus.cond() takes in any number of
+// distance and topological contraints, and tests
+// whether they are satisfied by a pair of loci that 
+// are on the same chromosome. Also, it returns false
+// if the two loci are not on the same chromosome.
+
+
+
+// Example 6----------
+// 
+// For each gene on chromosome 1, find the furthest gene
+// that is within 5000 bp at either end of it. If there
+// is no other gene within 5000 bp, omit this gene from
+// the answer.
+// 
+// 
+// SOLUTION: Use scala's filter to zoom into chr1, then
+// Synchrony iterator. Use the maximize aggregate function 
+// to locate the furthest gene and compute its distance.
+
+
+    val (itB, itA) = genes .filtered(_.chrom == "chr1") .lmTrack .connect(
+         genes.exTrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(DLE(5000)))
+
+    for (gene <- itB;
+	 neighbours = (itA syncedWith gene) filter (_ != gene);
+	 (dist, far) <- neighbours aggregateBy { maximize(_ distFrom gene) })
+    yield (gene, dist, far)
+ 
+
+// NOTE: We can also do the above in a more traditional
+// SQL style, like this:
+
+
+    val (itB, itA) = genes .filtered(_.chrom == "chr1") .lmTrack .connect(
+         genes.exTrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(DLE(5000)))
+
+    { for (gene <- itB;
+           neighbour <- itA syncedWith gene;
+           if neighbour != gene)
+      yield (gene, gene distFrom neighbour, neighbour)
+     } 
+     .partitionby(_._1){ maximizef[(Bed, Int, Bed), Bed](_._2)(_._3) } 
+
+
+// Example 7----------
+// 
+// Check whether the genes are sorted according to their genome loci.
+// 
+// 
+// SOLUTION: Use Synchrony's sliding combinator with the
+// forall aggregate function. Here (x,y) are the consecutive
+// genes in each window.
+
+
+        import synchrony.programming.Sri.withSlidingN
+
+        val leq = SimpleBedEntry.ordering.lteq _
+
+	genes flatAggregateBy { withSlidingN(1) { 
+          forall { case (x,y) => leq(x(0), y) } } }
+
+
+
+// Example 8----------
+// 
+// Find the consecutive-gene pairs that are not sorted
+// according to their genome loci.
+// 
+       
+
+        import synchrony.programming.Sri.withSlidingN
+
+        val leq = SimpleBedEntry.ordering.lteq _
+
+	genes flatAggregateBy { withSlidingN(1) { 
+          ext { case (x,y) => if (!leq(x(0), y)) Vector((x(0), y)) 
+                              else Vector() }}}
+
+
+
+// Example 9--------
+//
+// Count genes that have the same loci. 
+//
+// SOLUTION: User Synchrony's partitionBy.  Groupby and 
+// partitionby are the "group by" operations in Synchrony. 
+// Groupby does not assume the input is ordered according
+// to the groupby key (locus, in this case.) Partitionby
+// assumes the input is ordered according to the groupby 
+// key, and so is more efficient: It can output a group 
+// immediately when the next item has a different key.
+
+
+         genes.partitionby(_.locus)(count)
+
+
+
+//
+// Since chr1 is the longest, let's use it only in the 
+// remaining examples.
+//
+
+def chr1 = genes.filtered(_.chrom == "chr1")
+def peaks1 = peaks.filtered(_.chrom == "chr1")
+
+
+
+// Example 11--------
+// 
+// Find the 3 nearest neigbours ahead of each gene
+// in chr1. Restrict to within 10,000 bp of the gene 
+// and do not overlap with the gene.  Omit those genes'
+// without such neighbours.
+// 
+// 
+// SOLUTION: Synchrony's sliding iterator. "ext" is the
+// "flatmap" aggregate function.
+
+
+        import synchrony.programming.Sri.withSlidingN
+
+        chr1 flatAggregateBy { withSlidingN(3) {
+           ext { case (x, gene) =>
+                   for (neighbour <- x; 
+                        if cond(DLE(10000), Overlap(1))(neighbour, gene))
+                   yield (gene, neighbour) } }}
+
+
+// NOTE: This also shows that GMQL's MD(k) operation can done
+// using sliding window aggregate function. We will see more of
+// this in later examples.
+//
+// NOTE: The query is also quite easy write in SQL-style
+// using sliding windows, like this:
+
+
+        import synchrony.programming.Sri.withSlidingN
+
+        def slidingIteratorN[A](n: Int)(it: Iterator[A]) =
+          for ((x, y) <- it.flatAggregateBy(withSlidingN(n - 1)(keep)))
+          yield (x :+ y)
+
+        for(neighbours <- slidingIteratorN(4)(chr1);
+            gene = neighbours(3);
+            neighbour <- neighbours;
+            if neighbour != gene;
+            if cond(DLE(10000), Overlap(1))(neighbour, gene))
+        yield (gene, neighbour)
+
+
+// Example 12--------
+//   
+// Find the 3 nearest neigbours at either end of each gene,
+// provided they are within 10,000 bp of the gene and 
+// do not overlap the gene.  Omit those genes without any
+// such neighbours.
+// 
+// SOLUTION: Use Synchrony's sliding iterator, but with a 
+// twist; use the one in the middle, i.e. x(3), as ref gene.
+
+
+        import synchrony.programming.Sri.withSlidingN
+
+        chr1 flatAggregateBy {withSlidingN(6) {
+          ext {case (x, g) =>
+             for (neighbour <- x :+ g;
+                  gene = x(3);
+                  if cond(DLE(10000),Overlap(1))(neighbour, gene))
+             yield (gene, neighbour) } }}
+
+// NOTE: You can also express the query above in a
+// more SQL-like manner, like this"
+
+
+        import synchrony.programming.Sri.withSlidingN
+
+        def slidingIteratorN[A](n: Int)(it: Iterator[A]): Vector[Vector[A]] =
+          for ((x, y) <- it.flatAggregateBy(withSlidingN(n - 1)(keep)))
+          yield (x :+ y)
+
+        for (neighbours <- slidingIteratorN(7)(chr1);
+             gene = neighbours(3);
+             neighbour <- neighbours;
+             if (gene != neighbour);
+             if cond(DLE(10000),Overlap(1))(neighbour, gene))
+        yield (gene, neighbour)
+
+             
+
+// Example 13--------
+// 
+// For each gene in chr1, compute the average score of the
+// set of peaks which overlap it. Omit genes w/o matched peaks.
+// 
+// SOLUTION: Use Synchrony iterators to synchronize genes and
+// peaks.  Change canSee to use overlap to directly sync genes
+// to their respective overlapping peaks.
+
+
+    val (itB, itA) = chr1.lmTrack.connect(
+         peaks1.exTrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(Overlap(1)))
+
+    for (gene <- itB;
+         peaks = itA syncedWith gene;
+         if (! peaks.isEmpty);
+         avg <- peaks aggregateBy { average(_.score) })
+    yield (gene, avg)
+
+
+//
+// NOTE: You can also write this in a more SQL-like way:
+
+
+    val (itB, itA) = chr1.lmTrack.connect(
+         peaks1.exTrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(Overlap(1)))
+
+    { for (gene <- itB;
+           peak <- itA syncedWith gene;
+           if peak.overlap(1)(gene))
+      yield (gene, peak) 
+    } .partitionby(_._1){ average(_._2.score) }
+
+
+
+// Example 14--------
+// 
+// For each gene in chr1, compute the average score of the
+// set of peaks that overlap it. Show also how many peaks 
+// overlap it. Omit genes w/o matched peaks.
+// 
+// SOLUTION: Use Synchrony iterators to synchronize genes 
+// and peaks. This solution shows how aggregate functions
+// can be easily "combined" using an aggregate combinator, 
+// + in this case.
+
+
+    val (itB, itA) = chr1.lmTrack.connect(
+         peaks1.exTrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(Overlap(1)))
+
+    for (gene <- itB;
+         peaks = itA syncedWith gene;
+         if (! peaks.isEmpty);
+         (cnt, avg) <- peaks aggregateBy {count + average(_.score)})
+    yield (gene, avg, cnt)
+ 
+
+//
+// NOTE: You can do the same in a more SQL-like manner:
+
+
+    val (itB, itA) = chr1.lmTrack.connect(
+         peaks1.exTrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(Overlap(1)))
+
+    { for (gene <- itB;
+           peak <- itA syncedWith gene;
+           if peak.overlap(1)(gene))
+       yield (gene, peak)
+     }.partitionby(_._1){ count + average(_._2.score) }
+
+
+
+// Example 15--------
+// 
+// Same query. But show also the peaks overlapping the
+// genes.
+// 
+// SOLUTION:  Same as before, but use also the aggregate
+// function combinator withAcc to transform the aggregate
+// function average + count into one that produces what
+// they are iterating over.
+
+
+    import synchrony.programming.Sri.withAcc
+
+    val (itB, itA) = chr1.lmTrack.connect(
+         peaks1.exTrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(Overlap(1)))
+
+    for (gene <- itB;
+         peaks = itA syncedWith gene;
+         if (! peaks.isEmpty);
+         ((cnt, avg), ps) <- peaks aggregateBy { withAcc {
+                                   count + average(_.score)}})
+    yield (gene, avg, cnt, ps)
+ 
+
+//
+// NOTE: You can also write this in a SQL-like way:
+
+
+    import synchrony.programming.Sri.withAccf
+
+    val (itB, itA) = chr1.lmTrack.connect(
+         peaks1.exTrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(Overlap(1)))
+
+     for (gene <- itB;
+           peak <- itA syncedWith gene)
+     yield (gene, peak) 
+     .partitionby(_._1) {
+         withAccf((x: (Bed, Bed)) => x._2)(count + average(_._2.score))
+    }
+ 
+
+
+// NOTE: This query is basically the following in GMQL:
+//
+//       OUTPUT = MAP(avg AS AVG(score)) genes peaks
+
+
+
+// Example 16------
+//
+// For genes in chr1, find those peaks that bind 10,000-50,000 bp
+// in front of them. Omit genes w/o such peaks. 
+// 
+// 
+// SOLUTION: The simplest way is probably to use Synchrony iterator
+// by customizing the canSee predicate.
+
+
+    val (itB, itA) = chr1.lmTrack.connect(
+         peaks1.exTrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(EndBefore, DLE(50000), DGE(10000)))
+
+   for (gene <- itB;
+        peak <- itA syncedWith gene)
+   yield (gene, peak)
+
+
+// NOTE: This shows how something like the GMQL query below,
+// can be implemented using Synchrony iterators. I interpreted
+// GMQL's UPSTREAM to mean regions that end before the start
+// of the ref region; hence the EndBefore above. Replace EndBefore
+// with StartBefore if UPSTREAM is to be interpreted to mean
+// regions that start before the ref region. 
+//
+//        TFBS_TSS = JOIN(DGE(10000), DLE(50000), UPSTREAM;
+//              output: BOTH) TFBS TSS;
+
+
+
+// Example 17------
+// 
+// Find those peaks that binds 10,000-50,000 bp **after** the genes.
+// 
+// 
+// SOLUTION: The tricky part is "after". For Synchrony iterator
+// to work, isBefore and canSee must form a convex. Obviously,
+// a canSee region that is 10,000-50,000bp after the gene cannot
+// be before it; i.e. there is a gap which violates convexity.
+// So how? 
+//
+// You can change canSee to the following, which sees a convex
+// region from 50,000 bp before to 50,000 bp after a gene:
+//      canSee = GenomeLocus.cond(DLE(50000))
+// Then you filter for peaks after the gene.
+
+
+    val (itB, itA) = chr1.lmTrack.connect(
+         peaks1.exTrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(DLE(50000)))
+
+   for(gene <- itB;
+       peak <- itA syncedWith gene;
+       if gene.cond(DLE(50000), DGE(10000), EndBefore)(peak))
+   yield (gene, peak)
+
+
+
+// Alternatively, you can redefine isBefore, like below :-).
+
+
+        def nisBefore(x:Bed, y:Bed) = (x.locus - 50000) startBefore y.locus
+
+
+// That is, if we move x's locus 50000 forward/upstream, it becomes
+// before y, then we consider it to be before y. With this, and the
+// previously redefined canSee, the Synchrony iterator below
+// synchronizes genes to peaks that are 10000-50000 after them:
+
+    def nisBefore(x:Bed, y:Bed) = (x.locus - 50000) startBefore y.locus
+
+    val (itB, itA) = chr1.lmTrack.connect(
+         peaks1.exTrack,
+         nisBefore _,
+         GenomeLocus.cond(StartAfter, DLE(50000), DGE(10000)))
+
+   for (gene <- itB;
+        peak <- itA syncedWith gene)
+   yield (gene, peak)
+
+
+
+// Example 18------------
+// 
+// For each gene in chr1, count the peaks that touch it and 
+// obtain also the minimum score of these peaks that touch it.
+// 
+// SOLUTION: Use Synchrony iterator. The default canSee and
+// isBefore are already the right ones.
+
+
+    val (itB, itA) = chr1.lmTrack.connect(
+         peaks1.exTrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(DLE(500)))
+
+    for(gene <- itB;
+        pks  = (itA syncedWith gene) filter (_ touch gene);
+        if (!pks.isEmpty);
+        (c, m) <- pks aggregateBy { count + smallest(_.score) })
+    yield (gene, c, m, pks)
+
+
+//
+// NOTE: Here is a more SQL-like version...
+
+
+    import synchrony.programming.Sri.withAccf
+
+    val (itB, itA) = chr1.lmTrack.connect(
+         peaks1.exTrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(DLE(500)))
+
+    for (gene <- itB;
+         peak <- itA syncedWith gene;
+         if peak touch gene)
+    yield (gene, peak)
+    .partitionby(_._1) {
+        withAccf((x: (Bed, Bed)) => x._2)(count + smallest(_._2.score))
+    }
+
+
+
+// Example 19---------
+// 
+// For each gene on chr1, obtain upto k (say k=3) peaks that
+// are neareast to it.  Also, ensure that the selected peaks are 
+// within 10,000 bp of either end of the gene.
+// 
+// 
+// SOLUTION: Use Synchrony iterator to schronize gene to peaks
+// within 10,000 bp at either end. Sort these peaks by distance
+// from the gene. Take the first k.
+
+
+    val (itB, itA) = chr1.lmTrack.connect(
+         peaks1.exTrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(DLE(10000)))
+
+    for (gene <- itB;
+         pks = itA syncedWith gene;
+         if !pks.isEmpty;
+         nearest3 = pks.sortBy(_.locus distFrom gene.locus).take(3))
+    yield (gene, nearest3)
+
+
+// NOTE: This query actually implements GMQL's DLE(n), MD(k) operations
+// in join queries.
+
+
+
+// Example 20---------
+// 
+// For each gene g on chr1, obtain peaks that are within 
+// 10,000 bp of either end of the gene g AND ensure that
+// these peaks do not cross into other genes (unless these
+// other genes overlap g).
+// 
+// 
+// SOLUTION: Synchronize the genes track both to itself and
+// to the peaks. This way, given a gene, we can see both
+// genes and peaks within 10000 bp of it.
+
+
+    val lmtrack = chr1.lmTrack
+
+    val flankg = chr1.exTrack.sync(
+         lmtrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(DLE(10000)))
+
+    val flankp = peaks1.exTrack.sync(
+         lmtrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(DLE(10000)))
+     
+   for (g <- lmtrack;
+        p <- flankp syncedWith g;
+        fgenes = (flankg syncedWith g) filter (_.distFrom(g) > 0); 
+        if forall((fg:Bed) => p.between(g,fg) || p.between(fg,g))(fgenes))
+   yield (g, p)
+
+
+
+
+// Example 21---------
+// 
+// Same as above. But this time, retain only up to three peaks nearest
+// to either end of g.
+// 
+// 
+// SOLUTION:
+
+
+
+    val lmtrack = chr1.lmTrack
+
+    val flankg = chr1.exTrack.sync(
+         lmtrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(DLE(10000)))
+
+    val flankp = peaks1.exTrack.sync(
+         lmtrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(DLE(10000)))
+     
+    for (g <- lmtrack;
+         fgenes = (flankg syncedWith g) filter (_.distFrom(g) > 0);
+         pks = for (p <- flankp syncedWith g;
+                    if forall((fg:Bed) => 
+                               p.between(g, fg) ||
+                               p.between(fg, g))(fgenes))
+               yield p;
+         if !pks.isEmpty;
+         nearest3 = pks.sortBy(_ distFrom g).take(3))
+   yield (g, nearest3)
+
+
+             
+
+// Example 24---------
+//
+// Compute the intersection of gene and peak loci that
+// are within 20 bp of each other. 
+//
+// SOLUTION:
+
+
+    val (itB, itA) = chr1.lmTrack.connect(
+         peaks1.exTrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(DLE(20)))
+
+    for (g <- itB;
+         p <- itA syncedWith g;
+         l <- g.locus intersect p.locus)
+    yield SimpleBedEntry(l).mergeMisc(g.misc ++ p.misc)
+
+
+// NOTE: This implements the GMQL query below, modulo the join on cell.
+//
+//          TF_HM_OVERLAP = JOIN(DLE(20); output: INT; joinby: cell) TFBS HM
+
+
+
+// Example 25---------
+//
+// Compute the intersection of gene and peak loci that are
+// overlapping or adjacent to each other. 
+// 
+// SOLUTION: 
+
+
+    val (itB, itA) = chr1.lmTrack.connect(
+         peaks1.exTrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(DLE(500)))
+
+    for (g <- itB;
+         p <- itA syncedWith g;
+         if p.overlap(0)(g);
+         l <- g.locus intersect p.locus)
+    yield SimpleBedEntry(l).mergeMisc(g.misc ++ p.misc)
+
+
+// NOTE: This implements the GMQL query below, modulo the join on cell.
+//
+//         TF_HM_OVERLAP = JOIN(DLE(0); output: INT; joinby: cell) TFBS HM
+
+
+
+
+// Example 27---------
+//
+// Find genes that are adjacent to some peak loci.
+// 
+// SOLUTION:
+
+
+    val (itB, itA) = chr1.lmTrack.connect(
+         peaks1.exTrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(DLE(500)))
+
+    for (g <- itB;
+         p <- itA syncedWith g;
+         if g touch p)
+    yield g
+
+
+// NOTE: Implements the GMQL query below, modulo joinby karyotype.
+//
+//      TF_HM_ADJACENT = JOIN(DGE(0), DLE(0); output: LEFT;
+//   
+
+
+    val (itB, itA) = chr1.lmTrack.connect(
+         peaks1.exTrack,
+         GenomeLocus.isBefore _,
+         GenomeLocus.cond(DLE(500)))
+
+    for (g <- itB;
+         p <- itA syncedWith g;
+         if (g.score == p.score) && (g.overlap(1)(p));
+         l <- g.locus intersect p.locus)
+    yield SimpleBedEntry(l).mergeMisc(g.misc ++ p.misc)
+
+
+// NOTE: This query implements GMQL query below,
+//
+//         TF_HM_OVERLAP = JOIN(DL(0); on_attributes: score; 
+//                output: INT) TFBS HM;
+
+

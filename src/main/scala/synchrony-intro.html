@@ -1,0 +1,1421 @@
+
+<!-- saved from url=(0084)file:///D:/wls-stuff/public_html/projects/intensional/synchrony/synchrony-intro.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><h1>Iterating in Synchrony</h1>
+<p>
+</p><hr>
+<p>
+
+</p><h2>Introduction</h2>
+<p>
+
+Scala arguably provides the most comprehensive support for
+collection types (lists, sets, vectors, etc.) among modern 
+programming languages in terms of syntax and library functions.
+In terms of syntax, it provides the popular and user-friendly
+comprehension syntax.  In terms of libraries, it provides an
+extensive collection of functions such as <code>map</code>, 
+<code>flatMap</code>, <code>filter</code>, various forms of
+<code>fold</code>, as well as the more imperative 
+<code>iterator</code> for iterating
+on-demand some operations on each item in a collection.
+These library functions on collection types have a long history;
+some of them (e.g. <code>map</code>, <code>filter</code>, and
+<code>foldRight</code>) even go all the way 
+back to the first functional programming languages.
+</p><p>
+
+Are the Scala libraries missing some important fundamental 
+functions for collection types? From the perspective of 
+expressive power, which concerns what functions are definable,
+the Scala libraries and the comprehension syntax are arguably
+complete at least with respect to first-order queries (e.g.
+queries that a relational database can handle.) However, 
+from the perspective of *intensional* expressive power, 
+which concerns what *algorithms* are definable,
+the situation is not as clear.
+</p><p>
+
+In this <i>Iterating in Synchrony</i> project, 
+we have three objectives:
+</p><ol>
+<li> We show that current collection-type libraries
+and comprehension syntax exhibit an important gap. 
+In particular, a common and important class of efficient
+algorithms are not expressible using *only* these library 
+functions and comprehension syntax, even though the 
+corresponding functions (realized by these algorithms)
+are easily albeit inefficiently expressible using 
+these library functions and comprehension syntax.
+<p>
+
+</p></li><li>As efficiency is a key issue in computing, we propose 
+an addition to the standard design of collection-type 
+libraries. We call this addition <i>Synchrony iterators</i>. 
+We articulate the theoretical conditions to ensure the
+correct use of Synchrony iterators, and show that
+this addresses the weakness identified above.
+<p>
+
+</p></li><li>For a more comprehensive demonstration of this
+enhancement to Scala's collection-type libraries, 
+we emulate the GenoMetric Query Language (GMQL) on top
+of this enhancement.  GMQL is a query language specially
+designed for querying genome databases; it has some
+operations that are not easy to implement efficiently. 
+We show that GMQL can be implemented in a clean and compact
+manner on top of Scala collection-type libraries *augmented
+with Synchrony iterators*. We show also that our emulation, 
+despite its simplicity, is efficient.
+<p>
+</p></li></ol>
+<p>
+</p><p>
+<br>
+<br>
+</p><p>
+
+
+</p><h2>Motivating Examples</h2>
+<p>
+
+Here we describe several example functions. 
+These functions all have the following
+three characteristics:
+</p><p>
+
+</p><ol>
+<li> These functions are easily expressible in 
+Scala using only comprehension syntax and/or 
+its collection-type libraries.
+<p>
+
+</p></li><li> There are obvious linear-time algorithms for these
+functions.  But an obvious direct implementation of 
+these efficient algorithms in Scala requires using 
+recursive functions, while-loops, higher-order functions,
+and/or nested collections.
+<p>
+
+</p></li><li>There is no apparent way to provide linear-time 
+implementation for these functions in Scala using
+comprehension syntax and collection-type libraries,
+without defining recursive functions, while-loops,
+higher-order functions, and/or nested collections.
+</li></ol>
+<p>
+
+</p><h3>Example I: Intersection of two sorted duplicate-free collections</h3>
+
+The function which computes the intersection of two *sorted* *duplicate-free* vectors, <code>xs:Vector[Int]</code> and
+<code>ys:Vector[Int]</code>, has the obvious 
+tail-recursive definition below, which runs in
+O(|<code>xs</code>| + |<code>ys</code>|) time.
+Note that this complexity claim assumes that, in Scala,
+vectors support constant-time pre- and post-pending.
+If not, <code>acc</code> below should be defined 
+as a linked list instead; and we copy <code>acc</code>
+to a vector, or to other collection types as needed, when
+returning the result. Such a detour via a linked list
+adds at most a linear amount of overheads; so the
+overall time complexity remains
+O(|<code>xs</code>| + |<code>ys</code>|).
+<p>
+
+<code>
+<textarea readonly="true" style="background-color:lightgrey" rows="14" cols="85">
+def intersect(xs:Vector[Int], ys:Vector[Int]):Vector[Int] = 
+{ // 
+  // Requires: xs and ys are sorted duplicate-free vectors.
+
+  def aux(xs:Vector[Int], ys:Vector[Int], acc:Vector[Int]):Vector[Int] =
+    if (xs.isEmpty || ys.isEmpty) acc else
+    if (xs.head &lt; ys.head) aux(xs.tail, ys, acc) else
+    if (ys.head &lt; xs.head) aux(xs, ys.tail, acc) else
+    aux(xs.tail, ys.tail, acc :+ xs.head)
+
+  aux(xs, ys, Vector())
+}
+</textarea>
+</code>
+</p><p>
+
+This function can also be implemented in Scala using
+comprehension syntax. Although the implementation
+in comprehension syntax below is much more readable
+than the tail-recursive version,
+it is unfortunately quadratic in time complexity.
+</p><p>
+
+<code>
+<textarea readonly="true" style="background-color:lightgrey" rows="5" cols="85">
+def intersect1(xs:Vector[Int], ys:Vector[Int]):Vector[Int] =
+  for (x &lt;- xs; y &lt;- ys; if (x == y)) 
+  yield x
+</textarea>
+</code>
+</p><p>
+
+It can also be implemented, as shown below,
+in Scala using functions (e.g. <code>filter</code>
+and <code>contains</code>) in the vector library.
+But this implementation is 
+quadratic in time complexity as well, since 
+<code>filter</code>, <code>contains</code>, and 
+practically all other functions in the library, are
+linear in time complexity wrt their input vector. 
+Even if we assume there is a pre-built index on 
+the vector <code>ys</code> and <code>contains</code>
+uses this index for fast checking, and thus
+<code>contains</code> can be expected to run 
+in O(log(|<code>ys</code>|)) time, the overall time 
+complexity is still super-linear, viz. 
+O(|<code>xs</code>| * log(|<code>ys</code>|)).
+</p><p>
+
+<code>
+<textarea readonly="true" style="background-color:lightgrey" rows="5" cols="85">
+def intersect2(xs:Vector[Int], ys:Vector[Int]):Vector[Int] =
+  xs filter (x =&gt; ys contains x)
+</textarea>
+</code>
+</p><p>
+
+</p><h3>Example II: Database join</h3>
+<p>
+
+Say we have a department-manager vector, 
+<code>xs:Vector[DeptMgr(mgr, dept)]</code>,
+and a department-staff vector, 
+<code>ys:Vector[DeptStaff(staff, dept)]</code>, 
+which are both sorted by department. Moreover,
+everyone belongs to exactly one department, and 
+every department has exactly one manager. 
+A function that computes a manager-staff vector
+has the following obvious tail-recursive definition
+that runs in O(|<code>xs</code>| + |<code>ys</code>|)
+time.
+</p><p>
+
+<code>
+<textarea readonly="true" style="background-color:lightgrey" rows="20" cols="85">
+case class DeptMgr(mgr:String, dept:String)
+case class DeptStaff(staff:String, dept:String)
+case class MgrStaff(mgr:String, staff:String)
+
+def mgr_staff(xs:Vector[DeptMgr], ys:Vector[DeptStaff]):Vector[MgrStaff] =
+{ //
+  // Requires: xs and ys are both sorted on dept.
+
+  def aux(xs:Vector[DeptMgr], ys:Vector[DeptStaff], acc:Vector[MgrStaff]):Vector[MgrStaff] =
+    if (xs.isEmpty || ys.isEmpty) acc else
+    if (xs.head.dept &lt; ys.head.dept) aux(xs.tail, ys, acc) else
+    if (xs.head.dept &gt; ys.head.dept) aux(xs, ys.tail, acc) else
+    if (xs.head.mgr == ys.head.staff) aux(xs, ys.tail, acc) else
+    aux(xs, ys.tail, acc :+ MgrStaff(xs.head.mgr, ys.head.staff))
+
+  aux(xs, ys, Vector())
+}
+</textarea>
+</code>
+</p><p>
+
+This function can also be implemented in Scala using
+only comprehension syntax, as shown below. While this
+implementation is much more readable and much more 
+easily seen to be correct than the earlier
+tail-recursive one, it is unfortunately quadratic
+in time complexity.
+</p><p>
+
+<code>
+<textarea readonly="true" style="background-color:lightgrey" rows="5" cols="85">
+def mgr_staff1(xs:Vector[DeptMgr], ys:Vector[DeptStaff]):Vector[MgrStaff] =
+  for (x &lt;- xs; y &lt;- ys; if (x.dept == y.dept &amp;&amp; x.mgr != y.staff))
+  yield MgrStaff(x.mgr, y.staff)
+</textarea>
+</code>
+</p><p>
+
+It can also be implemented in Scala using functions 
+(e.g. <code>flatMap</code>) in the vector library. 
+However, such an implementation is also quadratic in
+time complexity, as <code>flatMap</code> and 
+practically all other functions in the library, are
+linear in time complexity wrt their input vector.
+</p><p>
+
+<code>
+<textarea readonly="true" style="background-color:lightgrey" rows="8" cols="85">
+def mgr_staff2(xs:Vector[DeptMgr], ys:Vector[DeptStaff]):Vector[MgrStaff] =
+  xs flatMap (x =&gt; 
+       ys flatmap (y =&gt; 
+	    if (y.dept == x.dept &amp;&amp; y.staff != x.mgr)
+	         Vector(MgrStaff(x.mgr, y.staff))
+	    else Vector()))
+</textarea>
+</code>
+</p><p>
+
+Even if both <code>xs</code> and <code>ys</code> 
+are unsorted, and thus sorting is required before 
+calling the tail-recursive <code>mgr_staff</code>, 
+the overall time complexity for this
+tail-recursive implementation is still 
+O(|<code>xs</code>| * log(|<code>xs</code>|) +
+|<code>ys</code>| * log(|<code>ys</code>|) +
+|<code>xs</code>| + |<code>ys</code>|), 
+which is much better than the quadratic 
+time complexity of <code>mgr_staff1</code> 
+and <code>mgr_staff2</code>. 
+</p><p>
+
+
+</p><h3>Example III: Transcription factors</h3>
+
+Say we have a vector of gene locus,
+<code>xs:Vector[Gene(name, chrom, start, end)]</code>,
+and a vector of transcription factor binding sites, 
+<code>ys:Vector[TF(name, chrom, start, end)]</code>. 
+These vectors are sorted on loci, 
+i.e. <code>(chrom, start, end)</code>. 
+Moreover, while genes can have long loci, 
+transcription factor binding sites have short loci;
+and each gene's promoter overlaps only a small fraction
+of the transcription factor binding sites.
+(For simplicity, here, a gene's promoter is taken
+as the 1000bp region in front of its start.) 
+<p>
+
+Consider this query: For each gene, retrieve transcription
+factor binding sites in the promoter of the gene.
+The tail-recursive function below implements this query.
+Under the reasonable assumptions that <code>xs</code> and 
+<code>ys</code> are both sorted on loci, and there 
+are not too many transcription factor binding sites per
+gene promoter, this tail-recursive implementation has
+an expected O(|<code>xs</code>| + |<code>ys</code>|)
+time complexity. Nonetheless, it is rather easy to 
+get this implementation wrong, because genes and 
+transcription factors can both have overlapping loci. 
+</p><p>
+
+
+<code>
+<textarea readonly="true" style="background-color:lightgrey" rows="30" cols="85">
+case class Gene(name:String, chrom:String, start:Int, end:Int)
+case class TF(name:String, chrom:String, start:Int, end:Int)
+case class Binding(gene:Gene, tf:TF)
+
+def bindings(xs:Vector[Gene], ys:Vector[TF]):Vector[Binding] = 
+{ //
+  // Requires: xs and ys are sorted on loci, i.e. (chrom, start, end)
+
+  def aux(xs :Vector[Gene], 
+          ys :Vector[TF],
+	  zs :Vector[TF],
+          acc:Vector[Binding]):Vector[Binding] =
+    if (xs.isEmpty) acc else
+    if (ys.isEmpty &amp;&amp; zs.isEmpty) acc else
+    if (ys.isEmpty) aux(xs, zs, Vector(), acc) else
+    {
+      val x = xs.head
+      val y = ys.head
+      if (x.chrom &lt; y.chrom) aux(xs.tail, ys, Vector(), acc) else
+      if (x.chrom &lt; y.chrom) aux(xs, ys.tail, Vector(), acc) else
+      if (y.start &gt; x.start) aux(xs.tail, zs ++ ys, Vector(), acc) else
+      if (x.start - y.start &gt;= 1000) aux(xs, ys.tail, zs, acc) else
+      if (ys.tail.isEmpty) aux(xs.tail, zs ++ ys, Vector(), acc :+ Binding(x,y))
+      else aux(xs, ys.tail, zs :+ y, acc :+ Binding(x, y))
+    }
+
+  aux(xs,ys,Vector(), Vector())
+}
+</textarea>
+</code>
+</p><p>
+
+This function is much easier to express using comprehension
+syntax, in a way that is obviously correct, as shown below.
+Unfortunately, the time complexity of this easy-to-understand
+version is quadratic.
+</p><p>
+
+<code>
+<textarea readonly="true" style="background-color:lightgrey" rows="6" cols="85">
+def bindings1(xs:Vector[Gene], ys:Vector[TF]):Vector[Binding] =
+  for (x &lt;- xs; y &lt;- ys; 
+       if (x.chrom==y.chrom &amp;&amp; x.start &gt;= y.start &amp;&amp; x.start - y.start &lt; 1000))
+  yield Binding(x, y)
+</textarea>
+</code>
+</p><p>
+
+</p><h3>A call for Synchrony Iterators</h3>
+<p>
+
+The tail-recursive functions <code>intersect</code>,
+<code>mgr_staff</code>, and <code>bindings</code>
+are linear time in complexity, which is much more
+efficient than their comprehension-syntax and
+vector-library equivalents. There is one 
+fundamental explanation for this efficiency:
+the input vectors, <code>xs</code> and <code>ys</code>,
+are sorted and these tail-recursive functions
+directly exploit this sortedness to carry out
+their respectively processing by iterating on
+<code>xs</code> and <code>ys</code> in "synchrony",
+somewhat akin to merge-joining and merge-sorting. 
+
+In contrast, the corresponding implementations defined
+in terms of comprehension syntax and collection-type
+libraries are unable to exploit the sortedness 
+of their input, and they are also generally designed
+to have a single collection as their input.
+Consequently, these alternative
+implementations essentially use a pair of nested
+loops to process their input. While these alternative
+implementations are able to return correct results
+even for unsorted input, they over-kill and
+over-pay a price in their quadratic complexity
+when the input is already appropriately sorted.
+In fact, these alternative implementations are
+still over-paying the quadratic-complexity price
+even when the input is unsorted,
+because sorting can always be performed 
+when needed for a relatively affordable 
+mildly super-linear overhead.
+</p><p>
+
+The functions <code>intersect</code>,
+<code>mgr_staff</code>, and <code>bindings</code>
+make explicit use of recursion on two collections, 
+in order to exploit the sortedness of their input, 
+to achieve linear complexity. 
+This makes their codes harder to 
+understand and to get right, especially for
+complicated queries such as <code>bindings</code>.
+(Limsoon's confession: I only managed to get
+<code>bindings</code> right on the third try,
+assuming the current version is correct!)
+</p><p>
+
+It would have been so much better if it was possible
+to have easy-to-understand-and-check linear-time
+implementation of these functions in Scala
+using only comprehension syntax and collection-type
+libraries without the acrobatics of recursive functions,
+while-loops, higher-order functions, and/or nested collections.
+Alas, we could not think of such implementations.
+In fact, we even have a proof that this can't 
+be done, albeit for a slightly simplified 
+theoretical language.
+</p><p>
+
+These considerations led us to the concept
+of <i>Synchrony iterators</i>. The theory
+and practical realisation of which are
+described below.
+</p><p>
+</p><p>
+<br>
+<br>
+</p><p>
+
+
+
+</p><h2>Basic Theory of Synchrony Iterators</h2>
+<p>
+
+The example functions <code>intersect</code>,
+<code>mgr_staff</code>, and <code>bindings</code>
+exploit the sortedness of their two input vectors.
+In Scala's collection-type libraries, actually functions
+such as <code>foldRight</code> and <code>foldLeft</code>
+are also able to exploit the sortedness of their
+input. Yet there is no obvious way of using 
+<code>foldRight</code>, <code>foldLeft</code>, 
+and other collection-type library functions,
+to obtain linear-time implementation of
+our examples, without defining recursive functions,
+while-loops, etc. 
+The main reason is that <code>foldRight</code>,
+<code>foldLeft</code>, etc. are defined on a single
+input collection. There is no obvious way to process 
+two collections using these library functions, other
+than in a nested-loop manner.
+</p><p>
+
+Scala's collection-type libraries do
+provide a function <code>zip</code> which pairs
+up elements of two collections based strictly
+on their physical position in the two collections,
+viz. first with first, second with second, and so on.
+However, this mechanical pairing by <code>zip</code>
+cannot be used in a straightforward manner to implement
+any of our three examples, which require more general
+notions of pairing where pairs can form from
+different positions in the two collections.
+</p><p>
+
+Therefore, we propose to design an equivalent of
+<code>foldLeft</code> and <code>foldRight</code>
+that iterates on two collections in a more general
+synchronized manner. To achieve this, we need a 
+general way to relate two positions in two collections.
+This is achieved by introducing two logical predicates
+<i>isBefore</i> and <i>canSee</i>.
+
+Informally,
+we say "y isBefore x" to mean when we are iterating
+on or scanning two collections Y and X, 
+in a synchronized manner akin to merge-joining or merge-sorting,
+we should encounter the item y in Y
+before we encounter the item x in X.
+And we say "y canSee x" to mean the item y
+in Y corresponds to or matches the item
+x in X; in other words,
+x and y form a pair
+that we are interested in.
+</p><p>
+
+
+Now we provide a formal characterization of isBefore
+and canSee, by defining the conditions
+which isBefore and canSee need to satisfy. 
+Let us use the notation (x &lt;&lt; y | L) to mean
+"x appears physically before y in the collection L".
+Let X and Y be two collections, not necessarily
+of the same type. Let x, x', x'' denote elements in X.
+Let y, y', y'' denote elements in Y.
+With these notations, below are the conditions that 
+isBefore and canSee are required to satisfy.
+</p><p>
+
+</p><hr>
+<ol>
+<h3>Monotonicity of isBefore wrt (X, Y)</h3>
+<p>
+</p><li>(x &lt;&lt; x' | X) if, and only if, for all y in Y:
+y isBefore x implies y isBefore x'.
+<p>
+
+</p></li><li>(y' &lt;&lt; y | Y) if, and only if, for all x in X:
+y isBefore x implies y' isBefore x.
+<p>
+</p></li></ol>
+<p>
+
+</p><ol>
+<h3>Antimonotonicity of canSee wrt isBefore</h3>
+<p>
+Suppose isBefore is monotonic wrt X and Y. Then,
+</p><li>If (x &lt;&lt; x' | X), then for all y in Y: 
+y isBefore x, and not y canSee x, implies not y canSee x'.
+<p>
+
+</p></li><li>If (y &lt;&lt; y' | Y), then for all x in X:
+not y isBefore x, and not y canSee x, implies not y' canSee x.
+</li></ol>
+<hr>
+<p>
+
+The Antimonotonicity conditions are sometimes not easy
+to check or are less intuitive to think about for some people.
+However, a canSee predicate that is reflexive
+and convex always satisfies Antimonotonicity, when
+isBefore satisfies Monotonicity. So we can check
+convexity and reflexivity of canSee instead, which
+is often an easier task.
+</p><p>
+
+</p><hr>
+<ol>
+<h3>Reflexivity and Convexity assures Antimonotonicity of canSee</h3>
+<p>
+canSee satisfies Antimonotonicity wrt isBefore if
+the following three conditions hold:
+</p><p>
+</p><li> isBefore satisfies Monotonicity wrt (X,X); 
+<p>
+
+</p></li><li> canSee is reflexive (i.e. for all x in X: x canSee x); and 
+<p>
+
+</p></li><li> canSee is convex (i.e. for all (y &lt;&lt; y' &lt;&lt; y'' | X):
+y canSee x and y'' canSee x implies y' canSee x; and
+for all (x &lt;&lt; x' &lt;&lt; x'' | X):
+y canSee x and y canSee x'' implies y canSee x').
+</li></ol>
+<hr>
+<p>
+
+The Monotonicity conditions essentially articulate
+that the collections X and Y are sorted or ordered
+in a manner that is consistent with isBefore.
+This means that it is possible to iterate or scan
+the collections X and Y in a synchronized manner,
+to look for "matching" pairs of x in X and y in Y
+to perform actions on.
+</p><p>
+
+The Antimonotonicity conditions, on the other hand,
+provide us with two rules for moving on to the next
+x or the next y. Specifically, according to
+Antimonotonicity 1, when the current y in Y is
+before the current x in X, and this y cannot "see"
+(i.e. does not match) this x, then this y cannot
+see any of the following items in X either; this means
+we can just move on to the next item in Y. 
+And according to Antimonotonicity 2, when
+the current y in Y is after the current x in X,
+and this y cannot see this x, then all subsequent
+items in Y cannot see this x either; this means we can
+safely move on to the next item in X. 
+</p><p>
+
+When neither Antimonotonicity rule is triggered,
+we have either the current y in Y is after
+the current x in X and this y can see this x,
+or the current y in Y is before the current x 
+in X and this y can see this x. In both situations,
+the current y can see the current x. That is,
+we have a matching pair of x and y to perform
+some specified actions on. After the actions are 
+performed, we can choose to move on to the next
+item in X or in Y. In this work, we decide to
+keep the collection X as the reference (we later 
+call X the "landmark" track) and to move on to
+the next item in the collection Y (we later
+call Y the "experiment" track.) Since the next
+item in X may be an item that the current y
+can see, before moving on to the next item in
+Y, we should also "save" the current y; when we
+eventually move on to the next item in X, we
+must remember to "rewind" our position in Y
+at least back to this saved y.
+</p><p>
+
+Together, these conditions give us the 
+<code>syncFold</code> function below, 
+which iterates on two collections in synchrony.
+It is a tail-recursive generalization
+of the <code>foldLeft</code> function. 
+</p><p>
+
+<code>
+<textarea readonly="true" style="background-color:lightgrey" rows="44" cols="85">
+def syncFold[A,B,C](
+      f:(A,B,C)=&gt;C, 
+      e:C,
+      bf:(B,A)=&gt;Boolean,
+      cs:(B,A)=&gt;Boolean)(xs:Vector[A], ys:Vector[B]):C =
+{ //
+  // Requires: bf is monotonic wrt (xs, ys) 
+  //       and cs is antimonotonic wrt bf.
+  // The monotonicity of bf can be guaranteed if 
+  // xs and ys are sorted in a way consistent with bf.
+
+  def aux(xs:Vector[A], ys:Vector[B], zs:Vector[B], acc:C):C =
+  { 
+    if (xs.isEmpty) acc else
+    if (ys.isEmpty &amp;&amp; zs.isEmpty) acc else
+    if (ys.isEmpty) aux(xs, zs, Vector(), acc) else
+    {
+      val (x,y) = (xs.head, ys.head)
+
+      // bf(y,x) and !cs(y,x) implies forall x' after x: !cs(y,x')
+      // So y can be discarded safely, no need to save it in zs.
+      //
+      if (bf(y,x) &amp;&amp; !cs(y,x)) aux(xs, ys.tail, zs, acc) else
+
+      // !bf(y,x) and !cs(y,x) implies forall y' after y: !cs(y',x)
+      // So x can be discarded safely. But the next x may still be
+      // able to see some y saved earlier in zs. 
+      //
+      if (!bf(y,x) &amp;&amp; !cs(y,x)) aux(xs.tail, zs ++ ys, Vector(), acc) else
+
+      // At this point, cs(y,x); so process (x,y) using f.
+      // If there is no more y, then we are finished with
+      // this x; so move on to the next x.  Note that, 
+      // the next x may still be able to see this y;
+      // so save it in zs. 
+      //
+      if (ys.tail.isEmpty) aux(xs.tail, zs ++ ys, Vector(), f(x, y, acc))
+      else aux(xs, ys.tail, zs :+ y, f(x, y, acc))
+    }
+  }
+  aux(xs, ys, Vector(), e)
+}
+</textarea>
+</code>
+</p><p>
+
+
+Let us assume that <code>xs</code>, <code>ys</code>,
+<code>bf</code>, and <code>cs</code> satisfy
+the Monotonicity and Antimonotonicity conditions.
+Suppose <code>cs</code> has degree k wrt
+<code>xs</code> and <code>ys</code>, in the sense
+that each item in <code>ys</code>
+can see at most k items in <code>xs</code>, *or* 
+vice versa.  Therefore, for each item in 
+<code>xs</code>, at most k items in <code>ys</code>
+are "re-read" by <code>syncFold</code>. 
+So the total number of items from <code>ys</code>
+that are read or re-read is at most
+k * |<code>xs</code>| + |<code>ys</code>|,
+while the total number of items from 
+<code>xs</code> that are read is |<code>xs</code>|.
+Thus the function <code>syncFold</code> at most
+executes the function <code>f</code> a total of 
+(k + 1) * |<code>xs</code>| + |<code>ys</code>| times;
+i.e. it has linear time complexity O(|<code>xs</code>|
++ |<code>ys</code>|) in its two input collections,
+provided <code>cs</code> has a low degree (i.e. 
+the degree is less than some constant k)
+wrt to the two input vectors <code>xs</code> and
+<code>ys</code>.
+</p><p>
+
+</p><hr>
+<ul>
+<h3>Linear Time Complexity of syncFold</h3>
+<p>
+Suppose <code>bf</code> is monotonic wrt <code>(xs, ys)</code>,
+<code>cs</code> is antimonotonic wrt <code>bf</code>, and
+<code>cs</code> has degree at most k wrt <code>xs</code> and
+<code>ys</code>. Then
+<code>syncFold(f,e,bf,cs)(xs, ys)</code> applies <code>f</code>
+at most (k + 1) * |<code>xs</code>| + |<code>ys</code>| times.
+</p></ul>
+<hr>
+<p>
+
+We can thus achieve the linear time complexity of
+<code>intersect</code>, <code>mgr_staff</code>, and 
+<code>bindings</code> from our motivating examples 
+using <code>syncFold</code>. It can be easily
+appreciated below that one only needs
+to provide relatively straightforward definitions
+for the isBefore (<code>bf</code>) and 
+canSee (<code>cs</code>) predicates; and one does not
+need to worry about getting the "synchronized" iteration
+of <code>xs</code> and <code>ys</code> right, as
+<code>syncFold</code> takes care of this already.
+</p><p>
+
+<code>
+<textarea readonly="true" style="background-color:lightgrey" rows="37" cols="85">
+def sf_intersect(xs:Vector[Int], ys:Vector[Int]):Vector[Int] =
+{ //
+  // Requires: xs and ys are sorted
+
+  def bf(y:Int, x:Int) = y &lt; x
+  def cs(y:Int, x:Int) = y == x
+  def f(x:Int, y:Int, acc:Vector[Int]) = acc :+ x
+  syncFold(f,Vector(), bf, cs)(xs, ys)
+}
+
+def sf_mgr_staff(xs:Vector[DeptMgr], ys:Vector[DeptStaff]):Vector[MgrStaff] =
+{ //
+  // Requires: xs and ys are sorted on dept
+
+  def bf(y:DeptStaff, x:DeptMgr) = y.dept &lt; x.dept
+  def cs(y:DeptStaff, x:DeptMgr) = y.dept == x.dept
+  def f(x:DeptMgr, y:DeptStaff, acc:Vector[MgrStaff]) =
+    if (x.mgr == y.staff) acc else 
+    acc :+ MgrStaff(x.mgr, y.staff) 
+  syncFold(f,Vector(),bf,cs)(xs, ys)
+}
+
+def sf_bindings(xs:Vector[Gene], ys:Vector[TF]):Vector[Binding] =
+{ //
+  // Requires: xs and ys are sorted on loci
+
+  def bf(y:TF,x:Gene) = Ordering[(String,Int,Int)].lt(
+                           (y.chrom,y.start,y.end),
+			   (x.chrom,x.start,x.end))
+  def cs(y:TF,x:Gene) = (x.chrom==y.chrom) &amp;&amp;
+                        (y.start &lt;= x.start) &amp;&amp; 
+			(x.start - y.start &lt; 1000)
+  def f(x:Gene, y:TF, acc:Vector[Binding]) = acc :+ Binding(x,y)
+  syncFold(f, Vector(), bf, cs)(xs, ys)
+}
+</textarea>
+</code>
+</p><p>
+
+From these examples, the following relationship between a 
+restricted form of <code>syncFold</code>
+and comprehension syntax should be apparent. 
+</p><p>
+</p><hr>
+<ol>
+<h3>Comprehending syncFold</h3>
+<p>
+Suppose <code>bf</code> is monotonic wrt <code>(xs, ys)</code>
+and <code>cs</code> is antimonotonic wrt <code>bf</code>.
+Suppose also <code>f(x, y, acc) = acc :+ g(x,y)</code>. Then,
+these two Scala programs express the same function:
+</p><p>
+
+</p><li> <code>syncFold(f, Vector(), bf, cs)(xs, ys)</code>
+<p>
+
+</p></li><li><code>for(x&lt;- xs; y &lt;- ys; if (cs(x,y))) yield g(x,y)</code> 
+<p>
+However, when <code>cs</code> has low degree wrt
+<code>xs</code> and <code>ys</code>,
+the first program has linear time complexity
+while the second program has quadratic time complexity.
+</p></li></ol>
+<hr>
+<p>
+
+The <code>syncFold</code> function discards elements 
+in <code>xs</code> that no element in <code>ys</code>
+sees. This may not be what you want in some situations,
+e.g. when you want to retrieve those elements in
+<code>xs</code> that no element in <code>ys</code> sees.
+Also, <code>syncFold</code> pairs up each <code>x</code>
+in <code>xs</code> with each <code>y</code> in 
+<code>ys</code> that sees it. This may not be convenient
+in some situations; e.g. when you want to count the
+number of <code>y</code> that sees an <code>x</code>.
+
+
+Hence it might be useful to also provide a function
+<code>syncFoldGrp</code> that processes, as a group, those
+<code>y</code> that sees an <code>x</code>.
+You might have already realised that <code>syncFold</code>
+keeps <code>y</code>'s that can see the current
+<code>x</code> in the vector <code>zs</code>.
+So <code>syncFoldGrp</code> is just <code>syncFold</code>
+with <code>f</code> applied to <code>(x,zs, acc)</code>
+instead of <code>(x,y,acc)</code>.
+This is shown below. 
+</p><p>
+
+<code>
+<textarea readonly="true" style="background-color:lightgrey" rows="28" cols="85">
+def syncFoldGrp[A,B,C](
+      f:(A,Vector[B],C)=&gt;C, 
+      e:C,
+      bf:(B,A)=&gt;Boolean,
+      cs:(B,A)=&gt;Boolean)(xs:Vector[A], ys:Vector[B]):C =
+{ //
+  // Requires: bf is monotonic wrt (xs, ys)
+  //       and cs is antimonotonic wrt bf.
+  // The monotonicity of bf can be guaranteed if 
+  // xs and ys are sorted in a way consistent with bf.
+
+  def aux(xs:Vector[A], ys:Vector[B], zs:Vector[B], acc:C):C =
+  { 
+    if (xs.isEmpty) acc else
+    if (ys.isEmpty &amp;&amp; zs.isEmpty) acc else
+    if (ys.isEmpty) aux(xs, zs, Vector(), acc) else
+    {
+      val (x,y) = (xs.head, ys.head)
+      if (bf(y,x) &amp;&amp; !cs(y,x)) aux(xs, ys.tail, zs, acc) else 
+      if (!bf(y,x) &amp;&amp; !cs(y,x)) aux(xs.tail, zs++ys, Vector(), f(x,zs,acc)) else 
+      if (ys.tail.isEmpty) aux(xs.tail, zs++ys, Vector(), f(x, zs, acc)) else
+      aux(xs, ys.tail, zs :+ y, acc) 
+    }
+  }
+  aux(xs, ys, Vector(), e)
+}
+</textarea>
+</code>
+</p><p>
+
+Obviously, <code>syncFoldGrp</code> also has linear time
+complexity under analogous conditions as <code>syncFold</code>.
+</p><p>
+
+</p><hr>
+<ul>
+<h3>Linear Time Complex of synFoldGrp</h3>
+<p>
+
+Suppose <code>bf</code> is monotonic wrt <code>(xs, ys)</code>, 
+<code>cs</code> is antimonotonic wrt <code>bf</code>, and 
+<code>cs</code> has degree at most k wrt 
+<code>xs</code> and <code>ys</code>. Then
+<code>syncFoldGrp(f,e,bf,cs)(xs, ys)</code> applies 
+<code>f</code> at most (k + 1) * |<code>xs</code>| +
+|<code>ys</code>| times.
+</p></ul>
+<hr>
+<p>
+
+As an example, below, we use <code>syncFoldGrp</code>
+to count in linear time the number of 
+staff that each manager manages.
+</p><p>
+
+<code>
+<textarea readonly="true" style="background-color:lightgrey" rows="12" cols="85">
+def sfg_mgr_staff(xs:Vector[DeptMgr], ys:Vector[DeptStaff]):Vector[(String,Int)] =
+{ //
+  // Requires: xs and ys to be sorted on dept
+
+  def bf(y:DeptStaff, x:DeptMgr) = y.dept &lt; x.dept
+  def cs(y:DeptStaff, x:DeptMgr) = y.dept == x.dept
+  def f(x:DeptMgr, ys:Vector[DeptStaff], acc:Vector[(String,Int)]) =
+    acc :+ (x.mgr, ys count (y =&gt; y.staff != x.mgr))
+  syncFoldGrp(f, Vector(), bf, cs)(xs, ys)
+}
+</textarea>
+</code>
+</p><p>
+
+Incidentally, as shown below, <code>syncFold</code> 
+is efficiently and simply definable using 
+<code>syncFoldGrp</code> and <code>foldLeft</code>
+from the Scala vector library.
+</p><p>
+
+<code>
+<textarea readonly="true" style="background-color:lightgrey" rows="11" cols="85">
+def syncFold[A,B,C](
+      f:(A,B,C)=&gt;C,
+      e:C,
+      bf:(B,A)=&gt;Boolean,
+      cs:(B,A)=&gt;Boolean)(xs:Vector[A], ys:Vector[B]):C =
+{
+  def g(x:A, ys:Vector[B], acc:C) = ys.foldLeft(acc)({case (a,y) =&gt; f(x,y,a)})
+  syncFoldGrp(g, e, bf, cs)(xs, ys)
+}
+</textarea>
+</code>
+</p><p>
+
+To better appreciate <code>syncFoldGrp</code>,
+below is the relationship between a restricted
+form of <code>syncFoldGrp</code> and comprehension
+syntax.
+</p><p>
+
+</p><hr>
+<ol>
+<h3>Comprehending syncFoldGrp</h3>
+<p>
+
+Suppose <code>bf</code> is monotonic wrt <code>(x, y)</code>
+and <code>cs</code> is antimonotonic wrt <code>bf</code>.
+Suppose also <code>f(x, y, acc) = acc ++ g(x, y)</code>.
+Then, the following Scala programs
+express the same function:
+</p><p>
+</p><li>syncFoldGrp(f, Vector(), bf, cs)(xs, ys)
+<p>
+
+</p></li><li>for (x &lt;- xs; z &lt;- g(x,  ys filter (y =&gt; cs(y, x)))) yield z
+</li></ol>
+<hr>
+<p>
+
+</p><p>
+<br>
+<br>
+</p><p>
+
+
+</p><h2>User-friendly Implementation of Synchrony Iterators</h2>
+<p>
+
+<code>SyncFold</code> and <code>syncFoldGrp</code>
+have gone quite a long way to plug the gap in the intensional
+expressive power of Scala's collection-type libraries.
+Nevertheless, there are some deficiencies:
+</p><p>
+</p><ol>
+<li><code>SyncFold</code> and <code>syncFoldGrp</code>
+are defined for iterating on two vectors in synchrony.
+You will need to add their analogs for iterating on three,
+four, five, etc. vectors in synchrony. 
+<p>
+
+</p></li><li><code>SyncFold</code> and <code>syncFoldGrp</code>
+do not make it possible to use comprehension syntax
+over two or more collections *in synchrony*.
+That is, <code>syncFold</code> and <code>syncFoldGrp</code>
+are functions orthogonal to comprehension syntax.
+<p>
+
+</p></li><li><code>SyncFold</code> and <code>syncFoldGrp</code>
+are defined on vectors and are easily adapted for
+other collection types. However, it is not uncommon
+these days for one to need to process very large 
+collections. These may be too large to fit efficiently
+into memory. Moreover, often, the desired processing 
+only needs to see a small chunk of the collection at
+a time. It is desirable to be able to iterate on them
+in synchrony and in an on-demand manner.
+<p>
+</p></li></ol>
+<p>
+
+To kill the three birds above with one stone, 
+we design below <i>Synchrony iterators</i> based on
+the theory outlined earlier in <code>SyncFold</code>
+and <code>SyncFoldGrp</code>.
+</p><p>
+
+</p><h3>Overview</h3>
+<p>
+
+Synchrony iterators come in two flavours which go 
+hand in hand. The first flavour is "landmark" iterators,
+which iterate on what we call landmark tracks.
+The second flavour is "experiment" iterators,
+which iterate on what we call experiment tracks.
+You can regard tracks as just another name for collections.
+A landmark iterator can be synchronized to any number
+of experiment iterators, but each experiment iterator
+can be synchronized to only one landmark iterator.
+</p><p>
+
+A constructor <code>LmTrack</code> is provided to 
+construct a landmark iterator <code>lxs</code>
+from any given iterator <code>xs</code>;
+e.g. <code>val lxs = LmTrack(xs)</code>.
+A landmark iterator has a method <code>sync</code>
+to construct a synchronized experiment iterator
+<code>eys</code> from any given iterator
+<code>ys</code>; e.g. <code>val eys = lxs.sync(ys, bf, cs)</code>
+where <code>bf</code> and <code>cs</code> are
+appropriate isBefore and canSee predicates.
+An experiment iterator <code>eys</code> has
+a method <code>eys.syncWith(x)</code> which
+returns a vector comprising elements in
+<code>eys</code> that can see the current
+element <code>x</code> of the
+landmark iterator <code>lxs</code>.
+</p><p>
+
+For better illustration, here are our three 
+motivating examples recast into Synchrony iterators.
+</p><p>
+
+<code>
+<textarea readonly="true" style="background-color:lightgrey" rows="44" cols="85">
+def si_intersect(xs:Iterator[Int], ys:Iterator[Int]):Iterator[Int] =
+{ //
+  // Requires: xs and ys are sorted.
+
+  def bf(y:Int, x:Int) = y &lt; x
+  def cs(y:Int, x:Int) = y == x
+  val lxs = LmTrack(xs)
+  val eys = lxs.sync(ys, bf, cs)
+
+  for (x &lt;- lxs; y &lt;- eys syncWith x) 
+  yield x
+}
+
+def si_mgr_staff(xs:Iterator[DeptMgr], ys:Iterator[DeptStaff]):Iterator[MgrStaff] =
+{ //
+  // Requires: xs and ys are sorted on dept.
+
+  def bf(y:DeptStaff, x:DeptMgr) = y.dept &lt; x.dept
+  def cs(y:DeptStaff, x:DeptMgr) = y.dept == x.dept
+  val lxs = LmTrack(xs)
+  val eys = lxs.sync(ys, bf, cs)
+
+  for (x &lt;- lxs; y &lt;- eys syncWith x; if (x.mgr != y.staff))
+  yield MgrStaff(x.mgr, y.staff)
+}
+
+def si_bindings(xs:Iterator[Gene], ys:Iterator[TF]):Iterator[Binding] =
+{ //
+  // Requires: xs and ys are sorted on loci
+
+  def bf(y:TF,x:Gene) = Ordering[(String,Int,Int)].lt(
+                           (y.chrom,y.start,y.end),
+			   (x.chrom,x.start,x.end))
+  def cs(y:TF,x:Gene) = (x.chrom==y.chrom) &amp;&amp;
+                        (y.start &lt;= x.start) &amp;&amp; 
+			(x.start - y.start &lt; 1000)
+  val lxs = LmTrack(xs)
+  val eys = lxs.sync(ys, bf, cs)
+
+  for (x &lt;- lxs; y &lt;- eys syncWith x) 
+  yield Binding(x, y)
+}
+</textarea>
+</code>
+</p><p>
+
+As can be seen above, comprehension syntax can now be used.
+The crucial difference is that the inner loop
+<code>y &lt;- eys syncWith x</code> does not iterate
+over the entire collection <code>ys</code> 
+for each <code>x</code>. Instead, it iterates only
+over the <code>y</code>'s that can see the current <code>x</code>.
+Thus the complexity of the apparently nested loops
+above is O(|<code>xs</code>| + |<code>ys</code>|),
+i.e. linear, when the canSee predicate <code>cs</code>
+has low degree wrt <code>xs</code> and <code>ys</code>.
+</p><p>
+
+This linear complexity is achieved because
+a landmark iterator and its synchronized experiment
+iterators work together as follows.  When the next
+item <code>x</code> is reached in a landmark iterator
+<code>lxs</code>, each experiment iterator 
+<code>eys</code> which is synchronized to the 
+landmark iterator is polled for items that can 
+see the item <code>x</code>. This polling is done
+efficiently by scanning <code>ys</code> from
+a previously saved position for items that can
+see <code>x</code> in accordance to the theory of
+Synchrony iterators presented earlier.
+Specifically, the first position where an
+item is found that is before <code>x</code>
+and can see <code>x</code> is saved; it is the
+first position that "escapes" discarding by
+Antimonotonicity 1.
+The scanning stops when an item that is 
+after <code>x</code> and cannot see <code>x</code>
+is reached; cf. Antimonotonicity 2. 
+In between these two positions, all polled items
+that can see the current <code>x</code> are memoized
+for <code>ys</code>, and previous items memoized for
+<code>ys</code> are discarded.
+Whenever <code>eys.syncWith(x)</code> is called,
+the current memoized items for <code>ys</code> are returned.
+</p><p>
+
+Synchrony iterators (both landmark and experiment iterators)
+are a subclass of iterators. So they can be used in all
+manners that iterators can be used. Thus, multiple
+landmark and experiment iterators can be mixed and
+combined. Iterators, being a read-once-only data
+structure, are somewhat prone to programming mistakes.
+The memoisation described above for 
+<code>eys.syncWith(x)</code> mitigates this to
+some extent, especially when multiple experiment
+iterators are synchronized with the same landmark
+iterator.
+</p><p>
+
+The implementation details are deferred till 
+a later section.  For now, here are some 
+equivalences that might be helpful for 
+a basic understanding of Synchrony iterators.
+</p><p>
+
+</p><hr>
+<ol>
+<h3>Comprehending Synchrony iterators</h3>
+<p>
+
+Suppose <code>bf</code> is monotonic wrt <code>(xs, ys)</code>,
+and <code>cs</code> is antimonotonic wrt <code>bf</code>.
+Suppose also <code>f(x, y, acc) = acc :+ g(x,y)</code>. Then
+the following programs in Scala express the same function:
+</p><p>
+</p><li><code>syncFold(f, Vector(), bf, cs)(xs, ys)</code>.
+<p>
+
+</p></li><li><code>
+val lxs = LmTrack(xs.iterator); <br>
+val eys = lxs.sync(ys.iterator, bf, cs); <br>
+(for (x &lt;- lxs; y &lt;- eys syncWith x) yield g(x,y)).toVector
+</code>
+<p>
+
+</p></li><li><code>
+for (x &lt;- xs; y &lt;- ys; if (cs(y,x))) yield g(x,y)
+</code>
+<p>
+However, when <code>cs</code> has low degree wrt
+<code>xs</code> and <code>ys</code>,
+the first and second programs have linear time complexity 
+while the third has quadratic time complexity.
+</p></li></ol>
+<hr>
+<p>
+
+</p><p>
+</p><h3>Deeper understanding of Synchrony iterators</h3>
+<p>
+
+Next we use the following query as a running example
+to illustrate deeper aspects of Synchrony iterators:
+Given a sorted duplicate-free vector of integers 
+<code>xs</code>, and a positive integer <code>n</code>,
+retrieve those <code>x</code> in <code>xs</code>
+where <code>x - n</code> is in <code>xs</code> and
+<code>x + n</code> is also in <code>xs</code>.
+This query can be written easily in comprehension
+syntax, as shown below. However, the time complexity is 
+O(|<code>xs</code>|<sup>3</sup>), i.e. cubic.
+</p><p>
+
+<code>
+<textarea readonly="true" style="background-color:lightgrey" rows="10" cols="85">
+def query1(xs:Vector[Int], n:Int) =
+{ //
+  // Requires: xs is sorted and duplicate free, 
+  //       and n is positive
+
+  for (x &lt;- xs; y &lt;- xs; z &lt;- xs; if (y == x - n &amp;&amp; z == x + n))
+  yield x
+}
+</textarea>
+</code>
+</p><p>
+
+It can be made more efficient to quadratic time
+complexity, O(2 * |<code>xs</code>|<sup>2</sup>) to be precise,
+by using comprehension syntax together
+with the <code>contains</code> function in the
+vector library.
+</p><p>
+
+<code>
+<textarea readonly="true" style="background-color:lightgrey" rows="10" cols="85">
+def query2(xs:Vector[Int], n:Int) =
+{ //
+  // Requires: xs is sorted and duplicate free, 
+  //       and n is positive
+
+  for (x &lt;- xs; if ((xs contains (x - n)) &amp;&amp; (xs contains (x + n))))
+  yield x
+}
+</textarea>
+</code>
+</p><p>
+
+It can also be implemented in a way that is linear in |<code>xs</code>|
+but quadratic in <code>n</code> using only comprehension syntax
+and functions (viz. direct position access to vectors) in 
+collection-type libraries. However, there is no obvious
+O(|<code>xs</code>|)-complexity implementation---i.e.
+linear complexity independent of <code>n</code>---without 
+using recursive functions, while-loops, etc.
+</p><p>
+
+
+We first provide below a naive implementation using
+Synchrony iterators. This implementation has complexity
+that is linear in |<code>cs</code>| but quadratic in
+<code>n</code>; specifically, its time complexity
+is O((4 * n<sup>2</sup> + 2 * n + 3) * |<code>xs</code>|).
+This naive implementation is
+chosen to bring out a few points. The first is that
+a landmark iterator (viz. <code>lxs</code>) can be 
+synchronized to multiple experiment iterators (viz.
+<code>eys</code> and <code>ezs</code>). The second
+is that although the two experiment iterators iterate
+on the same collection (viz. <code>xs</code>), they
+are independent of each other, except for the effect
+of being synchronized to the same landmark iterator.
+The third point is that,
+in a normal comprehension, <code>ezs syncWith x</code>
+being the inner most loop would be repeatedly
+executed for every <code>x</code> in the outer loop
+and every <code>y</code> in the middle loop.
+However, because of memoisation,
+<code>ezs syncWith x</code> is executed only once for
+each new <code>x</code>; the other times, the memoised
+result is simply returned. 
+Note that this memoisation is not expected to
+consume much space because the memoised result of the
+immediate previous <code>x</code> is released before
+the current one is memoised. For the example below,
+in fact, at most 2 * <code>n</code> + 1 items
+are memoised each time.
+</p><p>
+
+<code>
+<textarea readonly="true" style="background-color:lightgrey" rows="17" cols="85">
+def query3(xs:Vector[Int], n:Int) =
+{ //
+  // Requires: xs is sorted and duplicate free, 
+  //       and n is positive
+
+  def bf(y:Int, x:Int) = y &lt; x
+  def cs(y:Int, x:Int) = (y &gt; x &amp;&amp; y - x &lt;= n) || (y &lt; x &amp;&amp; x - y &lt;= n)
+  val lxs = LmTrack(xs.iterator)
+  val eys = lxs.sync(xs.iterator, bf, cs)
+  val ezs = lxs.sync(xs.iterator, bf, cs)
+  val res = for (x &lt;- lxs; y &lt;- eys syncWith x; z &lt;- ezs syncWith x;
+                if (y == x - n &amp;&amp; z == x + n))
+           yield x 
+  res.toVector
+}
+</textarea>
+</code>
+</p><p>
+
+The complexity of <code>query3</code> can be improved to 
+O((4 * n<sup>2</sup> + 2 * n + 2) * |<code>xs</code>|),
+as shown below. This is a straightforward exploitation
+that <code>eys syncWith x</code> and 
+<code>ezs syncWith x</code> in <code>query3</code>
+always have different copies of the same result.
+So one might as well use the same memoised copy.
+</p><p>
+
+<code>
+<textarea readonly="true" style="background-color:lightgrey" rows="16" cols="85">
+def query4(xs:Vector[Int], n:Int) =
+{ //
+  // Requires: xs is sorted and duplicate free, 
+  //       and n is positive
+
+  def bf(y:Int, x:Int) = y &lt; x
+  def cs(y:Int, x:Int) = (y &gt; x &amp;&amp; y - x &lt;= n) || (y &lt; x &amp;&amp; x - y &lt;= n)
+  val lxs = LmTrack(xs.iterator)
+  val exs = lxs.sync(xs.iterator, bf, cs)
+  val res = for (x &lt;- lxs; y &lt;- exs syncWith x; z &lt;- exs syncWith x;
+                if (y == x - n &amp;&amp; z == x + n))
+           yield x 
+  res.toVector
+}
+</textarea>
+</code>
+</p><p>
+
+The <code>cs</code> predicate above let every
+<code>y</code> that is within +/- <code>n</code> of
+<code>x</code> see <code>x</code>.  While this makes
+<code>cs</code> reflexive and convex, and thus 
+satisfies antimonotonicty wrt <code>bf</code>
+in an obvious way, it is very wasteful,
+since the query is interested only in <code>y</code>
+equals to <code>x + n</code> or equals to
+<code>x - n</code>. 
+With a little thought, tighter isBefore and canSee predicates
+can be defined, giving us below a much better linear time complexity
+of O(3 * |<code>xs</code>|), which is independent of <code>n</code>.
+This illustrates how one can provide more precise isBefore
+and canSee predicates to tighten synchronization to achieve
+higher efficiency.
+</p><p>
+
+
+<code>
+<textarea readonly="true" style="background-color:lightgrey" rows="17" cols="85">
+def query5(xs:Vector[Int], n:Int) =
+{ //
+  // Requires: xs is sorted and duplicate free, 
+  //       and n is positive
+
+  def bfy(y:Int, x:Int) = y &lt; x - n
+  def csy(y:Int, x:Int) = y == x - n
+  def bfz(y:Int, x:Int) = y &lt; x + n
+  def csz(y:Int, x:Int) = y == x + n 
+  val lxs = LmTrack(xs.iterator)
+  val eys = lxs.sync(xs.iterator, bfy, csy)
+  val ezs = lxs.sync(xs.iterator, bfz, csz)
+  val res = for (x &lt;- lxs; y &lt;- eys syncWith x; z &lt;- ezs syncWith x) yield x 
+  res.toVector
+}
+</textarea>
+</code>
+</p><p>
+
+Let us generalized our running example slightly. This time,
+given three sorted duplicate-free vectors (<code>xs</code>,
+<code>ys</code>, and <code>zs</code>), and a positive
+integer (<code>n</code>), we want to retrieve those
+<code>x</code> in <code>xs</code> where 
+<code>x - n</code> is in <code>ys</code> and
+<code>x + n</code> is in <code>zs</code>.
+The following straightforward modification of
+<code>query5</code> delivers the desired results
+in O(|<code>xs</code>| + |<code>ys</code>| +
+|<code>zs</code>|) linear time complexity.
+</p><p>
+
+<code>
+<textarea readonly="true" style="background-color:lightgrey" rows="17" cols="85">
+def query6(xs:Vector[Int], ys:Vector[Int], zs:Vector[Int], n:Int) =
+{ //
+  // Requires: xs is sorted and duplicate free, 
+  //       and n is positive
+
+  def bfy(y:Int, x:Int) = y &lt; x - n
+  def csy(y:Int, x:Int) = y == x - n
+  def bfz(y:Int, x:Int) = y &lt; x + n
+  def csz(y:Int, x:Int) = y == x + n 
+  val lxs = LmTrack(xs.iterator)
+  val eys = lxs.sync(ys.iterator, bfy, csy)
+  val ezs = lxs.sync(zs.iterator, bfz, csz)
+  val res = for (x &lt;- lxs; y &lt;- eys syncWith x; z &lt;- ezs syncWith x) yield x 
+  res.toVector
+}
+</textarea>
+</code>
+</p><p>
+
+The O(3 * |<code>xs</code>|) complexity achieved using 
+Synchrony iterators in <code>qyery5</code> is a notable,
+because there is no obvious way to achieve 
+<code>n</code>-independent linear time complexity
+using only comprehension syntax and
+collection-type library functions (i.e. without 
+explicitly using recursion, while-loops, 
+higher-order functions, and/or nested collections.)
+In fact, using only comprehension syntax and collection-type 
+library functions (even with direct positional access
+of vectors), the best time complexity that can be achieved
+appears to be O(<code>n</code><sup>2</sup> *
+|<code>xs</code>|).
+</p><p>
+
+The O(|<code>xs</code>| + |<code>ys</code>| +
+|<code>zs</code>|) time complexity achieved using
+Synchrony iterators in <code>query6</code> is perhaps
+even more notable.  Not only there is no obvious way
+to achieve a similar time cmplexity using only 
+comprehension syntax and collection-type library functions, 
+the best time complexity that can be achieved using
+only these facilities appears to be quadratic, 
+O(|<code>xs</code>|*(|<code>ys</code>| + |<code>zs</code>|)).
+</p><p>
+</p><p>
+<br>
+<br>
+</p><p>
+
+
+</p><h3>Implementation</h3>
+<p>
+
+To be done... blah... blah... blah...
+</p><p>
+
+</p><p>
+<br>
+<br>
+</p><p>
+
+</p><h2>Software Release</h2>
+<p>
+To be done... blah... blah... blah...
+</p><p>
+</p><p>
+<br>
+<br>
+</p><p>
+
+
+
+</p><h2>Closing Remarks</h2>
+<p>
+To be done... blah... blah... blah...
+
+</p><p>
+<br>
+<br>
+</p><p>
+</p><hr>
+<p>
+Limsoon Wong, 26 March 2020
+</p><p>
+
+</p></body></html>

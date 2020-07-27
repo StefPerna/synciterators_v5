@@ -176,14 +176,43 @@ object BedWrapper {
       score= 0,
       misc= Map[String,Any]())
 
-    def apply(chrom:String, chromStart:Int, chromEnd:Int) = new SimpleBedEntry(
-      chrom= chrom,
-      chromStart= chromStart,
-      chromEnd= chromEnd,
-      strand= ".",
-      name= "",
-      score= 0,
-      misc= Map[String,Any]())
+    // def apply(chrom:String, chromStart:Int, chromEnd:Int) = new SimpleBedEntry(
+    //   chrom= chrom,
+    //   chromStart= chromStart,
+    //   chromEnd= chromEnd,
+    //   strand= ".",
+    //   name= "",
+    //   score= 0,
+    //   misc= Map[String,Any]())
+
+    // def apply(
+    //   chrom:String,
+    //   chromStart:Int,
+    //   chromEnd:Int,
+    //   misc:Map[String,Any]) =
+    // {
+    //   new SimpleBedEntry(
+    //     chrom= chrom,
+    //     chromStart= chromStart,
+    //     chromEnd= chromEnd,
+    //     strand= ".",
+    //     name= "",
+    //     score= 0,
+    //     misc= misc)
+    // }
+
+    // def apply(chrom:String,
+    //   chromStart:Int,
+    //   chromEnd:Int,
+    //   strand: String,
+    //   misc:Map[String,Double]) = new SimpleBedEntry(
+    //   chrom= chrom,
+    //   chromStart= chromStart,
+    //   chromEnd= chromEnd,
+    //   strand= strand,
+    //   name= "",
+    //   score= 0,
+    //   misc= misc)
   }
 
 
