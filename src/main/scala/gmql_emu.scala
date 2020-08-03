@@ -104,7 +104,7 @@ object GMQLSynchro_Demo extends App {
 	val tmp_folder = os.root / "var" / "folders" / "k8" / "sf3vvc_921d8r9n7qgy_7kh00000gn" / "T"
 
 	val NEXEC = 10
-	val test_name = "014_8"
+	val test_name = "001_8"
 
 	// clean up output folders
 
@@ -139,28 +139,29 @@ object GMQLSynchro_Demo extends App {
 	val usesMBAsInput1 = Set("010_6","010_15","011_6","011_15","014_6","014_15")
 	val usesBSAsInput1 = Set("010_7","010_16","011_7","011_16","014_7","014_16")
 	val usesBMAsInput1 = Set("010_8","010_17","011_8","011_17","014_8","014_17")
-	val usesBBAsInput1 = Set("010_9","010_18","011_9","011_18","014_9","014_18")
-	val uses1SampleAsInput1 = Set("012_1","013_1","015_1")
-	val uses5SampleAsInput1 = Set("012_2","013_2","015_2")
-	val uses10SampleAsInput1 = Set("012_3","013_3","015_3")
-	val uses20SampleAsInput1 = Set("012_4","013_4","015_4")
-	val uses50SampleAsInput1 = Set("012_5","013_5","015_5")
-	val uses75SampleAsInput1 = Set("012_6","013_6","015_6")
-	val uses100SampleAsInput1 = Set("012_7","013_7","015_7")
-	val uses1LineAsInput1 = Set("012_8","013_8","015_8")
-	val uses10LineAsInput1 = Set("012_9","013_9","015_9")
-	val uses100LineAsInput1 = Set("012_10","013_10","015_10")
-	val uses1000LineAsInput1 = Set("012_11","013_11","015_11")
-	val uses10000LineAsInput1 = Set("012_12","013_12","015_12")
-	val uses100000LineAsInput1 = Set("012_13","013_13","015_13")
-	val uses1000000LineAsInput1 = Set("012_14","013_14","015_14")
+	val usesBBAsInput1 = Set("001_8","010_9","010_18","011_9","011_18","014_9","014_18")
+	val uses1SampleAsInput1 = Set("012_1","013_1","015_1","GC_01","GC_15","GC_29")
+	val uses5SampleAsInput1 = Set("012_2","013_2","015_2","GC_02","GC_16","GC_30")
+	val uses10SampleAsInput1 = Set("012_3","013_3","015_3","GC_03","GC_17","GC_31")
+	val uses20SampleAsInput1 = Set("012_4","013_4","015_4","GC_04","GC_18","GC_32")
+	val uses50SampleAsInput1 = Set("012_5","013_5","015_5","GC_05","GC_19","GC_33")
+	val uses75SampleAsInput1 = Set("012_6","013_6","015_6","GC_06","GC_20","GC_34")
+	val uses100SampleAsInput1 = Set("012_7","013_7","015_7","GC_07","GC_21","GC_35")
+	val uses1LineAsInput1 = Set("012_8","013_8","015_8","GC_08","GC_22","GC_36")
+	val uses10LineAsInput1 = Set("012_9","013_9","015_9","GC_09","GC_23","GC_37")
+	val uses100LineAsInput1 = Set("012_10","013_10","015_10","GC_10","GC_24","GC_38")
+	val uses1000LineAsInput1 = Set("012_11","013_11","015_11","GC_11","GC_25","GC_39")
+	val uses10000LineAsInput1 = Set("012_12","013_12","015_12","GC_12","GC_26","GC_40")
+	val uses100000LineAsInput1 = Set("012_13","013_13","015_13","GC_13","GC_27","GC_41")
+	val uses1000000LineAsInput1 = Set("012_14","013_14","015_14","GC_14","GC_28","GC_42")
 
 
 	val hasNoInput2 = Set("010_1","010_2","010_3","010_4","010_5","010_6","010_7","010_8",
 			"010_9","010_10","010_11","010_12","010_13","010_14","010_15","010_16","010_17",
 			"010_18","012_1","012_1","012_2","012_3","012_4","012_5",
 			"012_6","012_7","012_8","012_9","012_10","012_11","012_12","012_13",
-			"012_14")
+			"012_14","GC_01","GC_02","GC_03","GC_04","GC_05","GC_06","GC_07","GC_08",
+			"GC_09","GC_10","GC_11","GC_12","GC_13","GC_14")
 	val usesHeLaS3AsInput2 = Set("007_3","007_4","007_5","007_6","007_10","007_11","007_12")
 	val usesH1AsInput2 = Set("001_1","001_2","001_3","001_4","001_5","001_6","001_7",
 		"001_8","002_1","002_4","002_5","002_6","002_7","002_8","003_1","003_3","004_1",
@@ -180,20 +181,20 @@ object GMQLSynchro_Demo extends App {
 	val usesBSAsInput2 = Set("011_7","011_16","014_7","014_16")
 	val usesBMAsInput2 = Set("011_8","011_17","014_8","014_17")
 	val usesBBAsInput2 = Set("011_9","011_18","014_9","014_18")
-	val uses1SampleAsInput2 = Set("013_1","015_1")
-	val uses5SampleAsInput2 = Set("013_2","015_2")
-	val uses10SampleAsInput2 = Set("013_3","015_3")
-	val uses20SampleAsInput2 = Set("013_4","015_4")
-	val uses50SampleAsInput2 = Set("013_5","015_5")
-	val uses75SampleAsInput2 = Set("013_6","015_6")
-	val uses100SampleAsInput2 = Set("013_7","015_7")
-	val uses1LineAsInput2 = Set("013_8","015_8")
-	val uses10LineAsInput2 = Set("013_9","015_9")
-	val uses100LineAsInput2 = Set("013_10","015_10")
-	val uses1000LineAsInput2 = Set("013_11","015_11")
-	val uses10000LineAsInput2 = Set("013_12","015_12")
-	val uses100000LineAsInput2 = Set("013_13","015_13")
-	val uses1000000LineAsInput2 = Set("013_14","015_14")
+	val uses1SampleAsInput2 = Set("013_1","015_1","GC_15","GC_29")
+	val uses5SampleAsInput2 = Set("013_2","015_2","GC_16","GC_30")
+	val uses10SampleAsInput2 = Set("013_3","015_3","GC_17","GC_31")
+	val uses20SampleAsInput2 = Set("013_4","015_4","GC_18","GC_32")
+	val uses50SampleAsInput2 = Set("013_5","015_5","GC_19","GC_33")
+	val uses75SampleAsInput2 = Set("013_6","015_6","GC_20","GC_34")
+	val uses100SampleAsInput2 = Set("013_7","015_7","GC_21","GC_35")
+	val uses1LineAsInput2 = Set("013_8","015_8","GC_22","GC_36")
+	val uses10LineAsInput2 = Set("013_9","015_9","GC_23","GC_37")
+	val uses100LineAsInput2 = Set("013_10","015_10","GC_24","GC_38")
+	val uses1000LineAsInput2 = Set("013_11","015_11","GC_25","GC_39")
+	val uses10000LineAsInput2 = Set("013_12","015_12","GC_26","GC_40")
+	val uses100000LineAsInput2 = Set("013_13","015_13","GC_27","GC_41")
+	val uses1000000LineAsInput2 = Set("013_14","015_14","GC_28","GC_42")
 
 	val gmqlResult = Map(
 		"001_1" -> 12969,
@@ -444,32 +445,32 @@ object GMQLSynchro_Demo extends App {
 	usesOnlyPlusStrand = Set("005_6")
 
 	// BEGIN EXECUTION
-	System.gc()
+	// System.gc()
 	val initMem = (runtime.totalMemory - runtime.freeMemory)
 
-	// val preloadRdb = test_name match {
-	// 	case name if usesTSS contains name => rdbFiles.select(sample=OnSample(MetaS("annotation_type") === "TSS")).tracksSorted.materializedOnDisk;
-	// 	case name if usesGenes contains name => rdbFiles.select(sample=OnSample(MetaS("provider") === "RefSeq")).tracksSorted.materializedOnDisk;
-	// 	case name if usesOnlyPlusStrand contains name => rdbFiles.select(sample=OnSample(MetaS("provider") === "RefSeq"),
-	// 																	 region=OnRegion(Strand === "+")).tracksSorted.materializedOnDisk;
-	// 	case _ => rdbFiles.select().tracksSorted.materializedOnDisk
+	val preloadRdb = test_name match {
+		case name if usesTSS contains name => rdbFiles.select(sample=OnSample(MetaS("annotation_type") === "TSS")).tracksSorted.materializedOnDisk;
+		case name if usesGenes contains name => rdbFiles.select(sample=OnSample(MetaS("provider") === "RefSeq")).tracksSorted.materializedOnDisk;
+		case name if usesOnlyPlusStrand contains name => rdbFiles.select(sample=OnSample(MetaS("provider") === "RefSeq"),
+																		 region=OnRegion(Strand === "+")).tracksSorted.materializedOnDisk;
+		case _ => rdbFiles.select().tracksSorted.materializedOnDisk
 
-	// }
+	}
 
-	// val rdbSorttimes = for (i <- 0 to (NEXEC-1)) yield {
-	// 	((t:Long) => {
-	// 		test_name match {
-	// 		case name if usesTSS contains name => rdbFiles.select(sample=OnSample(MetaS("annotation_type") === "TSS")).tracksSorted.materializedOnDisk;
-	// 		case name if usesGenes contains name => rdbFiles.select(sample=OnSample(MetaS("provider") === "RefSeq")).tracksSorted.materializedOnDisk
-	// 		case name if usesOnlyPlusStrand contains name => rdbFiles.select(sample=OnSample(MetaS("provider") === "RefSeq"),
-	// 																		 region=OnRegion(Strand === "+")).tracksSorted.materializedOnDisk;		
-	// 		case _ => rdbFiles.select().tracksSorted.materializedOnDisk
-	// 		}; 
-	// 		(System.nanoTime()-t)/1e9
-	// 	}) (System.nanoTime())
-	// }
+	val rdbSorttimes = for (i <- 0 to (NEXEC-1)) yield {
+		((t:Long) => {
+			test_name match {
+			case name if usesTSS contains name => rdbFiles.select(sample=OnSample(MetaS("annotation_type") === "TSS")).tracksSorted.materializedOnDisk;
+			case name if usesGenes contains name => rdbFiles.select(sample=OnSample(MetaS("provider") === "RefSeq")).tracksSorted.materializedOnDisk
+			case name if usesOnlyPlusStrand contains name => rdbFiles.select(sample=OnSample(MetaS("provider") === "RefSeq"),
+																			 region=OnRegion(Strand === "+")).tracksSorted.materializedOnDisk;		
+			case _ => rdbFiles.select().tracksSorted.materializedOnDisk
+			}; 
+			(System.nanoTime()-t)/1e9
+		}) (System.nanoTime())
+	}
 
-	System.gc()
+	// System.gc()
 	val rdb = test_name match {
 		case name if usesTSS contains name => rdbFiles.select(sample=OnSample(MetaS("annotation_type") === "TSS")).tracksSorted.materializedOnDisk;
 		case name if usesGenes contains name => rdbFiles.select(sample=OnSample(MetaS("provider") === "RefSeq")).tracksSorted.materializedOnDisk
@@ -491,35 +492,35 @@ object GMQLSynchro_Demo extends App {
 	Reporter.report(rdb)
 
 
-	// val preloadEdb:Option[DB] = edbFiles match {
-	// 	case None => None
-	// 	case Some(samplefile) => test_name match {
-	// 		case name if usesTSS contains name => Some(samplefile.select(sample=OnSample(MetaS("annotation_type") === "TSS")).tracksSorted.materializedOnDisk)
-	// 		case name if usesGenes contains name => Some(samplefile.select(sample=OnSample(MetaS("provider") === "RefSeq")).tracksSorted.materializedOnDisk)
-	// 		case name if usesOnlyPlusStrand contains name => Some(samplefile.select(sample=OnSample(MetaS("annotation_type") === "TSS"),
-	// 																		 region=OnRegion(Strand === "+")).tracksSorted.materializedOnDisk)
-	// 		case _ => Some(samplefile.select().tracksSorted.materializedOnDisk)
-	// 	}
-	// }
+	val preloadEdb:Option[DB] = edbFiles match {
+		case None => None
+		case Some(samplefile) => test_name match {
+			case name if usesTSS contains name => Some(samplefile.select(sample=OnSample(MetaS("annotation_type") === "TSS")).tracksSorted.materializedOnDisk)
+			case name if usesGenes contains name => Some(samplefile.select(sample=OnSample(MetaS("provider") === "RefSeq")).tracksSorted.materializedOnDisk)
+			case name if usesOnlyPlusStrand contains name => Some(samplefile.select(sample=OnSample(MetaS("annotation_type") === "TSS"),
+																			 region=OnRegion(Strand === "+")).tracksSorted.materializedOnDisk)
+			case _ => Some(samplefile.select().tracksSorted.materializedOnDisk)
+		}
+	}
 
 
-	// val edbSorttimes = edbFiles match {
-	// 	case None => Vector()
-	// 	case Some(samplefile) => for (i <- 0 to (NEXEC-1)) yield {
-	// 		((t:Long) => {
-	// 			test_name match {
-	// 			case name if usesTSS contains name => samplefile.select(sample=OnSample(MetaS("annotation_type") === "TSS")).tracksSorted.materializedOnDisk;
-	// 			case name if usesGenes contains name => samplefile.select(sample=OnSample(MetaS("provider") === "RefSeq")).tracksSorted.materializedOnDisk
-	// 			case name if usesOnlyPlusStrand contains name => samplefile.select(sample=OnSample(MetaS("provider") === "RefSeq"),
-	// 																			 region=OnRegion(Strand === "+")).tracksSorted.materializedOnDisk;		
-	// 			case _ => samplefile.select().tracksSorted.materializedOnDisk
-	// 			}; 
-	// 			(System.nanoTime()-t)/1e9
-	// 		}) (System.nanoTime())
-	// 	}
-	// }
+	val edbSorttimes = edbFiles match {
+		case None => Vector()
+		case Some(samplefile) => for (i <- 0 to (NEXEC-1)) yield {
+			((t:Long) => {
+				test_name match {
+				case name if usesTSS contains name => samplefile.select(sample=OnSample(MetaS("annotation_type") === "TSS")).tracksSorted.materializedOnDisk;
+				case name if usesGenes contains name => samplefile.select(sample=OnSample(MetaS("provider") === "RefSeq")).tracksSorted.materializedOnDisk
+				case name if usesOnlyPlusStrand contains name => samplefile.select(sample=OnSample(MetaS("provider") === "RefSeq"),
+																				 region=OnRegion(Strand === "+")).tracksSorted.materializedOnDisk;		
+				case _ => samplefile.select().tracksSorted.materializedOnDisk
+				}; 
+				(System.nanoTime()-t)/1e9
+			}) (System.nanoTime())
+		}
+	}
 
-	System.gc()
+	// System.gc()
 	val edb:Option[DB] = edbFiles match {
 		case None => None
 		case Some(samplefile) => test_name match {
@@ -617,6 +618,20 @@ object GMQLSynchro_Demo extends App {
 		"012_12" -> DB.select(region=OnRegion(Chr === "chr1" or Chr === "chr2")),
 		"012_13" -> DB.select(region=OnRegion(Chr === "chr1" or Chr === "chr2")),
 		"012_14" -> DB.select(region=OnRegion(Chr === "chr1" or Chr === "chr2")),
+		"GC_01" -> DB.select(region=OnRegion(Chr === "chr1")),
+		"GC_02" -> DB.select(region=OnRegion(Chr === "chr1")),
+		"GC_03" -> DB.select(region=OnRegion(Chr === "chr1")),
+		"GC_04" -> DB.select(region=OnRegion(Chr === "chr1")),
+		"GC_05" -> DB.select(region=OnRegion(Chr === "chr1")),
+		"GC_06" -> DB.select(region=OnRegion(Chr === "chr1")),
+		"GC_07" -> DB.select(region=OnRegion(Chr === "chr1")),
+		"GC_08" -> DB.select(region=OnRegion(Chr === "chr1")),
+		"GC_09" -> DB.select(region=OnRegion(Chr === "chr1")),
+		"GC_10" -> DB.select(region=OnRegion(Chr === "chr1")),
+		"GC_11" -> DB.select(region=OnRegion(Chr === "chr1")),
+		"GC_12" -> DB.select(region=OnRegion(Chr === "chr1")),
+		"GC_13" -> DB.select(region=OnRegion(Chr === "chr1")),
+		"GC_14" -> DB.select(region=OnRegion(Chr === "chr1")),
 		// "join" -> DB.join(pred = Genometric(DL(20)), outputR = IntR(),joinbyS = OnSample("case")) (rdb,edb)
 	)
 
@@ -730,6 +745,34 @@ object GMQLSynchro_Demo extends App {
 		"020_8" -> DB.map(region=OnRegion()),
 		"020_9" -> DB.map(region=OnRegion()),
 		"020_10" -> DB.map(region=OnRegion()),
+		"GC_15" -> DB.map(region=OnRegion()),
+		"GC_16" -> DB.map(region=OnRegion()),
+		"GC_17" -> DB.map(region=OnRegion()),
+		"GC_18" -> DB.map(region=OnRegion()),
+		"GC_19" -> DB.map(region=OnRegion()),
+		"GC_20" -> DB.map(region=OnRegion()),
+		"GC_21" -> DB.map(region=OnRegion()),
+		"GC_22" -> DB.map(region=OnRegion()),
+		"GC_23" -> DB.map(region=OnRegion()),
+		"GC_24" -> DB.map(region=OnRegion()),
+		"GC_25" -> DB.map(region=OnRegion()),
+		"GC_26" -> DB.map(region=OnRegion()),
+		"GC_27" -> DB.map(region=OnRegion()),
+		"GC_28" -> DB.map(region=OnRegion()),
+		"GC_29" -> DB.join(pred = Genometric(Overlap(1)), outputR = BothR()),
+		"GC_30" -> DB.join(pred = Genometric(Overlap(1)), outputR = BothR()),
+		"GC_31" -> DB.join(pred = Genometric(Overlap(1)), outputR = BothR()),
+		"GC_32" -> DB.join(pred = Genometric(Overlap(1)), outputR = BothR()),
+		"GC_33" -> DB.join(pred = Genometric(Overlap(1)), outputR = BothR()),
+		"GC_34" -> DB.join(pred = Genometric(Overlap(1)), outputR = BothR()),
+		"GC_35" -> DB.join(pred = Genometric(Overlap(1)), outputR = BothR()),
+		"GC_36" -> DB.join(pred = Genometric(Overlap(1)), outputR = BothR()),
+		"GC_37" -> DB.join(pred = Genometric(Overlap(1)), outputR = BothR()),
+		"GC_38" -> DB.join(pred = Genometric(Overlap(1)), outputR = BothR()),
+		"GC_39" -> DB.join(pred = Genometric(Overlap(1)), outputR = BothR()),
+		"GC_40" -> DB.join(pred = Genometric(Overlap(1)), outputR = BothR()),
+		"GC_41" -> DB.join(pred = Genometric(Overlap(1)), outputR = BothR()),
+		"GC_42" -> DB.join(pred = Genometric(Overlap(1)), outputR = BothR()),
 	// 	"join" -> DB.join(pred = Genometric(DL(20)), outputR = IntR(),joinbyS = OnSample("case")) (rdb,edb)
 	)
 	def outdb = test_name match {
@@ -740,24 +783,18 @@ object GMQLSynchro_Demo extends App {
 	// Preload
 	Reporter.countLines(outdb.materializedOnDisk)
 
-	val execProfile:IndexedSeq[(Double,Double)] = for (i <- 0 to (NEXEC-1)) yield { System.gc();
+	val execProfile:IndexedSeq[(Double,Double)] = for (i <- 0 to (NEXEC-1)) yield { // System.gc();
 		((t:Long,m:Long) => {println(Reporter.countLines(outdb)); ((System.nanoTime()-t)/1e9,(runtime.totalMemory - runtime.freeMemory - m)/byte2mb.toDouble)}) (System.nanoTime(),runtime.totalMemory - runtime.freeMemory)
 		// ((t:Long) => {Reporter.countLines(outdb).foreach(println); (System.nanoTime()-t)/1e9}) (System.nanoTime())
 	}
 
 	println()
 
-	val writeProfiles:IndexedSeq[(Double,Double)] = for (i <- 0 to (NEXEC-1)) yield {System.gc()
+	val writeProfiles:IndexedSeq[(Double,Double)] = for (i <- 0 to (NEXEC-1)) yield { // System.gc();
 		((t:Long,m:Long) => {println(Reporter.countLines(outdb.materializedOnDisk)); ((System.nanoTime()-t)/1e9,(runtime.totalMemory - runtime.freeMemory - m)/byte2mb.toDouble)}) (System.nanoTime(),runtime.totalMemory - runtime.freeMemory)
 	}
 
 	println()
-
-	println("rdb memory usage")
-	println((rdbMem-initMem)/byte2mb)
-
-	println("edb memory usage")
-	println((edbMem-rdbMem-initMem)/byte2mb)
 
 	Reporter.sortProfiles(execProfile,"execution")
 	println()

@@ -1,1 +1,1 @@
-["sbt.Task[scala.collection.Seq[scala.Tuple2[java.nio.file.Path, sbt.nio.FileStamp]]]",{"hashes":[["/Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/build.sbt","80434bcc4be14001051839c4793041600cad5c77"]],"lastModifiedTimes":[]}]
+["sbt.Task[scala.collection.Seq[scala.Tuple2[java.nio.file.Path, sbt.nio.FileStamp]]]",{"hashes":[["/Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/build.sbt","cae90492816df37e6c457de1eebec62c7632bc5b"]],"lastModifiedTimes":[]}]
