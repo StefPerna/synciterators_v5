@@ -103,8 +103,8 @@ object GMQLSynchro_Demo extends App {
 	val wd = os.pwd
 	val tmp_folder = os.root / "var" / "folders" / "k8" / "sf3vvc_921d8r9n7qgy_7kh00000gn" / "T"
 
-	val NEXEC = 10
-	val test_name = "001_8"
+	val NEXEC = 1
+	val test_name = "014_8"
 
 	// clean up output folders
 
@@ -114,6 +114,7 @@ object GMQLSynchro_Demo extends App {
 	os.remove.all(wd / "tests" / "output" / s"${test_name}_output")
 
 	os.walk(tmp_folder,skip = (p: os.Path) => !(p.last.startsWith("synchrony-"))).foreach(os.remove(_))
+	// os.walk(tmp_folder).foreach(os.remove(_))
 
 	val byte2mb = 1024*1024
 
@@ -340,6 +341,7 @@ object GMQLSynchro_Demo extends App {
 		case "020_8" => "map_graph_8_on_ref_ref"
 		case "020_9" => "map_graph_9_on_ref_ref"
 		case "020_10" => "map_graph_10_on_ref_ref"
+		case "TFBS_use_case" => "ncbiRefSeqCurated"
 		case _ => throw new Exception("Unknown test case for dataset name 1")
 	}
 
@@ -425,6 +427,7 @@ object GMQLSynchro_Demo extends App {
 		case "020_8" => Some("map_graph_8_on_ref_exp")
 		case "020_9" => Some("map_graph_9_on_ref_exp")
 		case "020_10" => Some("map_graph_10_on_ref_exp")
+		case "TFBS_use_case" => Some("Seven_cells")
 		case _ =>  throw new Exception("Unknown test case for dataset name 2")
 	}
 
@@ -448,35 +451,39 @@ object GMQLSynchro_Demo extends App {
 	// System.gc()
 	val initMem = (runtime.totalMemory - runtime.freeMemory)
 
-	val preloadRdb = test_name match {
-		case name if usesTSS contains name => rdbFiles.select(sample=OnSample(MetaS("annotation_type") === "TSS")).tracksSorted.materializedOnDisk;
-		case name if usesGenes contains name => rdbFiles.select(sample=OnSample(MetaS("provider") === "RefSeq")).tracksSorted.materializedOnDisk;
-		case name if usesOnlyPlusStrand contains name => rdbFiles.select(sample=OnSample(MetaS("provider") === "RefSeq"),
-																		 region=OnRegion(Strand === "+")).tracksSorted.materializedOnDisk;
-		case _ => rdbFiles.select().tracksSorted.materializedOnDisk
+	// val preloadRdb = test_name match {
+	// 	case name if usesTSS contains name => rdbFiles.select(sample=OnSample(MetaS("annotation_type") === "TSS")).tracksSorted.materializedOnDisk;
+	// 	case name if usesGenes contains name => rdbFiles.select(sample=OnSample(MetaS("provider") === "RefSeq")).tracksSorted.materializedOnDisk;
+	// 	case name if usesOnlyPlusStrand contains name => rdbFiles.select(sample=OnSample(MetaS("provider") === "RefSeq"),
+	// 																	 region=OnRegion(Strand === "+")).tracksSorted.materializedOnDisk;
+	// 	case _ => rdbFiles.select().tracksSorted.materializedOnDisk
 
-	}
+	// }
 
-	val rdbSorttimes = for (i <- 0 to (NEXEC-1)) yield {
-		((t:Long) => {
-			test_name match {
-			case name if usesTSS contains name => rdbFiles.select(sample=OnSample(MetaS("annotation_type") === "TSS")).tracksSorted.materializedOnDisk;
-			case name if usesGenes contains name => rdbFiles.select(sample=OnSample(MetaS("provider") === "RefSeq")).tracksSorted.materializedOnDisk
-			case name if usesOnlyPlusStrand contains name => rdbFiles.select(sample=OnSample(MetaS("provider") === "RefSeq"),
-																			 region=OnRegion(Strand === "+")).tracksSorted.materializedOnDisk;		
-			case _ => rdbFiles.select().tracksSorted.materializedOnDisk
-			}; 
-			(System.nanoTime()-t)/1e9
-		}) (System.nanoTime())
-	}
+	// val rdbSorttimes = for (i <- 0 to (NEXEC-1)) yield {
+	// 	((t:Long) => {
+	// 		test_name match {
+	// 		case name if usesTSS contains name => rdbFiles.select(sample=OnSample(MetaS("annotation_type") === "TSS")).tracksSorted.materializedOnDisk;
+	// 		case name if usesGenes contains name => rdbFiles.select(sample=OnSample(MetaS("provider") === "RefSeq")).tracksSorted.materializedOnDisk
+	// 		case name if usesOnlyPlusStrand contains name => rdbFiles.select(sample=OnSample(MetaS("provider") === "RefSeq"),
+	// 																		 region=OnRegion(Strand === "+")).tracksSorted.materializedOnDisk;		
+	// 		case _ => rdbFiles.select().tracksSorted.materializedOnDisk
+	// 		}; 
+	// 		(System.nanoTime()-t)/1e9
+	// 	}) (System.nanoTime())
+	// }
 
 	// System.gc()
+
+	var counter = 0
+	def rename(init: String) = { counter = counter + 1; s"${init}-${counter}" }
+
 	val rdb = test_name match {
 		case name if usesTSS contains name => rdbFiles.select(sample=OnSample(MetaS("annotation_type") === "TSS")).tracksSorted.materializedOnDisk;
 		case name if usesGenes contains name => rdbFiles.select(sample=OnSample(MetaS("provider") === "RefSeq")).tracksSorted.materializedOnDisk
 		case name if usesOnlyPlusStrand contains name => rdbFiles.select(sample=OnSample(MetaS("provider") === "RefSeq"),
 																		 region=OnRegion(Strand === "+")).tracksSorted.materializedOnDisk;		
-		case _ => rdbFiles.select().tracksSorted.materializedOnDisk
+		case _ => rdbFiles.select().tracksSorted.tracksSaved({ _ => rename("sortedRDB")}).savedAs("sortedRDB")
 
 	}
 
@@ -492,33 +499,35 @@ object GMQLSynchro_Demo extends App {
 	Reporter.report(rdb)
 
 
-	val preloadEdb:Option[DB] = edbFiles match {
-		case None => None
-		case Some(samplefile) => test_name match {
-			case name if usesTSS contains name => Some(samplefile.select(sample=OnSample(MetaS("annotation_type") === "TSS")).tracksSorted.materializedOnDisk)
-			case name if usesGenes contains name => Some(samplefile.select(sample=OnSample(MetaS("provider") === "RefSeq")).tracksSorted.materializedOnDisk)
-			case name if usesOnlyPlusStrand contains name => Some(samplefile.select(sample=OnSample(MetaS("annotation_type") === "TSS"),
-																			 region=OnRegion(Strand === "+")).tracksSorted.materializedOnDisk)
-			case _ => Some(samplefile.select().tracksSorted.materializedOnDisk)
-		}
-	}
+	// val preloadEdb:Option[DB] = edbFiles match {
+	// 	case None => None
+	// 	case Some(samplefile) => test_name match {
+	// 		case name if usesTSS contains name => Some(samplefile.select(sample=OnSample(MetaS("annotation_type") === "TSS")).tracksSorted.materializedOnDisk)
+	// 		case name if usesGenes contains name => Some(samplefile.select(sample=OnSample(MetaS("provider") === "RefSeq")).tracksSorted.materializedOnDisk)
+	// 		case name if usesOnlyPlusStrand contains name => Some(samplefile.select(sample=OnSample(MetaS("annotation_type") === "TSS"),
+	// 																		 region=OnRegion(Strand === "+")).tracksSorted.materializedOnDisk)
+	// 		case _ => Some(samplefile.select().tracksSorted.materializedOnDisk)
+	// 	}
+	// }
 
 
-	val edbSorttimes = edbFiles match {
-		case None => Vector()
-		case Some(samplefile) => for (i <- 0 to (NEXEC-1)) yield {
-			((t:Long) => {
-				test_name match {
-				case name if usesTSS contains name => samplefile.select(sample=OnSample(MetaS("annotation_type") === "TSS")).tracksSorted.materializedOnDisk;
-				case name if usesGenes contains name => samplefile.select(sample=OnSample(MetaS("provider") === "RefSeq")).tracksSorted.materializedOnDisk
-				case name if usesOnlyPlusStrand contains name => samplefile.select(sample=OnSample(MetaS("provider") === "RefSeq"),
-																				 region=OnRegion(Strand === "+")).tracksSorted.materializedOnDisk;		
-				case _ => samplefile.select().tracksSorted.materializedOnDisk
-				}; 
-				(System.nanoTime()-t)/1e9
-			}) (System.nanoTime())
-		}
-	}
+	// val edbSorttimes = edbFiles match {
+	// 	case None => Vector()
+	// 	case Some(samplefile) => for (i <- 0 to (NEXEC-1)) yield {
+	// 		((t:Long) => {
+	// 			test_name match {
+	// 			case name if usesTSS contains name => samplefile.select(sample=OnSample(MetaS("annotation_type") === "TSS")).tracksSorted.materializedOnDisk;
+	// 			case name if usesGenes contains name => samplefile.select(sample=OnSample(MetaS("provider") === "RefSeq")).tracksSorted.materializedOnDisk
+	// 			case name if usesOnlyPlusStrand contains name => samplefile.select(sample=OnSample(MetaS("provider") === "RefSeq"),
+	// 																			 region=OnRegion(Strand === "+")).tracksSorted.materializedOnDisk;		
+	// 			case _ => samplefile.select().tracksSorted.materializedOnDisk
+	// 			}; 
+	// 			(System.nanoTime()-t)/1e9
+	// 		}) (System.nanoTime())
+	// 	}
+	// }
+
+	counter = 0
 
 	// System.gc()
 	val edb:Option[DB] = edbFiles match {
@@ -528,7 +537,7 @@ object GMQLSynchro_Demo extends App {
 			case name if usesGenes contains name => Some(samplefile.select(sample=OnSample(MetaS("provider") === "RefSeq")).tracksSorted.materializedOnDisk)
 			case name if usesOnlyPlusStrand contains name => Some(samplefile.select(sample=OnSample(MetaS("annotation_type") === "TSS"),
 																			 region=OnRegion(Strand === "+")).tracksSorted.materializedOnDisk)
-			case _ => Some(samplefile.select().tracksSorted.materializedOnDisk)
+			case _ => Some(samplefile.select().tracksSorted.tracksSaved({ _ => rename("sortedEDB")}).savedAs("sortedEDB"))
 		}
 	}
 
@@ -773,6 +782,12 @@ object GMQLSynchro_Demo extends App {
 		"GC_40" -> DB.join(pred = Genometric(Overlap(1)), outputR = BothR()),
 		"GC_41" -> DB.join(pred = Genometric(Overlap(1)), outputR = BothR()),
 		"GC_42" -> DB.join(pred = Genometric(Overlap(1)), outputR = BothR()),
+		// "TFBS_use_case" -> {case (genes,tfbs) => 
+		// 							tfbs.map(
+		// 								region=OnRegion("found" as Count))(
+		// 								genes.project(region=OnRegion("chromStart" as Start - 2000,
+		// 									"chromEnd" as Start + 1 + 1000))).select(
+		// 								region=OnRegion(MetaR[Double]("found")>0))},
 	// 	"join" -> DB.join(pred = Genometric(DL(20)), outputR = IntR(),joinbyS = OnSample("case")) (rdb,edb)
 	)
 	def outdb = test_name match {
@@ -780,8 +795,12 @@ object GMQLSynchro_Demo extends App {
 		case s if pairDBQueries contains s => queries(test_name,List(rdb,edb.getOrElse(throw new Exception("DB2 not found"))))
 		case _ => throw new Exception("Unknown test name")
 	}
-	// Preload
-	Reporter.countLines(outdb.materializedOnDisk)
+
+	// val prom = DB.project(region=OnRegion("chromStart" as Start - 2000,
+	// 										"chromEnd" as Start + 1 + 1000))(rdb)
+	// val outdb = DB.map(region=OnRegion("found" as Count))(edb.get,prom).select(region=OnRegion(MetaR[Double]("found")>0))
+	// // Preload
+	// Reporter.countLines(outdb.materializedOnDisk)
 
 	val execProfile:IndexedSeq[(Double,Double)] = for (i <- 0 to (NEXEC-1)) yield { // System.gc();
 		((t:Long,m:Long) => {println(Reporter.countLines(outdb)); ((System.nanoTime()-t)/1e9,(runtime.totalMemory - runtime.freeMemory - m)/byte2mb.toDouble)}) (System.nanoTime(),runtime.totalMemory - runtime.freeMemory)

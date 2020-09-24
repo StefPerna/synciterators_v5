@@ -924,7 +924,6 @@ object GMQL {
         refN.mOverwritten(eN.meta).bedFileUpdated(bed)
       }
 
-
       DB {
         for (ref <- rdb.samples;
              e   <- edb.samples;

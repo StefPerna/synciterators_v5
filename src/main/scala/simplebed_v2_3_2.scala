@@ -88,11 +88,10 @@ object BedWrapper {
 
     // Default way to display a Bed entry.
 
-    // override def toString: String =
-    //   s"Bed{ chrom=${chrom}, chromStart=${chromStart}, chromEnd=${chromEnd}," +
-    //   s"name=${name}, score=${score}, strand=${strand}, map=${misc} }"
+    override def toString: String =
+      s"Bed{ chrom=${chrom}, chromStart=${chromStart}, chromEnd=${chromEnd}," +
+      s"name=${name}, score=${score}, strand=${strand}, map=${misc} }"
 
-    override def toString: String = this.bedFormatCompressed
 
     // Default ways to serialize a Bed entry.
 
