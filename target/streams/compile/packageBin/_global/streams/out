@@ -1,901 +1,551 @@
-[debug] Packaging /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/synchroiteration_2.13-0.1.0-SNAPSHOT.jar ...
-[debug] Input file mappings:
-[debug] 	
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes
-[debug] 	demo
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/demo
-[debug] 	demo/SavUnwrapper.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/demo/SavUnwrapper.class
-[debug] 	demo/ErrorManagement$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/demo/ErrorManagement$.class
-[debug] 	demo/GMQLSynchro_Demo2$delayedInit$body.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/demo/GMQLSynchro_Demo2$delayedInit$body.class
-[debug] 	demo/GMQLSynchro_Demo2.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/demo/GMQLSynchro_Demo2.class
-[debug] 	demo/Reporter$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/demo/Reporter$.class
-[debug] 	demo/GMQLSynchro_Demo$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/demo/GMQLSynchro_Demo$.class
-[debug] 	demo/GMQLSynchro_Demo$delayedInit$body.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/demo/GMQLSynchro_Demo$delayedInit$body.class
-[debug] 	demo/GMQLSynchro_Demo2$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/demo/GMQLSynchro_Demo2$.class
-[debug] 	demo/ErrorManagement.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/demo/ErrorManagement.class
-[debug] 	demo/GMQLSynchro_Demo.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/demo/GMQLSynchro_Demo.class
-[debug] 	demo/SavUnwrapper$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/demo/SavUnwrapper$.class
-[debug] 	demo/Reporter.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/demo/Reporter.class
-[debug] 	synchrony
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony
-[debug] 	synchrony/co
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co
-[debug] 	synchrony/co/SimpleCO$RawTuple10$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple10$.class
-[debug] 	synchrony/co/Conversions$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/Conversions$.class
-[debug] 	synchrony/co/SimpleCO$RawTuple10.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple10.class
-[debug] 	synchrony/co/SimpleCO$COTTuple4.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple4.class
-[debug] 	synchrony/co/SimpleCO$COTSet$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTSet$.class
-[debug] 	synchrony/co/SimpleCO$COT.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COT.class
-[debug] 	synchrony/co/SimpleCO$RawDouble$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawDouble$.class
-[debug] 	synchrony/co/SimpleCO$COTTuple14.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple14.class
-[debug] 	synchrony/co/SimpleCO$COTTuple11$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple11$.class
-[debug] 	synchrony/co/SimpleCO$RawTuple2$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple2$.class
-[debug] 	synchrony/co/SimpleCO$COTTuple6.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple6.class
-[debug] 	synchrony/co/SimpleCO$RawTuple12.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple12.class
-[debug] 	synchrony/co/SimpleCO$RawTuple8.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple8.class
-[debug] 	synchrony/co/SimpleCO$COTTuple2.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple2.class
-[debug] 	synchrony/co/SimpleCO$COTParser$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTParser$.class
-[debug] 	synchrony/co/SimpleCO$COTDouble$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTDouble$.class
-[debug] 	synchrony/co/SimpleCO$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$.class
-[debug] 	synchrony/co/SimpleCO$COTTuple13$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple13$.class
-[debug] 	synchrony/co/SimpleCO$COTTuple10.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple10.class
-[debug] 	synchrony/co/SimpleCO$COTDouble.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTDouble.class
-[debug] 	synchrony/co/SimpleCO$RawBool.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawBool.class
-[debug] 	synchrony/co/SimpleCO$COTTuple2$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple2$.class
-[debug] 	synchrony/co/SimpleCO$COTParser.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTParser.class
-[debug] 	synchrony/co/SimpleCO$RawTuple12$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple12$.class
-[debug] 	synchrony/co/SimpleCO$COTTuple12.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple12.class
-[debug] 	synchrony/co/SimpleCO$RawTuple14.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple14.class
-[debug] 	synchrony/co/SimpleCO$RawCOParser$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawCOParser$.class
-[debug] 	synchrony/co/SimpleCO$RawTuple4$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple4$.class
-[debug] 	synchrony/co/SimpleCO$COTTuple15.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple15.class
-[debug] 	synchrony/co/SimpleCO$RawTuple8$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple8$.class
-[debug] 	synchrony/co/SimpleCO$RawTuple13.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple13.class
-[debug] 	synchrony/co/SimpleCO$COTString.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTString.class
-[debug] 	synchrony/co/SimpleCO$COTTuple7.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple7.class
-[debug] 	synchrony/co/SimpleCO$COTTuple5.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple5.class
-[debug] 	synchrony/co/SimpleCOFile$UntypedCOFile.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCOFile$UntypedCOFile.class
-[debug] 	synchrony/co/Conversions.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/Conversions.class
-[debug] 	synchrony/co/SimpleCO$RawTuple11.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple11.class
-[debug] 	synchrony/co/SimpleCO$COTBool$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTBool$.class
-[debug] 	synchrony/co/SimpleCO$RawList$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawList$.class
-[debug] 	synchrony/co/SimpleCO$COTTuple6$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple6$.class
-[debug] 	synchrony/co/SimpleCO$COTTuple13.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple13.class
-[debug] 	synchrony/co/SimpleCO$COTTuple4$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple4$.class
-[debug] 	synchrony/co/SimpleCO$RawCO.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawCO.class
-[debug] 	synchrony/co/SimpleCO$RawTuple14$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple14$.class
-[debug] 	synchrony/co/SimpleCO$COTTuple8$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple8$.class
-[debug] 	synchrony/co/SimpleCO$RawTuple15.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple15.class
-[debug] 	synchrony/co/SimpleCO$RawList.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawList.class
-[debug] 	synchrony/co/SimpleCO$RawTuple9.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple9.class
-[debug] 	synchrony/co/SimpleCO$COTTuple3.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple3.class
-[debug] 	synchrony/co/SimpleCO$RawTuple6$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple6$.class
-[debug] 	synchrony/co/SimpleCO$COTTuple11.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple11.class
-[debug] 	synchrony/co/SimpleCO$COTTuple15$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple15$.class
-[debug] 	synchrony/co/SimpleCO$RawTuple3$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple3$.class
-[debug] 	synchrony/co/SimpleCO$COTTuple10$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple10$.class
-[debug] 	synchrony/co/SimpleCO$RawTuple5.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple5.class
-[debug] 	synchrony/co/SimpleCOFile$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCOFile$.class
-[debug] 	synchrony/co/SimpleCO$RawString.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawString.class
-[debug] 	synchrony/co/SimpleCO$COTString$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTString$.class
-[debug] 	synchrony/co/SimpleCO$RawTuple7.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple7.class
-[debug] 	synchrony/co/SimpleCO$RawTuple11$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple11$.class
-[debug] 	synchrony/co/SimpleCO$COTTuple3$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple3$.class
-[debug] 	synchrony/co/SimpleCOFile.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCOFile.class
-[debug] 	synchrony/co/SimpleCO$RawTuple3.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple3.class
-[debug] 	synchrony/co/SimpleCO$COTTuple9.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple9.class
-[debug] 	synchrony/co/SimpleCO$RawTuple13$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple13$.class
-[debug] 	synchrony/co/SimpleCO$COTList.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTList.class
-[debug] 	synchrony/co/SimpleCOFile$TypedCOFile.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCOFile$TypedCOFile.class
-[debug] 	synchrony/co/SimpleCO$COTTuple12$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple12$.class
-[debug] 	synchrony/co/SimpleCO$RawString$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawString$.class
-[debug] 	synchrony/co/SimpleCO$RawTuple6.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple6.class
-[debug] 	synchrony/co/SimpleCO$COTTuple7$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple7$.class
-[debug] 	synchrony/co/SimpleCO$RawSet$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawSet$.class
-[debug] 	synchrony/co/SimpleCOFile$UntypedCOFile$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCOFile$UntypedCOFile$.class
-[debug] 	synchrony/co/SimpleCO$RawTuple5$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple5$.class
-[debug] 	synchrony/co/SimpleCO$RawTuple9$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple9$.class
-[debug] 	synchrony/co/SimpleCO$RawTuple4.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple4.class
-[debug] 	synchrony/co/SimpleCO$COTSet.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTSet.class
-[debug] 	synchrony/co/SimpleCO$RawSet.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawSet.class
-[debug] 	synchrony/co/SimpleCO$RawCOParser.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawCOParser.class
-[debug] 	synchrony/co/SimpleCO$COTTuple14$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple14$.class
-[debug] 	synchrony/co/SimpleCO$RawTuple7$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple7$.class
-[debug] 	synchrony/co/SimpleCO$COTBool.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTBool.class
-[debug] 	synchrony/co/SimpleCO$COTTuple5$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple5$.class
-[debug] 	synchrony/co/SimpleCO$RawDouble.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawDouble.class
-[debug] 	synchrony/co/SimpleCO$COTList$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTList$.class
-[debug] 	synchrony/co/SimpleCO$COTTuple9$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple9$.class
-[debug] 	synchrony/co/SimpleCO$RawTuple15$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple15$.class
-[debug] 	synchrony/co/SimpleCO$RawTuple.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple.class
-[debug] 	synchrony/co/SimpleCO.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO.class
-[debug] 	synchrony/co/SimpleCO$RawBool$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawBool$.class
-[debug] 	synchrony/co/SimpleCO$RawTuple2.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$RawTuple2.class
-[debug] 	synchrony/co/SimpleCO$COTTuple8.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/co/SimpleCO$COTTuple8.class
-[debug] 	synchrony/gmql
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql
-[debug] 	synchrony/gmql/GMQL$implicits$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$implicits$.class
-[debug] 	synchrony/gmql/GMQL$DB$BothR$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$BothR$.class
-[debug] 	synchrony/gmql/Projections$SProjSimple$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$SProjSimple$.class
-[debug] 	synchrony/gmql/Predicates$Excl$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$Excl$.class
-[debug] 	synchrony/gmql/Predicates$MetaR$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$MetaR$.class
-[debug] 	synchrony/gmql/Projections$SGroupByProj$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$SGroupByProj$.class
-[debug] 	synchrony/gmql/Predicates$GenBObj.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$GenBObj.class
-[debug] 	synchrony/gmql/Projections$BaseCanJoinR.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$BaseCanJoinR.class
-[debug] 	synchrony/gmql/Projections$VSAggr.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$VSAggr.class
-[debug] 	synchrony/gmql/Projections$GenAggrOverRegions.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$GenAggrOverRegions.class
-[debug] 	synchrony/gmql/Projections$SProjGen.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$SProjGen.class
-[debug] 	synchrony/gmql/Predicates$NotS$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$NotS$.class
-[debug] 	synchrony/gmql/GMQL$DB$CatR$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$CatR$.class
-[debug] 	synchrony/gmql/Predicates$Chr$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$Chr$.class
-[debug] 	synchrony/gmql/Predicates$MetaR.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$MetaR.class
-[debug] 	synchrony/gmql/GMQL$DB$BySample.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$BySample.class
-[debug] 	synchrony/gmql/Projections$GenAggrOverSamples$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$GenAggrOverSamples$.class
-[debug] 	synchrony/gmql/GMQL$DB$OnRegion.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$OnRegion.class
-[debug] 	synchrony/gmql/GMQL$DB$OnSample$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$OnSample$.class
-[debug] 	synchrony/gmql/Predicates$NotSB.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$NotSB.class
-[debug] 	synchrony/gmql/Projections$Count$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$Count$.class
-[debug] 	synchrony/gmql/Predicates$GenBObj$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$GenBObj$.class
-[debug] 	synchrony/gmql/Predicates$GenSBPred.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$GenSBPred.class
-[debug] 	synchrony/gmql/GMQL$DB$GenS.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$GenS.class
-[debug] 	synchrony/gmql/Predicates$Name$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$Name$.class
-[debug] 	synchrony/gmql/Projections$CanJoinR.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$CanJoinR.class
-[debug] 	synchrony/gmql/Projections$BProjGen$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$BProjGen$.class
-[debug] 	synchrony/gmql/GMQL$DB$BothR.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$BothR.class
-[debug] 	synchrony/gmql/GMQL$DB$SortR$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$SortR$.class
-[debug] 	synchrony/gmql/Projections$FunAggrGen.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$FunAggrGen.class
-[debug] 	synchrony/gmql/EncodeNP.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/EncodeNP.class
-[debug] 	synchrony/gmql/Projections$ProjectionError$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$ProjectionError$.class
-[debug] 	synchrony/gmql/GMQL.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL.class
-[debug] 	synchrony/gmql/Samples$SampleFile$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$SampleFile$.class
-[debug] 	synchrony/gmql/Predicates$LiftR.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$LiftR.class
-[debug] 	synchrony/gmql/Predicates$SBObj.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$SBObj.class
-[debug] 	synchrony/gmql/Samples$Sample.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$Sample.class
-[debug] 	synchrony/gmql/Predicates$AndB.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$AndB.class
-[debug] 	synchrony/gmql/Projections$SPObj.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$SPObj.class
-[debug] 	synchrony/gmql/Projections$SProjGen$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$SProjGen$.class
-[debug] 	synchrony/gmql/Projections$Biggest$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$Biggest$.class
-[debug] 	synchrony/gmql/Predicates$BObj.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$BObj.class
-[debug] 	synchrony/gmql/Samples$SampleFileSerializers$AltCustomizableSampleParser.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$SampleFileSerializers$AltCustomizableSampleParser.class
-[debug] 	synchrony/gmql/Predicates$ArithSO.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$ArithSO.class
-[debug] 	synchrony/gmql/Projections$BProj.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$BProj.class
-[debug] 	synchrony/gmql/Projections$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$.class
-[debug] 	synchrony/gmql/Predicates$Strand$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$Strand$.class
-[debug] 	synchrony/gmql/Predicates$MkSBPred.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$MkSBPred.class
-[debug] 	synchrony/gmql/Projections$GenAggrOverRegions$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$GenAggrOverRegions$.class
-[debug] 	synchrony/gmql/Predicates$OrS$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$OrS$.class
-[debug] 	synchrony/gmql/Projections$SProjSBAggr.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$SProjSBAggr.class
-[debug] 	synchrony/gmql/GMQL$DB$ByRegion$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$ByRegion$.class
-[debug] 	synchrony/gmql/GMQL$DB$LeftS$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$LeftS$.class
-[debug] 	synchrony/gmql/Predicates$MetaS.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$MetaS.class
-[debug] 	synchrony/gmql/Predicates$GenBPred.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$GenBPred.class
-[debug] 	synchrony/gmql/Samples$SampleFileSerializers$CustomizableSampleParser.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$SampleFileSerializers$CustomizableSampleParser.class
-[debug] 	synchrony/gmql/Predicates$PredicateError.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$PredicateError.class
-[debug] 	synchrony/gmql/GMQL$DB$GenR.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$GenR.class
-[debug] 	synchrony/gmql/Predicates$GenSBObj$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$GenSBObj$.class
-[debug] 	synchrony/gmql/Samples$SampleFileSerializers$SampleFormatter$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$SampleFileSerializers$SampleFormatter$.class
-[debug] 	synchrony/gmql/Predicates$ArithSBO.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$ArithSBO.class
-[debug] 	synchrony/gmql/GMQL$DB$RightS$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$RightS$.class
-[debug] 	synchrony/gmql/Projections$SProjSimple.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$SProjSimple.class
-[debug] 	synchrony/gmql/GMQL$DB$GroupBySample.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$GroupBySample.class
-[debug] 	synchrony/gmql/GMQL$DB$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$.class
-[debug] 	synchrony/gmql/Predicates$OrSB.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$OrSB.class
-[debug] 	synchrony/gmql/Predicates$FunObj$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$FunObj$.class
-[debug] 	synchrony/gmql/GMQL$DB$OrderR.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$OrderR.class
-[debug] 	synchrony/gmql/GMQL$DB$Genometric.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$Genometric.class
-[debug] 	synchrony/gmql/GMQL$DB$GenS$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$GenS$.class
-[debug] 	synchrony/gmql/Projections$BaseCanJoinS.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$BaseCanJoinS.class
-[debug] 	synchrony/gmql/Projections$SBProjGen$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$SBProjGen$.class
-[debug] 	synchrony/gmql/Predicates$PredicateError$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$PredicateError$.class
-[debug] 	synchrony/gmql/Predicates$NotS.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$NotS.class
-[debug] 	synchrony/gmql/Predicates$SPred.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$SPred.class
-[debug] 	synchrony/gmql/GMQL$DB.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB.class
-[debug] 	synchrony/gmql/Projections$SBProjSimple.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$SBProjSimple.class
-[debug] 	synchrony/gmql/GMQL$DB$CatR.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$CatR.class
-[debug] 	synchrony/gmql/Predicates$AndS$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$AndS$.class
-[debug] 	synchrony/gmql/Predicates$NotSB$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$NotSB$.class
-[debug] 	synchrony/gmql/Projections$BAggr$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$BAggr$.class
-[debug] 	synchrony/gmql/Predicates$AndSB.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$AndSB.class
-[debug] 	synchrony/gmql/Predicates$MkStringSObj.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$MkStringSObj.class
-[debug] 	synchrony/gmql/GMQL$DB$NoRegionGroup$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$NoRegionGroup$.class
-[debug] 	synchrony/gmql/Predicates$MkBObj.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$MkBObj.class
-[debug] 	synchrony/gmql/Projections$CanJoinS.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$CanJoinS.class
-[debug] 	synchrony/gmql/Projections$BProjSimple$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$BProjSimple$.class
-[debug] 	synchrony/gmql/Samples$Sample$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$Sample$.class
-[debug] 	synchrony/gmql/Predicates$OrS.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$OrS.class
-[debug] 	synchrony/gmql/Predicates$Start$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$Start$.class
-[debug] 	synchrony/gmql/GMQL$DB$NoSampleGroup$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$NoSampleGroup$.class
-[debug] 	synchrony/gmql/Predicates$ArithSO$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$ArithSO$.class
-[debug] 	synchrony/gmql/Predicates$LiftS.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$LiftS.class
-[debug] 	synchrony/gmql/Projections$BaseAggrGen.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$BaseAggrGen.class
-[debug] 	synchrony/gmql/Predicates$SBPred.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$SBPred.class
-[debug] 	synchrony/gmql/Projections$SBAggr$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$SBAggr$.class
-[debug] 	synchrony/gmql/Samples$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$.class
-[debug] 	synchrony/gmql/Predicates$MkSObj.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$MkSObj.class
-[debug] 	synchrony/gmql/Projections$ProjectionError.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$ProjectionError.class
-[debug] 	synchrony/gmql/Predicates$Excl.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$Excl.class
-[debug] 	synchrony/gmql/GMQL$DB$OnRegion$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$OnRegion$.class
-[debug] 	synchrony/gmql/Predicates$AndSB$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$AndSB$.class
-[debug] 	synchrony/gmql/GMQL$DB$GroupByRegion.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$GroupByRegion.class
-[debug] 	synchrony/gmql/Predicates$MkStringBObj.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$MkStringBObj.class
-[debug] 	synchrony/gmql/Projections$SProj.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$SProj.class
-[debug] 	synchrony/gmql/GMQL$DB$OutputS.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$OutputS.class
-[debug] 	synchrony/gmql/Projections$GenAggrOverSamples.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$GenAggrOverSamples.class
-[debug] 	synchrony/gmql/Samples$SampleFileSerializers$AltCustomizableSampleParser$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$SampleFileSerializers$AltCustomizableSampleParser$.class
-[debug] 	synchrony/gmql/Predicates$AndB$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$AndB$.class
-[debug] 	synchrony/gmql/Projections$SBAggr.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$SBAggr.class
-[debug] 	synchrony/gmql/Predicates$ArithSB.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$ArithSB.class
-[debug] 	synchrony/gmql/Predicates$MetaS$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$MetaS$.class
-[debug] 	synchrony/gmql/Predicates$ArithSBO$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$ArithSBO$.class
-[debug] 	synchrony/gmql/Samples$SampleFileSerializers$AltSampleParser$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$SampleFileSerializers$AltSampleParser$.class
-[debug] 	synchrony/gmql/Projections$GenCanJoinR.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$GenCanJoinR.class
-[debug] 	synchrony/gmql/Predicates$GenSBObj.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$GenSBObj.class
-[debug] 	synchrony/gmql/Predicates$OrB.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$OrB.class
-[debug] 	synchrony/gmql/Predicates$OrSB$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$OrSB$.class
-[debug] 	synchrony/gmql/EncodeNP$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/EncodeNP$.class
-[debug] 	synchrony/gmql/Predicates$L2SBPred.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$L2SBPred.class
-[debug] 	synchrony/gmql/Projections$SBProjSimple$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$SBProjSimple$.class
-[debug] 	synchrony/gmql/Predicates$Incl.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$Incl.class
-[debug] 	synchrony/gmql/Samples.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples.class
-[debug] 	synchrony/gmql/Projections$SBProjGen.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$SBProjGen.class
-[debug] 	synchrony/gmql/Projections$Average$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$Average$.class
-[debug] 	synchrony/gmql/Projections$Sum$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$Sum$.class
-[debug] 	synchrony/gmql/Projections$BProjGen.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$BProjGen.class
-[debug] 	synchrony/gmql/Predicates$S2SBPred.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$S2SBPred.class
-[debug] 	synchrony/gmql/Predicates$ArithBO$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$ArithBO$.class
-[debug] 	synchrony/gmql/Predicates$SemiJoin$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$SemiJoin$.class
-[debug] 	synchrony/gmql/Samples$SampleFileSerializers$SampleFileDeserializer$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$SampleFileSerializers$SampleFileDeserializer$.class
-[debug] 	synchrony/gmql/GMQL$DB$OverwriteS.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$OverwriteS.class
-[debug] 	synchrony/gmql/GMQL$DB$IntR$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$IntR$.class
-[debug] 	synchrony/gmql/Predicates$ArithBS.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$ArithBS.class
-[debug] 	synchrony/gmql/Projections$SProjBAggr$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$SProjBAggr$.class
-[debug] 	synchrony/gmql/Predicates$NotB.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$NotB.class
-[debug] 	synchrony/gmql/GMQL$DB$DistinctR$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$DistinctR$.class
-[debug] 	synchrony/gmql/Predicates.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates.class
-[debug] 	synchrony/gmql/Predicates$OrB$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$OrB$.class
-[debug] 	synchrony/gmql/Predicates$GenSObj$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$GenSObj$.class
-[debug] 	synchrony/gmql/Samples$SampleFileSerializers$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$SampleFileSerializers$.class
-[debug] 	synchrony/gmql/GMQL$DB$GenR$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$GenR$.class
-[debug] 	synchrony/gmql/Samples$SampleFileSerializers$SampleParser$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$SampleFileSerializers$SampleParser$.class
-[debug] 	synchrony/gmql/Predicates$SemiJoin.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$SemiJoin.class
-[debug] 	synchrony/gmql/GMQL$DB$IntR.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$IntR.class
-[debug] 	synchrony/gmql/GMQL$DB$OutputR.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$OutputR.class
-[debug] 	synchrony/gmql/Predicates$Score$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$Score$.class
-[debug] 	synchrony/gmql/Predicates$SObj.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$SObj.class
-[debug] 	synchrony/gmql/Projections$BProjSimple.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$BProjSimple.class
-[debug] 	synchrony/gmql/Projections$GenCanJoinS.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$GenCanJoinS.class
-[debug] 	synchrony/gmql/Samples$SampleFileSerializers$SampleFileDeserializer.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$SampleFileSerializers$SampleFileDeserializer.class
-[debug] 	synchrony/gmql/Projections$SProjBAggr.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$SProjBAggr.class
-[debug] 	synchrony/gmql/GMQL$DB$OnSample.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$OnSample.class
-[debug] 	synchrony/gmql/GMQL$DB$ByRegion.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$ByRegion.class
-[debug] 	synchrony/gmql/Predicates$ArithBO.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$ArithBO.class
-[debug] 	synchrony/gmql/GMQL$DB$RightR$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$RightR$.class
-[debug] 	synchrony/gmql/Projections.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections.class
-[debug] 	synchrony/gmql/Predicates$BPred.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$BPred.class
-[debug] 	synchrony/gmql/Predicates$Incl$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$Incl$.class
-[debug] 	synchrony/gmql/Predicates$ArithBS$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$ArithBS$.class
-[debug] 	synchrony/gmql/Projections$SProjSBAggr$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$SProjSBAggr$.class
-[debug] 	synchrony/gmql/GMQL$DB$BySample$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$BySample$.class
-[debug] 	synchrony/gmql/GMQL$DB$LeftR$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$LeftR$.class
-[debug] 	synchrony/gmql/Predicates$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$.class
-[debug] 	synchrony/gmql/Projections$SGroupByProj.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$SGroupByProj.class
-[debug] 	synchrony/gmql/Projections$VSAggr$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$VSAggr$.class
-[debug] 	synchrony/gmql/Predicates$End$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$End$.class
-[debug] 	synchrony/gmql/Projections$BAggr.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$BAggr.class
-[debug] 	synchrony/gmql/Predicates$ArithSB$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$ArithSB$.class
-[debug] 	synchrony/gmql/GMQL$DB$DoneR$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$DoneR$.class
-[debug] 	synchrony/gmql/GMQL$DB$SortDistinctR$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$SortDistinctR$.class
-[debug] 	synchrony/gmql/Samples$SampleFileSerializers$CustomizableSampleParser$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$SampleFileSerializers$CustomizableSampleParser$.class
-[debug] 	synchrony/gmql/Predicates$GenSPred.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$GenSPred.class
-[debug] 	synchrony/gmql/Predicates$NotB$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$NotB$.class
-[debug] 	synchrony/gmql/Projections$Smallest$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Projections$Smallest$.class
-[debug] 	synchrony/gmql/GMQL$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$.class
-[debug] 	synchrony/gmql/Predicates$AndS.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$AndS.class
-[debug] 	synchrony/gmql/Predicates$GenSObj.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$GenSObj.class
-[debug] 	synchrony/gmql/GMQL$DB$OverwriteS$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$OverwriteS$.class
-[debug] 	synchrony/gmql/GMQL$DB$Genometric$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/GMQL$DB$Genometric$.class
-[debug] 	synchrony/gmql/Predicates$FunObj.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Predicates$FunObj.class
-[debug] 	synchrony/programming
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming
-[debug] 	synchrony/programming/StepContainer$Step0.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/StepContainer$Step0.class
-[debug] 	synchrony/programming/Arith$Arith.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/Arith$Arith.class
-[debug] 	synchrony/programming/Arith$$anon$2.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/Arith$$anon$2.class
-[debug] 	synchrony/programming/Sri$Sri3.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/Sri$Sri3.class
-[debug] 	synchrony/programming/Arith$$anon$1.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/Arith$$anon$1.class
-[debug] 	synchrony/programming/Sri.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/Sri.class
-[debug] 	synchrony/programming/Sri$Sri3$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/Sri$Sri3$.class
-[debug] 	synchrony/programming/StepContainer$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/StepContainer$.class
-[debug] 	synchrony/programming/Sri$Sri.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/Sri$Sri.class
-[debug] 	synchrony/programming/Sri$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/Sri$.class
-[debug] 	synchrony/programming/StepContainer$Step0$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/StepContainer$Step0$.class
-[debug] 	synchrony/programming/Arith$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/Arith$.class
-[debug] 	synchrony/programming/StepContainer.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/StepContainer.class
-[debug] 	synchrony/programming/Arith.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/Arith.class
-[debug] 	synchrony/genomeannot
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot
-[debug] 	synchrony/genomeannot/BedWrapper$BedSerializers$CustomizableBedParser$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$BedSerializers$CustomizableBedParser$.class
-[debug] 	synchrony/genomeannot/BedWrapper$BedSerializers$BedFormatter$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$BedSerializers$BedFormatter$.class
-[debug] 	synchrony/genomeannot/BedWrapper$BedSerializers$BasicBedParser.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$BedSerializers$BasicBedParser.class
-[debug] 	synchrony/genomeannot/BedWrapper$BedError.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$BedError.class
-[debug] 	synchrony/genomeannot/BedWrapper$BedError$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$BedError$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$BasedOnStart.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$BasedOnStart.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$BasedOnStart$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$BasedOnStart$.class
-[debug] 	synchrony/genomeannot/BedWrapper$SimpleBedEntry$MinusStrand$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$SimpleBedEntry$MinusStrand$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$StartTogether$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$StartTogether$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$LocusPred.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$LocusPred.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$DGE.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$DGE.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$StartAfter$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$StartAfter$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeError$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeError$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$AndL$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$AndL$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$DG.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$DG.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$BasedOnEnd$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$BasedOnEnd$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$OrL$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$OrL$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$Overlap$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$Overlap$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$GenPred$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$GenPred$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$OrL.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$OrL.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$GenPred.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$GenPred.class
-[debug] 	synchrony/genomeannot/BedWrapper$BedSerializers$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$BedSerializers$.class
-[debug] 	synchrony/genomeannot/BedWrapper.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$DG$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$DG$.class
-[debug] 	synchrony/genomeannot/BedWrapper$BedSerializers$BedParser.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$BedSerializers$BedParser.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$AndL.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$AndL.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot.class
-[debug] 	synchrony/genomeannot/BedWrapper$SimpleBedEntry$PlusStrand$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$SimpleBedEntry$PlusStrand$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$Enclose$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$Enclose$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$Outside$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$Outside$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$Inside$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$Inside$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$.class
-[debug] 	synchrony/genomeannot/BedWrapper$BedFile$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$BedFile$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$BasedOnEnd.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$BasedOnEnd.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$DLE$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$DLE$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$DL$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$DL$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$DL.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$DL.class
-[debug] 	synchrony/genomeannot/BedWrapper$SimpleBedEntry$SameStrand$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$SimpleBedEntry$SameStrand$.class
-[debug] 	synchrony/genomeannot/BedWrapper$BedSerializers$CustomizableBedParser.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$BedSerializers$CustomizableBedParser.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeError.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeError.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$EndAfter$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$EndAfter$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$Touch$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$Touch$.class
-[debug] 	synchrony/genomeannot/BedWrapper$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$EndBefore$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$EndBefore$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$DLE.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$DLE.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$DGE$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$DGE$.class
-[debug] 	synchrony/genomeannot/BedWrapper$SimpleBedEntry.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$SimpleBedEntry.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$LocusLike.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$LocusLike.class
-[debug] 	synchrony/genomeannot/BedWrapper$SimpleBedEntry$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$SimpleBedEntry$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$StartBefore$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$StartBefore$.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$Overlap.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$Overlap.class
-[debug] 	synchrony/genomeannot/GenomeAnnot$GenomeLocus$EndTogether$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$EndTogether$.class
-[debug] 	synchrony/iterators
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators
-[debug] 	synchrony/iterators/SyncCollections$EIterator$$anon$1.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$EIterator$$anon$1.class
-[debug] 	synchrony/iterators/SyncCollections$SynchroEIterator$$anon$7.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$SynchroEIterator$$anon$7.class
-[debug] 	synchrony/iterators/AggrCollections$AggrIterator$$anon$1.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/AggrCollections$AggrIterator$$anon$1.class
-[debug] 	synchrony/iterators/MiscCollections$Shadowing.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/MiscCollections$Shadowing.class
-[debug] 	synchrony/iterators/FileCollections.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections.class
-[debug] 	synchrony/iterators/SyncCollections$EIterator$$anon$3.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$EIterator$$anon$3.class
-[debug] 	synchrony/iterators/FileCollections$Demo$Entry$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$Demo$Entry$.class
-[debug] 	synchrony/iterators/FileCollections$Transient.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$Transient.class
-[debug] 	synchrony/iterators/Serializers$Formatter.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$Formatter.class
-[debug] 	synchrony/iterators/FileCollections$EFile$$anon$3.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$EFile$$anon$3.class
-[debug] 	synchrony/iterators/ShadowCollections$ShadowedIterator$$anon$4$$anon$5.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/ShadowCollections$ShadowedIterator$$anon$4$$anon$5.class
-[debug] 	synchrony/iterators/Serializers$FileSerializer.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$FileSerializer.class
-[debug] 	synchrony/iterators/FileCollections$FileCannotSave.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$FileCannotSave.class
-[debug] 	synchrony/iterators/FileCollections$Slurped$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$Slurped$.class
-[debug] 	synchrony/iterators/SyncCollections$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$.class
-[debug] 	synchrony/iterators/FileCollections$EFile.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$EFile.class
-[debug] 	synchrony/iterators/FileCollections$FileCannotSave$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$FileCannotSave$.class
-[debug] 	synchrony/iterators/FileCollections$EFile$$anon$1.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$EFile$$anon$1.class
-[debug] 	synchrony/iterators/SyncCollections$EIterator$$anon$5.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$EIterator$$anon$5.class
-[debug] 	synchrony/iterators/Serializers$FileDeserializerWithPosition$$anon$2.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$FileDeserializerWithPosition$$anon$2.class
-[debug] 	synchrony/iterators/FileCollections$EFileState.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$EFileState.class
-[debug] 	synchrony/iterators/AggrCollections$OpG$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/AggrCollections$OpG$.class
-[debug] 	synchrony/iterators/AggrCollections$AggrIterator$$anon$2.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/AggrCollections$AggrIterator$$anon$2.class
-[debug] 	synchrony/iterators/SyncCollections$EIterator$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$EIterator$.class
-[debug] 	synchrony/iterators/ShadowCollections.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/ShadowCollections.class
-[debug] 	synchrony/iterators/MiscCollections$ShadowedIterator$$anon$4$$anon$5.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/MiscCollections$ShadowedIterator$$anon$4$$anon$5.class
-[debug] 	synchrony/iterators/SyncCollections.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections.class
-[debug] 	synchrony/iterators/FileCollections$OnDisk$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$OnDisk$.class
-[debug] 	synchrony/iterators/SyncCollections$EIterator$$anon$2.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$EIterator$$anon$2.class
-[debug] 	synchrony/iterators/FileCollections$Demo$Entry.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$Demo$Entry.class
-[debug] 	synchrony/iterators/Serializers$Deserializer.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$Deserializer.class
-[debug] 	synchrony/iterators/Serializers$IncrementalSerializer.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$IncrementalSerializer.class
-[debug] 	synchrony/iterators/FileCollections$FileNotFound$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$FileNotFound$.class
-[debug] 	synchrony/iterators/Serializers$FileDeserializerWithPosition.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$FileDeserializerWithPosition.class
-[debug] 	synchrony/iterators/SyncCollections$EIterator$$anon$4.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$EIterator$$anon$4.class
-[debug] 	synchrony/iterators/FileCollections$Slurped.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$Slurped.class
-[debug] 	synchrony/iterators/Serializers$FileDeserializer.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$FileDeserializer.class
-[debug] 	synchrony/iterators/AggrCollections$OpG$Stats$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/AggrCollections$OpG$Stats$.class
-[debug] 	synchrony/iterators/FileCollections$EFile$$anon$2.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$EFile$$anon$2.class
-[debug] 	synchrony/iterators/SyncCollections$EIterator$$anon$6.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$EIterator$$anon$6.class
-[debug] 	synchrony/iterators/AggrCollections.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/AggrCollections.class
-[debug] 	synchrony/iterators/FileCollections$EFile$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$EFile$.class
-[debug] 	synchrony/iterators/SyncCollections$EIterator.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$EIterator.class
-[debug] 	synchrony/iterators/Serializers$ItemParser.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$ItemParser.class
-[debug] 	synchrony/iterators/Serializers$FileDeserializer$$anon$1.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$FileDeserializer$$anon$1.class
-[debug] 	synchrony/iterators/AggrCollections$implicits$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/AggrCollections$implicits$.class
-[debug] 	synchrony/iterators/Serializers$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$.class
-[debug] 	synchrony/iterators/AggrCollections$Aggregates.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/AggrCollections$Aggregates.class
-[debug] 	synchrony/iterators/MiscCollections$SlidingIteratorN$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/MiscCollections$SlidingIteratorN$.class
-[debug] 	synchrony/iterators/MiscCollections$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/MiscCollections$.class
-[debug] 	synchrony/iterators/MiscCollections$SlidingIteratorN$$anon$7.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/MiscCollections$SlidingIteratorN$$anon$7.class
-[debug] 	synchrony/iterators/MiscCollections$Sliding2.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/MiscCollections$Sliding2.class
-[debug] 	synchrony/iterators/ShadowCollections$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/ShadowCollections$.class
-[debug] 	synchrony/iterators/SyncCollections$SynchroEIterator.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$SynchroEIterator.class
-[debug] 	synchrony/iterators/Serializers$ItemFormatter.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$ItemFormatter.class
-[debug] 	synchrony/iterators/ShadowCollections$Shadowing$$anon$1.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/ShadowCollections$Shadowing$$anon$1.class
-[debug] 	synchrony/iterators/AggrCollections$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/AggrCollections$.class
-[debug] 	synchrony/iterators/FileCollections$InMemory.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$InMemory.class
-[debug] 	synchrony/iterators/MiscCollections$ShadowedIterator$$anon$4.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/MiscCollections$ShadowedIterator$$anon$4.class
-[debug] 	synchrony/iterators/ShadowCollections$ShadowedIterator$$anon$4.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/ShadowCollections$ShadowedIterator$$anon$4.class
-[debug] 	synchrony/iterators/Serializers$Parser.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$Parser.class
-[debug] 	synchrony/iterators/AggrCollections$AggrIterator$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/AggrCollections$AggrIterator$.class
-[debug] 	synchrony/iterators/FileCollections$InMemory$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$InMemory$.class
-[debug] 	synchrony/iterators/MiscCollections$Shadowing$$anon$1.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/MiscCollections$Shadowing$$anon$1.class
-[debug] 	synchrony/iterators/MiscCollections$SlidingIterator2$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/MiscCollections$SlidingIterator2$.class
-[debug] 	synchrony/iterators/FileCollections$EFileSettings$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$EFileSettings$.class
-[debug] 	synchrony/iterators/FileCollections$implicits$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$implicits$.class
-[debug] 	synchrony/iterators/FileCollections$Demo$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$Demo$.class
-[debug] 	synchrony/iterators/MiscCollections$SlidingIterator2$$anon$6.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/MiscCollections$SlidingIterator2$$anon$6.class
-[debug] 	synchrony/iterators/ShadowCollections$Shadowing$$anon$2.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/ShadowCollections$Shadowing$$anon$2.class
-[debug] 	synchrony/iterators/FileCollections$OnDisk.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$OnDisk.class
-[debug] 	synchrony/iterators/MiscCollections.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/MiscCollections.class
-[debug] 	synchrony/iterators/MiscCollections$SlidingN.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/MiscCollections$SlidingN.class
-[debug] 	synchrony/iterators/MiscCollections$ShadowedIterator$$anon$3.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/MiscCollections$ShadowedIterator$$anon$3.class
-[debug] 	synchrony/iterators/ShadowCollections$ShadowedIterator$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/ShadowCollections$ShadowedIterator$.class
-[debug] 	synchrony/iterators/ShadowCollections$ShadowedIterator$$anon$3.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/ShadowCollections$ShadowedIterator$$anon$3.class
-[debug] 	synchrony/iterators/Serializers$ItemFormatter$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$ItemFormatter$.class
-[debug] 	synchrony/iterators/FileCollections$FileNotFound.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$FileNotFound.class
-[debug] 	synchrony/iterators/SyncCollections$SynchroEIterator$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$SynchroEIterator$.class
-[debug] 	synchrony/iterators/FileCollections$Transient$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$Transient$.class
-[debug] 	synchrony/iterators/FileCollections$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$.class
-[debug] 	synchrony/iterators/Serializers.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers.class
-[debug] 	synchrony/iterators/AggrCollections$OpG$Stats.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/AggrCollections$OpG$Stats.class
-[debug] 	synchrony/iterators/MiscCollections$ShadowedIterator$.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/MiscCollections$ShadowedIterator$.class
-[debug] 	synchrony/iterators/ShadowCollections$Shadowing.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/ShadowCollections$Shadowing.class
-[debug] 	synchrony/iterators/FileCollections$EFileSettings.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$EFileSettings.class
-[debug] 	synchrony/iterators/Serializers$Serializer.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$Serializer.class
-[debug] 	synchrony/iterators/MiscCollections$Shadowing$$anon$2.class
-[debug] 	  /Users/stefperna/projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/MiscCollections$Shadowing$$anon$2.class
-[debug] Done packaging.
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/synchroiteration_2.13-0.1.0-SNAPSHOT.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/.DS_Store[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/.DS_Store[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/CoverTests.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/CoverTests.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/Constants.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/Constants.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/SelectTests$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/SelectTests$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/Cleaner$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/Cleaner$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/ParallelTests.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/ParallelTests.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/Constants$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/Constants$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/Loader$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/Loader$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/Reporter$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/Reporter$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/Loader.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/Loader.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/Timer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/Timer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/JoinTests$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/JoinTests$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/UseCaseOnly$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/UseCaseOnly$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/UseCaseOnly.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/UseCaseOnly.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/ParallelTests$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/ParallelTests$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/CoverTests$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/CoverTests$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/JoinTests.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/JoinTests.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/UseCaseOnly$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/UseCaseOnly$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/ParallelTests$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/ParallelTests$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/Cleaner.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/Cleaner.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/Timer$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/Timer$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/Reporter.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/Reporter.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql_test/SelectTests.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql_test/SelectTests.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/BedFileParOps$BFOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/BedFileParOps$BFOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/BedFileParOpsImplicit.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/BedFileParOpsImplicit.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/BothParOpsImplicit.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/BothParOpsImplicit.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/BedFileParOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/BedFileParOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/BedFileParOps$implicits$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/BedFileParOps$implicits$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/SampleFileParOps$SFOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/SampleFileParOps$SFOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/SampleFileParOps$SFOut$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/SampleFileParOps$SFOut$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/BedFileParOpsImplicit$BFOpsWithImplicitAction.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/BedFileParOpsImplicit$BFOpsWithImplicitAction.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/BothParOpsImplicit$BFOpsWithImplicitAction$SFOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/BothParOpsImplicit$BFOpsWithImplicitAction$SFOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/ExecutionManagers$ExecutionMgr.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/ExecutionManagers$ExecutionMgr.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/BothParOpsImplicit$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/BothParOpsImplicit$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/BedFileParOpsImplicit$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/BedFileParOpsImplicit$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/SampleFileParOpsImplicit$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/SampleFileParOpsImplicit$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/SampleFileParOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/SampleFileParOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/BothParOpsImplicit$BFOpsWithImplicitAction$SFOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/BothParOpsImplicit$BFOpsWithImplicitAction$SFOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/SampleFileParOpsImplicit$SFOpsWithImplicitAction.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/SampleFileParOpsImplicit$SFOpsWithImplicitAction.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/BedFileParOpsImplicit$BFOpsWithImplicitAction$SFOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/BedFileParOpsImplicit$BFOpsWithImplicitAction$SFOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/BedFileParOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/BedFileParOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/ExecutionManagers$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/ExecutionManagers$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/BedFileParOpsImplicit$BFOpsWithImplicitAction$SFOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/BedFileParOpsImplicit$BFOpsWithImplicitAction$SFOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/SampleFileParOpsImplicit.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/SampleFileParOpsImplicit.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/BothParOpsImplicit$BFOpsWithImplicitAction.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/BothParOpsImplicit$BFOpsWithImplicitAction.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/SampleFileParOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/SampleFileParOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/ExecutionManagers$ExecutionMgr$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/ExecutionManagers$ExecutionMgr$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/SampleFileParOps$SFOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/SampleFileParOps$SFOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/ExecutionManagers$ExecutionMgr$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/ExecutionManagers$ExecutionMgr$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/ExecutionManagers.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/ExecutionManagers.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/SampleFileParOpsImplicit$SFOpsWithImplicitAction$SFOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/SampleFileParOpsImplicit$SFOpsWithImplicitAction$SFOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/SampleFileParOps$SFSemiJoin.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/SampleFileParOps$SFSemiJoin.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/SampleFileParOpsImplicit$SFOpsWithImplicitAction$SFOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/SampleFileParOpsImplicit$SFOpsWithImplicitAction$SFOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/pargmql/BedFileParOps$BFOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/pargmql/BedFileParOps$BFOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/Samples$ASample.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$ASample.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFileOpsTimings$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFileOpsTimings$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/EncodeNP.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/EncodeNP.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/Samples$Sample.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$Sample.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/Samples$BaseSampleFileSerializers$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$BaseSampleFileSerializers$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/Samples$BaseSampleFileSerializers$BaseSampleParser$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$BaseSampleFileSerializers$BaseSampleParser$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFileOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFileOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFileOpsImplicit$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFileOpsImplicit$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFileOpsImplicit.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFileOpsImplicit.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFiles$SampleFileSerializers$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFiles$SampleFileSerializers$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFileOps$SFSemiJoin.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFileOps$SFSemiJoin.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFileOpsImplicit$SFOpsWithImplicitAction$SFOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFileOpsImplicit$SFOpsWithImplicitAction$SFOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/Samples$BaseSampleFileSerializers$BaseSampleParser$$anonfun$$lessinit$greater$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$BaseSampleFileSerializers$BaseSampleParser$$anonfun$$lessinit$greater$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFileOps$SFOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFileOps$SFOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFiles$SampleFileSerializers$AltCustomizableSampleParser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFiles$SampleFileSerializers$AltCustomizableSampleParser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFileOpsImplicit$SFOpsWithImplicitAction$SFOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFileOpsImplicit$SFOpsWithImplicitAction$SFOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFileOps$SFOut$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFileOps$SFOut$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/Samples$BaseSampleFileSerializers$CustomizableSampleParser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$BaseSampleFileSerializers$CustomizableSampleParser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/Samples$Sample$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$Sample$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFileOpsTimings$Timings.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFileOpsTimings$Timings.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/Samples$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/Samples$BaseSampleFileSerializers$SampleFormatter$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$BaseSampleFileSerializers$SampleFormatter$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFileOpsTimings.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFileOpsTimings.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/Samples$ASample$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$ASample$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFiles.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFiles.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFiles$SampleFile$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFiles$SampleFile$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFiles$SampleFileSerializers$SampleParser$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFiles$SampleFileSerializers$SampleParser$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFiles$SampleFileSerializers$AltSampleParser$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFiles$SampleFileSerializers$AltSampleParser$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/EncodeNP$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/EncodeNP$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFiles$ASampleFile$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFiles$ASampleFile$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/Samples.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFiles$ASampleFile.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFiles$ASampleFile.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFileOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFileOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFileOps$SFOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFileOps$SFOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFiles$SampleFileSerializers$AltCustomizableSampleParser$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFiles$SampleFileSerializers$AltCustomizableSampleParser$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFiles$SampleFileSerializers$SampleFileDeserializer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFiles$SampleFileSerializers$SampleFileDeserializer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFiles$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFiles$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFiles$SampleFileSerializers$SampleFileDeserializer$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFiles$SampleFileSerializers$SampleFileDeserializer$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFiles$SampleFileSerializers$SampleParser$$anonfun$$lessinit$greater$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFiles$SampleFileSerializers$SampleParser$$anonfun$$lessinit$greater$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/Samples$BaseSampleFileSerializers$CustomizableSampleParser$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$BaseSampleFileSerializers$CustomizableSampleParser$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/Samples$BaseSampleFileSerializers$SampleParser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/Samples$BaseSampleFileSerializers$SampleParser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/gmql/SampleFileOpsImplicit$SFOpsWithImplicitAction.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/gmql/SampleFileOpsImplicit$SFOpsWithImplicitAction.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/programming[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/programming/StepContainer$Step0.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/StepContainer$Step0.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/programming/Arith$Arith.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/Arith$Arith.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/programming/Arith$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/Arith$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/programming/Sri$Sri3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/Sri$Sri3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/programming/Arith$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/Arith$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/programming/Sri.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/Sri.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/programming/Sri$Sri3$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/Sri$Sri3$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/programming/StepContainer$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/StepContainer$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/programming/Sri$Sri.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/Sri$Sri.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/programming/Sri$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/Sri$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/programming/StepContainer$Step0$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/StepContainer$Step0$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/programming/Arith$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/Arith$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/programming/StepContainer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/StepContainer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/programming/Arith.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/programming/Arith.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedWrapper$BedSerializers$CustomizableBedParser$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$BedSerializers$CustomizableBedParser$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedWrapper$BedSerializers$BedFormatter$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$BedSerializers$BedFormatter$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedWrapper$BedSerializers$BasicBedParser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$BedSerializers$BasicBedParser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedWrapper$BedError.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$BedError.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedWrapper$BedError$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$BedError$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedFileOps$BFOrder$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedFileOps$BFOrder$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$BasedOnStart.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$BasedOnStart.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedFileOps$BFOrder$$anon$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedFileOps$BFOrder$$anon$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$BasedOnStart$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$BasedOnStart$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedWrapper$SimpleBedEntry$MinusStrand$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$SimpleBedEntry$MinusStrand$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$StartTogether$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$StartTogether$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$LocusPred.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$LocusPred.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedFileOps$BFOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedFileOps$BFOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$DGE.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$DGE.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedFileOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedFileOps.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/SplitFiles$SBedSerializers$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/SplitFiles$SBedSerializers$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedWrapper$ABedFile.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$ABedFile.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$StartAfter$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$StartAfter$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeError$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeError$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$AndL$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$AndL$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$DG.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$DG.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$BasedOnEnd$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$BasedOnEnd$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$OrL$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$OrL$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedFileOps$BFOrder$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedFileOps$BFOrder$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedFileOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedFileOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/SplitFiles$SBedFile$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/SplitFiles$SBedFile$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedFileOps$BFOrder$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedFileOps$BFOrder$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$Overlap$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$Overlap$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedFileOps$BFCover$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedFileOps$BFCover$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$GenPred$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$GenPred$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/SplitFiles$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/SplitFiles$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$OrL.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$OrL.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$GenPred.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$GenPred.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedWrapper$BedSerializers$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$BedSerializers$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedWrapper.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$DG$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$DG$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedWrapper$ABedFile$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$ABedFile$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/SplitFiles.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/SplitFiles.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedWrapper$BedSerializers$BedParser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$BedSerializers$BedParser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$AndL.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$AndL.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedWrapper$SimpleBedEntry$PlusStrand$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$SimpleBedEntry$PlusStrand$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$Enclose$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$Enclose$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$Outside$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$Outside$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$Inside$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$Inside$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedWrapper$BedFile$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$BedFile$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$BasedOnEnd.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$BasedOnEnd.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/SplitFiles$SBedSerializers$SBedFileDeserializer$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/SplitFiles$SBedSerializers$SBedFileDeserializer$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$DLE$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$DLE$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/SplitFiles$SBedFile.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/SplitFiles$SBedFile.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$DL$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$DL$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedFileOps$implicits$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedFileOps$implicits$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/SplitFiles$ASBedFile.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/SplitFiles$ASBedFile.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$DL.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$DL.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedWrapper$SimpleBedEntry$SameStrand$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$SimpleBedEntry$SameStrand$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedWrapper$BedSerializers$CustomizableBedParser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$BedSerializers$CustomizableBedParser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeError.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeError.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$EndAfter$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$EndAfter$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$Touch$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$Touch$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedWrapper$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$EndBefore$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$EndBefore$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$DLE.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$DLE.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedFileOps$BFOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedFileOps$BFOps$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$DGE$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$DGE$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedWrapper$SimpleBedEntry.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$SimpleBedEntry.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$LocusLike.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$LocusLike.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedFileOps$BFOut$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedFileOps$BFOut$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedWrapper$SimpleBedEntry$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedWrapper$SimpleBedEntry$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/SplitFiles$ASBedFile$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/SplitFiles$ASBedFile$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$StartBefore$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$StartBefore$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/SplitFiles$SBedFile$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/SplitFiles$SBedFile$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/BedFileOps$AggrCombineN.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/BedFileOps$AggrCombineN.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$Overlap.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$Overlap.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/genomeannot/GenomeAnnot$GenomeLocus$EndTogether$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/genomeannot/GenomeAnnot$GenomeLocus$EndTogether$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/Serializers$NotImplementedException.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$NotImplementedException.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/SyncCollections$EIterator$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$EIterator$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/AggrCollections$AggrIterator$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/AggrCollections$AggrIterator$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/SyncCollections$EIterator$$anon$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$EIterator$$anon$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$Demo$Entry$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$Demo$Entry$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$Transient.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$Transient.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/Serializers$Formatter.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$Formatter.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$EFile$$anon$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$EFile$$anon$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/SyncCollections$EIterator$$anon$7.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$EIterator$$anon$7.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/Serializers$FileSerializer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$FileSerializer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$FileCannotSave.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$FileCannotSave.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$Slurped$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$Slurped$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/SyncCollections$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$EFile.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$EFile.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$FileCannotSave$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$FileCannotSave$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$AnEFile.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$AnEFile.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$EFile$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$EFile$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/SyncCollections$EIterator$$anon$5.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$EIterator$$anon$5.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/Serializers$FileDeserializerWithPosition$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$FileDeserializerWithPosition$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$EFileState.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$EFileState.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/AggrCollections$OpG$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/AggrCollections$OpG$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/AggrCollections$AggrIterator$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/AggrCollections$AggrIterator$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/SyncCollections$EIterator$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$EIterator$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/SyncCollections.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/SyncCollections$SynchroEIterator$$anon$11.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$SynchroEIterator$$anon$11.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$OnDisk$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$OnDisk$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/SyncCollections$EIterator$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$EIterator$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$Demo$Entry.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$Demo$Entry.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/Serializers$Deserializer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$Deserializer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/SyncCollections$IndexedEIterator$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$IndexedEIterator$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/Serializers$IncrementalSerializer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$IncrementalSerializer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$FileNotFound$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$FileNotFound$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/Serializers$FileDeserializerWithPosition.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$FileDeserializerWithPosition.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/SyncCollections$EIterator$$anon$4.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$EIterator$$anon$4.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$Slurped.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$Slurped.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/Serializers$FileDeserializer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$FileDeserializer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/AggrCollections$OpG$Stats$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/AggrCollections$OpG$Stats$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/SyncCollections$IndexedEIterator$$anon$10.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$IndexedEIterator$$anon$10.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$EFile$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$EFile$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/SyncCollections$EIterator$$anon$6.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$EIterator$$anon$6.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/AggrCollections.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/AggrCollections.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$EFile$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$EFile$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/SyncCollections$EIterator.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$EIterator.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/Serializers$ItemParser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$ItemParser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/Serializers$FileDeserializer$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$FileDeserializer$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/AggrCollections$implicits$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/AggrCollections$implicits$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/Serializers$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/AggrCollections$Aggregates.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/AggrCollections$Aggregates.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/SyncCollections$EIterator$$anon$8.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$EIterator$$anon$8.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/SyncCollections$SynchroEIterator.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$SynchroEIterator.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/Serializers$ItemFormatter.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$ItemFormatter.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/AggrCollections$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/AggrCollections$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$InMemory.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$InMemory.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/SyncCollections$IndexedEIterator$$anon$9.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$IndexedEIterator$$anon$9.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/Serializers$Parser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$Parser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/AggrCollections$AggrIterator$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/AggrCollections$AggrIterator$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$InMemory$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$InMemory$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$EFileSettings$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$EFileSettings$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$implicits$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$implicits$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$Demo$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$Demo$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$OnDisk.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$OnDisk.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/Serializers$ItemFormatter$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$ItemFormatter$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$FileNotFound.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$FileNotFound.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/SyncCollections$SynchroEIterator$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/SyncCollections$SynchroEIterator$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$Transient$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$Transient$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$AnEFile$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$AnEFile$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/Serializers.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/AggrCollections$OpG$Stats.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/AggrCollections$OpG$Stats.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/FileCollections$EFileSettings.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/FileCollections$EFileSettings.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	synchrony/iterators/Serializers$Serializer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/synchrony/iterators/Serializers$Serializer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	TestMap$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/TestMap$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	.DS_Store[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/.DS_Store[0m
+[0m[[0m[0mdebug[0m] [0m[0m	TestMap.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/TestMap.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	TestJoin$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/TestJoin$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	TestJoin.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/TestJoin.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	TestJoin$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/TestJoin$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	TestMap$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/target/scala-2.13/classes/TestMap$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m

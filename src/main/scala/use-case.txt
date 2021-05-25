@@ -1,0 +1,119 @@
+
+
+Example:
+
+Given a set of genes and two sets of TFBS of TF1 and TF2,
+all on the + strand.
+Identify all pairs of TFBS (t1 in TF1, t2 in TF2) that are 
+near each other (<100bp) and are in the promoter of a gene.
+Promoter is taken as -2000by to +1000bp) of the TSS of the gene.
+
+
+
+
+// ====Solution using Synchrony iterators====
+
+
+import synchrony.gmql.SampleFileOpsImplicit.AlwaysMaterialize._
+import synchrony.genomeannot.BedFileOps._
+import synchrony.genomeannot.BedFileOps.BFOps._
+import synchrony.genomeannot.GenomeAnnot.GenomeLocus._
+import synchrony.iterators.SyncCollections._
+import synchrony.gmql.EncodeNP._
+import synchrony.iterators.AggrCollections._
+
+
+// geneLists is a single list. The sole element is a list of genes.
+//
+val geneLists = {
+  val dir = "../../synchrony-1/test/usecase/genelists/"
+  val path = dir + "files"
+  val list = dir + "list.txt"
+  importEncodeNPSampleFile(path)(list)("genelists")
+}
+
+// tfbsList1 is a single list. The sole element is a list of TFBS of TF1.
+//
+val tfbsList1 = {
+  val dir = "../../synchrony-1/test/usecase/tf1/"
+  val path = dir + "files"
+  val list = dir + "list.txt"
+  importEncodeNPSampleFile(path)(list)("tfbdlist1")
+}
+
+// tfbsList2 is a single list. The sole element is a list of TFBS of TF2.
+//
+val tfbsList2 = {
+  val dir = "../../synchrony-1/test/usecase/tf2/"
+  val path = dir + "files"
+  val list = dir + "list.txt"
+  importEncodeNPSampleFile(path)(list)("tfbdlist2")
+}
+
+
+// isBefore and canSee
+//
+def bf(y: Bed, x: Bed) = y.isBefore(x)
+def cs(y: Bed, x: Bed) = y.overlap(1)(x)
+
+
+// promoter
+//
+def prom(x: Bed) = Bed(x.chrom, x.chromStart - 2000, x.chromStart + 1000)
+
+
+// Query to identify near-by pairs using Synchrony iterators
+//
+def pairs = for (
+  gs <- geneLists;
+  ts1 <- tfbsList1;
+  ts2 <- tfbsList2;
+  tr1 = ts1.track;  
+  tr2 = ts2.track;
+  g <- gs.track.filter(_.strand == "+").map(prom _);
+  b1 <- tr1.syncedWith(g)(bf, cs);
+  b2 <- tr2.syncedWith(g)(bf, cs);
+  if b1.near(100)(b2)
+) yield (g, b1, b2)
+
+
+
+def showTiming[A](codes: => A): A = {
+  val t0 = System.nanoTime;
+  val res = codes
+  val dt = (System.nanoTime - t0) / 1e9d;
+  println(s"Time take: ${dt} seconds")
+  res
+}
+
+showTiming(AggrIterator(pairs).aggregateBy(OpG.count))
+
+
+
+
+// ==== Solution using GMQL emulation ====
+
+
+// extract gene promoters
+//
+def pls = geneLists.onRegion(selectR(_.strand == "+"))
+def prm = pls.onRegion(projectR(
+  "chromStart" -> (_.chromStart - 2000),
+  "chromEnd" -> (_.chromStart + 1000))) 
+
+// extract TFBS of TF1 on gene promoters
+//
+def m1 = tfbsList1.mapS(prm)(mapR())
+def r1 = m1.onRegion(selectR(_[Int]("count") > 0))
+
+// extract TFBS of TF2 on gene promoters
+//
+def m2 = tfbsList2.mapS(prm)(mapR())
+def r2 = m2.onRegion(selectR(_[Int]("count") > 0))
+
+// identify near-by pairs
+//
+def pairs = r1.joinS(r2)(joinR(DLE(100)))
+
+showTiming(AggrIterator(pairs(0).track).aggregateBy(OpG.count))
+

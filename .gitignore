@@ -1,6 +1,10 @@
-tests
-gmql-terminal-precompiled
-python
-synchrony
-timings
-target
+tests/
+gmql-terminal-precompiled/
+python/
+synchrony/
+timings/
+solo/
+synchrony-2/
+src/main/scala/gmql_test/
+.DS_Store
+optimised/

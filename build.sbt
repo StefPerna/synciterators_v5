@@ -3,13 +3,12 @@ ThisBuild / scalaVersion := "2.13.1"
 lazy val synchroiteration = (project in file("."))
 	.settings(
 		name := "SynchroIteration",
-		resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots",
-		libraryDependencies += "org.scala-lang.modules" %% "scala-parser-combinators" % "1.1.2",
-		libraryDependencies += "org.scala-lang" % "scala-reflect" % "2.13.1",
-		libraryDependencies += "com.lihaoyi" %% "os-lib" % "0.6.2",
-		mainClass in (Compile, run) := Some("demo.GMQLSynchro_Demo2"),
-		fork in run := true,
-		// javaOptions ++= Seq("-Xms128M","-Xmx128M","-XX:+PrintGCDetails","-Xloggc:gclog.txt")
-		// Info on GC options: https://dzone.com/articles/enabling-and-analysing-the-garbage-collection-log
-		//javaOptions ++= Seq("-Xms2G","-Xmx2G","-Xlog:gc*","-Xlog:gc:gclog.txt")
+		// libraryDependencies += "org.scala-lang.modules" %% "scala-parser-combinators" % "1.1.2", // Is this needed for SynchroGMQL?
+		// libraryDependencies += "org.scala-lang" % "scala-reflect" % "2.13.1",  // Is this needed for SynchroGMQL?
+		libraryDependencies += "com.lihaoyi" %% "os-lib" % "0.6.2",  // imports os-lib convenience library
+		mainClass in (Compile, run) := Some("synchrony.gmql_test.ParallelTests"),  // Select the main class of the test your are doing. Need fork for memory constraints
+		fork in run := true,  // Needed for memory constraints
+		// scalacOptions += "-optimize",
+		// javaOptions ++= Seq("-Xms2G","-Xmx2G") // max JVM memory: 2048 MB
+		// javaOptions ++= Seq("-Xms128M","-Xmx128M")  // max JVM memory: 128MB
 	)

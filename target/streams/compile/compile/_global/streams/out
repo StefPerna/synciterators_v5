@@ -1,2 +1,4 @@
-[warn] there was one deprecation warning (since 2.13.0); re-run with -deprecation for details
-[warn] one warning found
+[0m[[0m[31merror[0m] [0m[0m/Users/stefanoperna/Projects/synchroiterators/git-repo/synchroiterators/src/main/scala/gmql_test/parallel_tests.scala:185:68: not found: value bb[0m
+[0m[[0m[31merror[0m] [0m[0m  val (timeC,resultC) = SampleFileOpsTimings.nRuns(runs)(qParCover(bb).serialized)[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
