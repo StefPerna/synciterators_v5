@@ -8,3 +8,16 @@ synchrony-2/
 src/main/scala/gmql_test/
 .DS_Store
 optimised/
+src/.DS_Store
+src/main/.DS_Store
+src/main/scala/.DS_Store
+src/main/scala/genomeannot/.DS_Store
+src/main/scala/gmql_test/.DS_Store
+src/main/scala/gqml-parallel/.DS_Store
+src/main/scala/gqml-sequential/.DS_Store
+src/main/scala/gqml-split/.DS_Store
+src/main/scala/iterators/.DS_Store
+src/main/scala/programming/.DS_Store
+tests/
+tmp/
+target/.DS_Store
